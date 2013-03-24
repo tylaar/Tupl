@@ -80,7 +80,7 @@
 <tr class="altColor">
 <td class="colFirst"><a href="../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></td>
 <td class="colLast">
-<div class="block">Support for <a href="../../../org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)"><code>encrypting</code></a> an entire database.</div>
+<div class="block">Support for encrypting an entire database.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -104,12 +104,18 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></td>
+<td class="colLast">
+<div class="block">Interface which replaces the redo log, for replicating transactional operations.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></td>
 <td class="colLast">
 <div class="block">Control object used to capture a database snapshot.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></td>
 <td class="colLast">
 <div class="block">Mapping of keys to values, in no particular order.</div>
@@ -295,6 +301,12 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="../../../org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl">UnmodifiableReplicaException</a></td>
+<td class="colLast">
+<div class="block">Thrown when attempting to make changes to a read-only replica.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="../../../org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl">UnmodifiableViewException</a></td>
 <td class="colLast">
 <div class="block">Thrown when attempting to make a change to an index or view which doesn't

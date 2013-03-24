@@ -207,6 +207,11 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is
 </td>
 </tr>
 <tr class="altColor">
+<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/EventType.html#RECOVERY_PROGRESS">RECOVERY_PROGRESS</a></strong></code>
+<div class="block">Generic recovery progress message.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../org/cojen/tupl/EventType.html#RECOVERY_REDO_LOG_CORRUPTION">RECOVERY_REDO_LOG_CORRUPTION</a></strong></code>
 <div class="block">Signals that some redo operations were not recovered due to log file corruption.</div>
 </td>
@@ -319,6 +324,16 @@ the order they are declared.</div>
 <h4>RECOVERY_BEGIN</h4>
 <pre>public static final&nbsp;<a href="../../../org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a> RECOVERY_BEGIN</pre>
 <div class="block">Signals the beginning of database recovery.</div>
+</li>
+</ul>
+<a name="RECOVERY_PROGRESS">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>RECOVERY_PROGRESS</h4>
+<pre>public static final&nbsp;<a href="../../../org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a> RECOVERY_PROGRESS</pre>
+<div class="block">Generic recovery progress message.</div>
 </li>
 </ul>
 <a name="RECOVERY_LOAD_UNDO_LOGS">

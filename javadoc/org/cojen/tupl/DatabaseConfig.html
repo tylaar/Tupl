@@ -210,8 +210,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)">encrypt</a></strong>(<a href="../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a>&nbsp;crypto)</code>
-<div class="block">Enable full encryption of the data files, transaction logs, and
- snapshots.</div>
+<div class="block">Enable full encryption of the data files, transaction logs, and snapshots.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -237,14 +236,27 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#minCacheSize(long)">minCacheSize</a></strong>(long&nbsp;minBytes)</code>
-<div class="block">Set the minimum cache size, overriding the default.</div>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#maxReplicaThreads(int)">maxReplicaThreads</a></strong>(int&nbsp;num)</code>
+<div class="block">If replication is enabled, specify the maximum number of threads to process incoming
+ changes.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#minCacheSize(long)">minCacheSize</a></strong>(long&nbsp;minBytes)</code>
+<div class="block">Set the minimum cache size, overriding the default.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#pageSize(int)">pageSize</a></strong>(int&nbsp;size)</code>
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ReplicationManager)">replicate</a></strong>(<a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</code>
+<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -472,6 +484,28 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
 </li>
 </ul>
+<a name="replicate(org.cojen.tupl.ReplicationManager)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>replicate</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;replicate(<a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</pre>
+<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
+</li>
+</ul>
+<a name="maxReplicaThreads(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>maxReplicaThreads</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;maxReplicaThreads(int&nbsp;num)</pre>
+<div class="block">If replication is enabled, specify the maximum number of threads to process incoming
+ changes. Default is the number of available processors. If a negative number is
+ provided, the actual number applied is <code>(-num * availableProcessors)</code>.</div>
+</li>
+</ul>
 <a name="encrypt(org.cojen.tupl.Crypto)">
 <!--   -->
 </a>
@@ -479,11 +513,14 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>encrypt</h4>
 <pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;encrypt(<a href="../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a>&nbsp;crypto)</pre>
-<div class="block">Enable full encryption of the data files, transaction logs, and
- snapshots. Option has no effect if database is non-durable. Allocated
- but never used pages within the data files are unencrypted, although
- they contain no information. Temporary files used by in-progress
- snapshots contain encrypted content.</div>
+<div class="block">Enable full encryption of the data files, transaction logs, and snapshots. Option has no
+ effect if database is non-durable. If replication is enabled, encryption is not applied
+ to the replication stream. A <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> implementation must perform its
+ own encryption.
+
+ <p>Allocated but never used pages within the data files are unencrypted, although they
+ contain no information. Temporary files used by in-progress snapshots contain encrypted
+ content.</div>
 </li>
 </ul>
 <a name="clone()">

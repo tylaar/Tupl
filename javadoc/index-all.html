@@ -162,6 +162,10 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ClosedIndexException.html#ClosedIndexException()">ClosedIndexException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl">ClosedIndexException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#commit()">commit()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Commit all buffered writes and defines a confirmation position.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#commit()">commit()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Commits all modifications made within the current transaction scope.</div>
@@ -173,6 +177,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[], int, int)">compareKeyTo(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Compare the current key to the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long, long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#copy()">copy()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -195,7 +203,7 @@
 </dd>
 <dt><a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl"><span class="strong">Crypto</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
-<div class="block">Support for <a href="./org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)"><code>encrypting</code></a> an entire database.</div>
+<div class="block">Support for encrypting an entire database.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl"><span class="strong">Cursor</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -307,8 +315,7 @@
 <dl>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)">encrypt(Crypto)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
-<div class="block">Enable full encryption of the data files, transaction logs, and
- snapshots.</div>
+<div class="block">Enable full encryption of the data files, transaction logs, and snapshots.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#encryptPage(long, int, byte[], int)">encryptPage(long, int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
@@ -414,6 +421,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#first()">first()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the first available entry.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#flip()">flip()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Called to acknowledge mode change from replica to leader, or vice versa.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#flush()">flush()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
@@ -676,6 +687,11 @@
 <dd>
 <div class="block">Set the maximum cache size, overriding the default.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#maxReplicaThreads(int)">maxReplicaThreads(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">If replication is enabled, specify the maximum number of threads to process incoming
+ changes.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#minCacheSize(long)">minCacheSize(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the minimum cache size, overriding the default.</div>
@@ -768,6 +784,11 @@
 <dd>
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#position()">position()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Returns the next position a replica will read from, or the highest confirmed position if
+ local instance is the leader.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#preallocate(long)">preallocate(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Preallocates pages for immediate use.</div>
@@ -797,6 +818,15 @@
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Blocks at most once, reading as much replication input as possible.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover(EventListener)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Called after replication threads have started, providing an opportunity to wait until
+ replication has sufficiently "caught up".</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Removes the entry associated with the given key, but only if the given
@@ -816,6 +846,14 @@
 <dd>
 <div class="block">Associates a value with the given key, but only if a corresponding value
  already exists.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ReplicationManager)">replicate(ReplicationManager)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Enable replication by providing a <a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><span class="strong">ReplicationManager</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Interface which replaces the redo log, for replicating transactional operations.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#reportFailure(java.lang.String)">reportFailure(String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
@@ -855,6 +893,10 @@
 <dd>
 <div class="block">Control object used to capture a database snapshot.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#start(long)">start(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Start the replication manager in replica mode.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#stats()">stats()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Returns an immutable copy of database statistics.</div>
@@ -880,6 +922,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#sync()">sync()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Persists all non-flushed and non-sync'd transactions.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#sync()">sync()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
@@ -922,6 +968,12 @@
 </a>
 <h2 class="title">U</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl"><span class="strong">UnmodifiableReplicaException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Thrown when attempting to make changes to a read-only replica.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/UnmodifiableReplicaException.html#UnmodifiableReplicaException()">UnmodifiableReplicaException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl">UnmodifiableReplicaException</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><span class="strong">UnmodifiableViewException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Thrown when attempting to make a change to an index or view which doesn't
@@ -1047,6 +1099,10 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo(OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
 <div class="block">Writes out snapshot data, and then closes this object.</div>
