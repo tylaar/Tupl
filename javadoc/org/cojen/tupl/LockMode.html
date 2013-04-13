@@ -116,14 +116,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is
 
  <p>Modes ordered from strongest to weakest:
  <ul>
- <li><a href="../../../org/cojen/tupl/LockMode.html#UPGRADABLE_READ"><code>UPGRADABLE_READ</code></a>
+ <li><a href="../../../org/cojen/tupl/LockMode.html#UPGRADABLE_READ"><code>UPGRADABLE_READ</code></a> (default)
  <li><a href="../../../org/cojen/tupl/LockMode.html#REPEATABLE_READ"><code>REPEATABLE_READ</code></a>
  <li><a href="../../../org/cojen/tupl/LockMode.html#READ_COMMITTED"><code>READ_COMMITTED</code></a>
  <li><a href="../../../org/cojen/tupl/LockMode.html#READ_UNCOMMITTED"><code>READ_UNCOMMITTED</code></a>
  <li><a href="../../../org/cojen/tupl/LockMode.html#UNSAFE"><code>UNSAFE</code></a>
  </ul></div>
 <dl><dt><span class="strong">Author:</span></dt>
-  <dd>Brian S O'Neill</dd></dl>
+  <dd>Brian S O'Neill</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/Transaction.html#lockMode(org.cojen.tupl.LockMode)"><code>Transaction.lockMode(org.cojen.tupl.LockMode)</code></a></dd></dl>
 </li>
 </ul>
 </div>
@@ -249,6 +250,7 @@ the order they are declared.</div>
 <div class="block">Lock mode which acquires shared locks when reading entries and retains
  them to the end of the transaction or scope. Attempting to modify
  entries guarded by a shared lock is <a href="../../../org/cojen/tupl/LockResult.html#ILLEGAL"><code>illegal</code></a>. Consider using <a href="../../../org/cojen/tupl/LockMode.html#UPGRADABLE_READ"><code>UPGRADABLE_READ</code></a> instead.</div>
+<dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/LockUpgradeRule.html" title="enum in org.cojen.tupl"><code>LockUpgradeRule</code></a></dd></dl>
 </li>
 </ul>
 <a name="READ_COMMITTED">
