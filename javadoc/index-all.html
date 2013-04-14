@@ -23,10 +23,11 @@
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="./org/cojen/tupl/package-summary.html">Package</a></li>
+<li><a href="./overview-summary.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li>Use</li>
-<li><a href="./org/cojen/tupl/package-tree.html">Tree</a></li>
+<li><a href="./overview-tree.html">Tree</a></li>
 <li><a href="./deprecated-list.html">Deprecated</a></li>
 <li class="navBarCell1Rev">Index</li>
 <li><a href="./help-doc.html">Help</a></li>
@@ -118,6 +119,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/EventType.html#category">category</a></span> - Variable in enum org.cojen.tupl.<a href="./org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="./org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><span class="strong">CauseCloseable</span></a> - Interface in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Closeable interface which allows a failure cause to be specified.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#check()">check()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Checks the validity of the transaction.</div>
@@ -146,9 +151,27 @@
 <dd>
 <div class="block">Closes the database, ensuring durability of committed transactions.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Closes the database after an unexpected failure.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#close()">close()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Closes this index reference, causing it to become empty and <a href="./org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a>.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/CauseCloseable.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in interface org.cojen.tupl.io.<a href="./org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io">CauseCloseable</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#close()">close()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#close(java.io.Closeable, java.lang.Throwable)">close(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Closes a resource, which may throw a new exception.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#close()">close()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
@@ -162,6 +185,18 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ClosedIndexException.html#ClosedIndexException()">ClosedIndexException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl">ClosedIndexException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeOnFailure(java.io.Closeable, java.lang.Throwable)">closeOnFailure(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Closes the given resource, passing the cause if the resource implements <a href="./org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><code>CauseCloseable</code></a>.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable)">closeQuietly(IOException, Closeable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Closes a resource without throwing another exception.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable, java.lang.Throwable)">closeQuietly(IOException, Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Closes a resource without throwing another exception.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#commit()">commit()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Commit all buffered writes and defines a confirmation position.</div>
@@ -255,6 +290,10 @@
 <dd>
 <div class="block">Stripe the database data file across several files, expected to be on
  separate devices.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#dataPageArray(org.cojen.tupl.io.PageArray)">dataPageArray(PageArray)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Use a custom storage layer instead of the default data file.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl"><span class="strong">DeadlockException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -380,6 +419,12 @@
 </a>
 <h2 class="title">F</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io"><span class="strong">FilePageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Basic <a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which access a file.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, java.util.EnumSet)">FilePageArray(int, File, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#find(byte[])">find(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the given key.</div>
@@ -456,6 +501,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#getNameString()">getNameString()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#getPageCount()">getPageCount()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#getPageCount()">getPageCount()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Returns the total count of pages in the array.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#getPageCount()">getPageCount()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getShortMessage()">getShortMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#getTimeout()">getTimeout()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
@@ -530,12 +583,24 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#isClosed()">isClosed()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#isEmpty()">isEmpty()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#isEmpty()">isEmpty()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#isEmpty()">isEmpty()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#isGuilty()">isGuilty()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#isHeld()">isHeld()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Returns true if lock was just acquired or was already owned.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#isTimedOut()">isTimedOut()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Rreturns true if lock request timed out.</div>
@@ -775,9 +840,17 @@
 <dd>
 <div class="block">Returns the amount of indexes currently open.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io"><span class="strong">OpenOption</span></a> - Enum in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Open options for <a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io"><code>FilePageArray</code></a>.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a> - package org.cojen.tupl</dt>
 <dd>
 <div class="block">See <a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl"><code>Database</code></a> to get started with Tupl.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a> - package org.cojen.tupl.io</dt>
+<dd>
+<div class="block">Low-level I/O abstraction layer.</div>
 </dd>
 </dl>
 <a name="_P_">
@@ -785,6 +858,12 @@
 </a>
 <h2 class="title">P</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><span class="strong">PageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Defines a persistent, array of fixed sized pages.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#PageArray(int)">PageArray(int)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.Stats.html#pageSize()">pageSize()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.Stats.html" title="class in org.cojen.tupl">Database.Stats</a></dt>
 <dd>
 <div class="block">Returns the allocation page size.</div>
@@ -792,6 +871,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#pageSize(int)">pageSize(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#pageSize()">pageSize()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Returns the fixed size of all pages in the array, in bytes.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#position()">position()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
@@ -831,6 +914,22 @@
 <dd>
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long, byte[])">readPage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Subclass should override to improve performance.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover(EventListener)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
@@ -886,12 +985,34 @@
 <dd>
 <div class="block">Resume automatic checkpoints after having been temporarily <a href="./org/cojen/tupl/Database.html#suspendCheckpoints()"><code>suspended</code></a>.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable)">rethrow(Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Rethrows the given exception without the compiler complaining about it being checked or
+ not.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable, java.lang.Throwable)">rethrow(Throwable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Rethrows the given exception without the compiler complaining about it being checked or
+ not.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#rootCause(java.lang.Throwable)">rootCause(Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Returns the root cause of the given exception.</div>
+</dd>
 </dl>
 <a name="_S_">
 <!--   -->
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#setPageCount(long)">setPageCount(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#setPageCount(long)">setPageCount(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Set the total count of pages, truncating or growing the array as necessary.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#setPageCount(long)">setPageCount(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockSet.html#size()">size()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockSet.html" title="class in org.cojen.tupl">DeadlockSet</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#skip(long)">skip(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
@@ -923,6 +1044,13 @@
 <dd>
 <div class="block">Unconditionally associates a value with the given key.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io"><span class="strong">StripedPageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block"><a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which stripes pages in a <a
+ href="http://en.wikipedia.org/wiki/Raid_0#RAID_0">RAID 0</a> fashion.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#StripedPageArray(org.cojen.tupl.io.PageArray...)">StripedPageArray(PageArray...)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#suspendCheckpoints()">suspendCheckpoints()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Temporarily suspend automatic checkpoints without waiting for any in-progress checkpoint
@@ -932,6 +1060,14 @@
 <dd>
 <div class="block">Persists all non-flushed and non-sync'd transactions.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#sync(boolean)">sync(boolean)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#sync(boolean)">sync(boolean)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Durably flushes all writes to the underlying device.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#sync(boolean)">sync(boolean)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#sync()">sync()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
@@ -977,6 +1113,11 @@
 </a>
 <h2 class="title">U</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#uncaught(java.lang.Throwable)">uncaught(Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Convenience method to pass the given exception to the current thread's uncaught
+ exception handler.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl"><span class="strong">UnmodifiableReplicaException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Thrown when attempting to make changes to a read-only replica.</div>
@@ -1000,6 +1141,12 @@
 <div class="block">Associates a value with the given key, but only if the given old value
  matches.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io"><span class="strong">Utils</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Generic I/O utility methods.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#Utils()">Utils()</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <a name="_V_">
 <!--   -->
@@ -1020,6 +1167,10 @@
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/EventType.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum org.cojen.tupl.<a href="./org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this type with the specified name.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/OpenOption.html#valueOf(java.lang.String)">valueOf(String)</a></span> - Static method in enum org.cojen.tupl.io.<a href="./org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this type with the specified name.</div>
 </dd>
@@ -1046,6 +1197,11 @@ the order they are declared.</div>
 the order they are declared.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/EventType.html#values()">values()</a></span> - Static method in enum org.cojen.tupl.<a href="./org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum type, in
+the order they are declared.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/OpenOption.html#values()">values()</a></span> - Static method in enum org.cojen.tupl.io.<a href="./org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum type, in
 the order they are declared.</div>
@@ -1121,6 +1277,30 @@ the order they are declared.</div>
 <dd>
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long, byte[])">writePage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Writes a page, which is lazily flushed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Writes a page, which is lazily flushed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[])">writePageDurably(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Writes a page, which is immediately flushed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">Writes a page, which is immediately flushed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo(OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
 <div class="block">Writes out snapshot data, and then closes this object.</div>
@@ -1134,10 +1314,11 @@ the order they are declared.</div>
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="./org/cojen/tupl/package-summary.html">Package</a></li>
+<li><a href="./overview-summary.html">Overview</a></li>
+<li>Package</li>
 <li>Class</li>
 <li>Use</li>
-<li><a href="./org/cojen/tupl/package-tree.html">Tree</a></li>
+<li><a href="./overview-tree.html">Tree</a></li>
 <li><a href="./deprecated-list.html">Deprecated</a></li>
 <li class="navBarCell1Rev">Index</li>
 <li><a href="./help-doc.html">Help</a></li>

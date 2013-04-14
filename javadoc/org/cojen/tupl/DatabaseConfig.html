@@ -23,7 +23,8 @@
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../../org/cojen/tupl/package-summary.html">Package</a></li>
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="class-use/DatabaseConfig.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
@@ -203,24 +204,30 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#dataPageArray(org.cojen.tupl.io.PageArray)">dataPageArray</a></strong>(<a href="../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a>&nbsp;array)</code>
+<div class="block">Use a custom storage layer instead of the default data file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#durabilityMode(org.cojen.tupl.DurabilityMode)">durabilityMode</a></strong>(<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&nbsp;durabilityMode)</code>
 <div class="block">Set the default transaction durability mode, which is <a href="../../../org/cojen/tupl/DurabilityMode.html#SYNC"><code>SYNC</code></a> if not overridden.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)">encrypt</a></strong>(<a href="../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a>&nbsp;crypto)</code>
 <div class="block">Enable full encryption of the data files, transaction logs, and snapshots.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#eventListener(org.cojen.tupl.EventListener)">eventListener</a></strong>(<a href="../../../org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a>&nbsp;listener)</code>
 <div class="block">Set a listener which receives notifications of actions being performed
  by the database.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
@@ -228,45 +235,45 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
  overridden.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#lockUpgradeRule(org.cojen.tupl.LockUpgradeRule)">lockUpgradeRule</a></strong>(<a href="../../../org/cojen/tupl/LockUpgradeRule.html" title="enum in org.cojen.tupl">LockUpgradeRule</a>&nbsp;lockUpgradeRule)</code>
 <div class="block">Set the default lock upgrade rule, which is <a href="../../../org/cojen/tupl/LockUpgradeRule.html#STRICT"><code>STRICT</code></a> if not
  overridden.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#maxCacheSize(long)">maxCacheSize</a></strong>(long&nbsp;maxBytes)</code>
 <div class="block">Set the maximum cache size, overriding the default.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#maxReplicaThreads(int)">maxReplicaThreads</a></strong>(int&nbsp;num)</code>
 <div class="block">If replication is enabled, specify the maximum number of threads to process incoming
  changes.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#minCacheSize(long)">minCacheSize</a></strong>(long&nbsp;minBytes)</code>
 <div class="block">Set the minimum cache size, overriding the default.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#pageSize(int)">pageSize</a></strong>(int&nbsp;size)</code>
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ReplicationManager)">replicate</a></strong>(<a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</code>
 <div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites</a></strong>(boolean&nbsp;fileSync)</code>
 <div class="block">Set true to ensure all writes the main database file are immediately
@@ -369,6 +376,16 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <div class="block">Stripe the database data file across several files, expected to be on
  separate devices. The data files can refer to ordinary files or to raw
  block devices.</div>
+</li>
+</ul>
+<a name="dataPageArray(org.cojen.tupl.io.PageArray)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>dataPageArray</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;dataPageArray(<a href="../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a>&nbsp;array)</pre>
+<div class="block">Use a custom storage layer instead of the default data file.</div>
 </li>
 </ul>
 <a name="minCacheSize(long)">
@@ -568,7 +585,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <!--   -->
 </a>
 <ul class="navList" title="Navigation">
-<li><a href="../../../org/cojen/tupl/package-summary.html">Package</a></li>
+<li><a href="../../../overview-summary.html">Overview</a></li>
+<li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
 <li><a href="class-use/DatabaseConfig.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
