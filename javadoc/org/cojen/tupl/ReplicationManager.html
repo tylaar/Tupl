@@ -132,18 +132,17 @@
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#position()">position</a></strong>()</code>
-<div class="block">Returns the next position a replica will read from, or the highest confirmed position if
- local instance is the leader.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read</a></strong>(byte[]&nbsp;b,
     int&nbsp;off,
     int&nbsp;len)</code>
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition</a></strong>()</code>
+<div class="block">Returns the next position a replica will read from.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -166,11 +165,25 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm</a></strong>(long&nbsp;position,
+           long&nbsp;timeoutNanos)</code>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given
+ position, and then blocks until confirmed.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write</a></strong>(byte[]&nbsp;b,
      int&nbsp;off,
      int&nbsp;len)</code>
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition</a></strong>()</code>
+<div class="block">Returns the next position a leader will write to.</div>
 </td>
 </tr>
 </table>
@@ -200,9 +213,9 @@
  all data lower than the given position is confirmed. All data at or higher than the
  given position might be discarded.
 
- <p>After started, the reported <a href="../../../org/cojen/tupl/ReplicationManager.html#position()"><code>position</code></a> must match the one provided to
- this method. The position can change only after read and write operations have been
- performed.</div>
+ <p>After started, the reported <a href="../../../org/cojen/tupl/ReplicationManager.html#readPosition()"><code>position</code></a> must match the one
+ provided to this method. The position can change only after read and write operations
+ have been performed.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>position</code> - position to start reading from; 0 is the lowest position</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if position is negative</dd>
@@ -226,15 +239,26 @@
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="position()">
+<a name="readPosition()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>position</h4>
-<pre>long&nbsp;position()</pre>
-<div class="block">Returns the next position a replica will read from, or the highest confirmed position if
- local instance is the leader. Position is never negative and never retreats.</div>
+<h4>readPosition</h4>
+<pre>long&nbsp;readPosition()</pre>
+<div class="block">Returns the next position a replica will read from. Position is never
+ negative and never retreats.</div>
+</li>
+</ul>
+<a name="writePosition()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>writePosition</h4>
+<pre>long&nbsp;writePosition()</pre>
+<div class="block">Returns the next position a leader will write to. Valid only if local
+ instance is the leader.</div>
 </li>
 </ul>
 <a name="read(byte[], int, int)">
@@ -310,7 +334,8 @@
                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Blocks until all data up to the given log position is confirmed. Returns false if
  local instance if not the leader or if operation timed out.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>true if confirmed; false if not leader or timed out</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
+<dt><span class="strong">Returns:</span></dt><dd>true if confirmed; false if not leader or timed out</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
@@ -318,13 +343,29 @@
 <a name="sync()">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>sync</h4>
 <pre>void&nbsp;sync()
           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="syncConfirm(long, long)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>syncConfirm</h4>
+<pre>void&nbsp;syncConfirm(long&nbsp;position,
+               long&nbsp;timeoutNanos)
+                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given
+ position, and then blocks until confirmed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>

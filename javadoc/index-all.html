@@ -940,11 +940,6 @@
 <dd>
 <div class="block">Returns the fixed size of all pages in the array, in bytes.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#position()">position()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
-<dd>
-<div class="block">Returns the next position a replica will read from, or the highest confirmed position if
- local instance is the leader.</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#preallocate(long)">preallocate(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Preallocates pages for immediate use.</div>
@@ -994,6 +989,10 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Returns the next position a replica will read from.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover(EventListener)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
@@ -1135,6 +1134,11 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#sync()">sync()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given
+ position, and then blocks until confirmed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
@@ -1365,6 +1369,10 @@ the order they are declared.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Returns the next position a leader will write to.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo(OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
 <div class="block">Writes out snapshot data, and then closes this object.</div>
