@@ -301,25 +301,31 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#shutdown()">shutdown</a></strong>()</code>
+<div class="block">Cleanly closes the database, ensuring durability of all modification.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/Database.Stats.html" title="class in org.cojen.tupl">Database.Stats</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#stats()">stats</a></strong>()</code>
 <div class="block">Returns an immutable copy of database statistics.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#suspendCheckpoints()">suspendCheckpoints</a></strong>()</code>
 <div class="block">Temporarily suspend automatic checkpoints without waiting for any in-progress checkpoint
  to complete.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#sync()">sync</a></strong>()</code>
 <div class="block">Persists all non-flushed and non-sync'd transactions.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#verify(org.cojen.tupl.VerificationObserver)">verify</a></strong>(<a href="../../../org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a>&nbsp;observer)</code>
 <div class="block">Verifies the integrity of the database and all indexes.</div>
@@ -672,13 +678,13 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/Database.html#shutdown()"><code>shutdown()</code></a></dd></dl>
 </li>
 </ul>
 <a name="close(java.lang.Throwable)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>close</h4>
 <pre>public&nbsp;void&nbsp;close(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)
@@ -691,6 +697,21 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <dt><span class="strong">Parameters:</span></dt><dd><code>cause</code> - if non-null, delivers a <a href="../../../org/cojen/tupl/EventType.html#PANIC_UNHANDLED_EXCEPTION"><code>panic</code></a>
  event and future database accesses will rethrow the cause</dd>
 <dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/Database.html#shutdown()"><code>shutdown()</code></a></dd></dl>
+</li>
+</ul>
+<a name="shutdown()">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>shutdown</h4>
+<pre>public&nbsp;void&nbsp;shutdown()
+              throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Cleanly closes the database, ensuring durability of all modification. A checkpoint is
+ issued first, and so a quick recovery is performed when the database is re-opened. As a
+ side effect of shutting down, all extraneous files are deleted.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
