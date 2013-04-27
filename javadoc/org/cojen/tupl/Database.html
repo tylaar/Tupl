@@ -303,7 +303,7 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#shutdown()">shutdown</a></strong>()</code>
-<div class="block">Cleanly closes the database, ensuring durability of all modification.</div>
+<div class="block">Cleanly closes the database, ensuring durability of all modifications.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -708,7 +708,7 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <h4>shutdown</h4>
 <pre>public&nbsp;void&nbsp;shutdown()
               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Cleanly closes the database, ensuring durability of all modification. A checkpoint is
+<div class="block">Cleanly closes the database, ensuring durability of all modifications. A checkpoint is
  issued first, and so a quick recovery is performed when the database is re-opened. As a
  side effect of shutting down, all extraneous files are deleted.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
