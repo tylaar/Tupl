@@ -224,11 +224,18 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix</a></strong>(byte[]&nbsp;prefix,
+          int&nbsp;trim)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewReverse()">viewReverse</a></strong>()</code>
 <div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewUnmodifiable()">viewUnmodifiable</a></strong>()</code>
 <div class="block">Returns a view, backed by this one, whose entries cannot be modified.</div>
@@ -491,6 +498,25 @@
 
  <p>The returned view will throw an IllegalArgumentException on an attempt
  to insert a key outside its range.</div>
+</li>
+</ul>
+<a name="viewPrefix(byte[], int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewPrefix</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewPrefix(byte[]&nbsp;prefix,
+              int&nbsp;trim)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.
+ Ownership of the prefix instance is transferred, and so it must not be modified after
+ calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>trim</code> - amount of prefix length to trim from all keys in the view</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if trim is longer than prefix</dd></dl>
 </li>
 </ul>
 <a name="viewReverse()">

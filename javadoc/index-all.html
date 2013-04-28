@@ -66,11 +66,6 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
-<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#allIndexes()">allIndexes()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
-<dd>
-<div class="block">Returns a Cursor which maps all available index names to
- identifiers.</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#alreadyOwned()">alreadyOwned()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
@@ -634,6 +629,16 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodePassed(long, int, int, int, int)">indexNodePassed(long, int, int, int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after an index node passes verification.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#indexRegistryById()">indexRegistryById()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Returns an <a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a> View which maps all available
+ index identifiers to names.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#indexRegistryByName()">indexRegistryByName()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Returns an <a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a> View which maps all available
+ index names to identifiers.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#insert(org.cojen.tupl.Transaction, byte[], byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1330,6 +1335,10 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than the
  given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
