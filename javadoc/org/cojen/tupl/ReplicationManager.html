@@ -132,6 +132,14 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index, byte[], byte[])">notifyStore</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+           byte[]&nbsp;key,
+           byte[]&nbsp;value)</code>
+<div class="block">Notification to replica when an entry is stored into an index.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read</a></strong>(byte[]&nbsp;b,
     int&nbsp;off,
@@ -139,32 +147,32 @@
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition</a></strong>()</code>
 <div class="block">Returns the next position a replica will read from.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover</a></strong>(<a href="../../../org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a>&nbsp;listener)</code>
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
  replication has sufficiently "caught up".</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)">start</a></strong>(long&nbsp;position)</code>
 <div class="block">Start the replication manager in replica mode.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#sync()">sync</a></strong>()</code>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm</a></strong>(long&nbsp;position,
            long&nbsp;timeoutNanos)</code>
@@ -172,7 +180,7 @@
  position, and then blocks until confirmed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write</a></strong>(byte[]&nbsp;b,
      int&nbsp;off,
@@ -180,7 +188,7 @@
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition</a></strong>()</code>
 <div class="block">Returns the next position a leader will write to.</div>
@@ -356,7 +364,7 @@
 <a name="syncConfirm(long, long)">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>syncConfirm</h4>
 <pre>void&nbsp;syncConfirm(long&nbsp;position,
@@ -367,6 +375,23 @@
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="notifyStore(org.cojen.tupl.Index, byte[], byte[])">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>notifyStore</h4>
+<pre>void&nbsp;notifyStore(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+               byte[]&nbsp;key,
+               byte[]&nbsp;value)</pre>
+<div class="block">Notification to replica when an entry is stored into an index. All
+ notifications are <a href="../../../org/cojen/tupl/LockMode.html#READ_UNCOMMITTED"><code>uncommitted</code></a>, and so
+ loading with an appropriate lock mode is required for confirmation. The
+ current thread is free to perform any blocking operations &mdash; it
+ will not suspend replication processing.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - non-null index</dd><dd><code>key</code> - non-null key; contents must not be modified</dd><dd><code>value</code> - null if entry is deleted; contents can be modified</dd></dl>
 </li>
 </ul>
 </li>
