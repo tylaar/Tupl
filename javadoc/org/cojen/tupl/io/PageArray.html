@@ -223,21 +223,6 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 <div class="block">Writes a page, which is lazily flushed.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[])">writePageDurably</a></strong>(long&nbsp;index,
-                byte[]&nbsp;buf)</code>
-<div class="block">Writes a page, which is immediately flushed.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[], int)">writePageDurably</a></strong>(long&nbsp;index,
-                byte[]&nbsp;buf,
-                int&nbsp;offset)</code>
-<div class="block">Writes a page, which is immediately flushed.</div>
-</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -414,41 +399,6 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
              int&nbsp;offset)
                         throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Writes a page, which is lazily flushed. The array grows automatically if
- the index is greater than or equal to the current page count.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IndexOutOfBoundsException.html?is-external=true" title="class or interface in java.lang">IndexOutOfBoundsException</a></code> - if index is negative</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="writePageDurably(long, byte[])">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writePageDurably</h4>
-<pre>public&nbsp;void&nbsp;writePageDurably(long&nbsp;index,
-                    byte[]&nbsp;buf)
-                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Writes a page, which is immediately flushed. The array grows automatically if
- the index is greater than or equal to the current page count.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IndexOutOfBoundsException.html?is-external=true" title="class or interface in java.lang">IndexOutOfBoundsException</a></code> - if index is negative</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="writePageDurably(long, byte[], int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writePageDurably</h4>
-<pre>public abstract&nbsp;void&nbsp;writePageDurably(long&nbsp;index,
-                    byte[]&nbsp;buf,
-                    int&nbsp;offset)
-                               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Writes a page, which is immediately flushed. The array grows automatically if
  the index is greater than or equal to the current page count.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd>
 <dt><span class="strong">Throws:</span></dt>

@@ -35,7 +35,7 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
@@ -200,21 +200,13 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <div class="block">Writes a page, which is lazily flushed.</div>
 </td>
 </tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#writePageDurably(long, byte[], int)">writePageDurably</a></strong>(long&nbsp;index,
-                byte[]&nbsp;buf,
-                int&nbsp;offset)</code>
-<div class="block">Writes a page, which is immediately flushed.</div>
-</td>
-</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_org.cojen.tupl.io.PageArray">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.cojen.tupl.io.<a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></h3>
-<code><a href="../../../../org/cojen/tupl/io/PageArray.html#close()">close</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#pageSize()">pageSize</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long, byte[])">readPage</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long, byte[])">writePage</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[])">writePageDurably</a></code></li>
+<code><a href="../../../../org/cojen/tupl/io/PageArray.html#close()">close</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#pageSize()">pageSize</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long, byte[])">readPage</a>, <a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long, byte[])">writePage</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -383,27 +375,6 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="writePageDurably(long, byte[], int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writePageDurably</h4>
-<pre>public&nbsp;void&nbsp;writePageDurably(long&nbsp;index,
-                    byte[]&nbsp;buf,
-                    int&nbsp;offset)
-                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[], int)">PageArray</a></code></strong></div>
-<div class="block">Writes a page, which is immediately flushed. The array grows automatically if
- the index is greater than or equal to the current page count.</div>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[], int)">writePageDurably</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
 <a name="sync(boolean)">
 <!--   -->
 </a>
@@ -466,7 +437,7 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../../org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io"><span class="strong">Prev Class</span></a></li>
 <li><a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">

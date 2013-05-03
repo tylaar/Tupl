@@ -478,6 +478,12 @@
 </a>
 <h2 class="title">F</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io"><span class="strong">FileIO</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Lowest I/O interface to a file or device.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#FileIO()">FileIO()</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io"><span class="strong">FilePageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
 <dd>
 <div class="block">Basic <a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which access a file.</div>
@@ -664,6 +670,8 @@
 <dd>
 <div class="block">Returns true if lock was just acquired or was already owned.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
@@ -713,6 +721,8 @@
 <dd>
 <div class="block">Moves the Cursor to find the last available entry.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#length()">length()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#length()">length()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
 <div class="block">Returns total amount of bytes expected to be written to the snapshot
@@ -826,6 +836,14 @@
 </a>
 <h2 class="title">M</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#map()">map()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>
+<div class="block">Maps or remaps the file into main memory, up to the current file length.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#mapDataFiles(boolean)">mapDataFiles(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Enable memory mapping of the data files.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#maxCacheSize(long)">maxCacheSize(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the maximum cache size, overriding the default.</div>
@@ -901,6 +919,10 @@
 <dd>
 <div class="block">Open a database, creating it if necessary.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File, java.util.EnumSet)">open(File, EnumSet&lt;OpenOption&gt;)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File, java.util.EnumSet, int)">open(File, EnumSet&lt;OpenOption&gt;, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#openIndex(byte[])">openIndex(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Returns the given named index, creating it if necessary.</div>
@@ -978,6 +1000,8 @@
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#read(long, byte[], int, int)">read(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
@@ -1006,6 +1030,10 @@
 <dd>
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
  replication has sufficiently "caught up".</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#remap()">remap()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>
+<div class="block">If file is mapped, remaps it if the file length has changed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1077,6 +1105,10 @@
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#setLength(long)">setLength(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>
+<div class="block">Attempt to set the length of the file.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#setPageCount(long)">setPageCount(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#setPageCount(long)">setPageCount(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
@@ -1135,6 +1167,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#sync()">sync()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Persists all non-flushed and non-sync'd transactions.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#sync(boolean)">sync(boolean)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>
+<div class="block">Durably flushes all writes to the underlying device.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#sync(boolean)">sync(boolean)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
@@ -1198,6 +1234,10 @@
 <dd>
 <div class="block">Convenience method to pass the given exception to the current thread's uncaught
  exception handler.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#unmap()">unmap()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>
+<div class="block">Unmaps the file from main memory, leaving the file open.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl"><span class="strong">UnmodifiableReplicaException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -1358,6 +1398,8 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long, byte[], int, int)">write(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
@@ -1373,18 +1415,6 @@ the order they are declared.</div>
 <div class="block">Writes a page, which is lazily flushed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[])">writePageDurably(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
-<dd>
-<div class="block">Writes a page, which is immediately flushed.</div>
-</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
-<dd>
-<div class="block">Writes a page, which is immediately flushed.</div>
-</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePageDurably(long, byte[], int)">writePageDurably(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
