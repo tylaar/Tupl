@@ -386,11 +386,10 @@
 <pre>void&nbsp;notifyStore(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
                byte[]&nbsp;key,
                byte[]&nbsp;value)</pre>
-<div class="block">Notification to replica when an entry is stored into an index. All
- notifications are <a href="../../../org/cojen/tupl/LockMode.html#READ_UNCOMMITTED"><code>uncommitted</code></a>, and so
- loading with an appropriate lock mode is required for confirmation. The
- current thread is free to perform any blocking operations &mdash; it
- will not suspend replication processing.</div>
+<div class="block">Notification to replica when an entry is stored into an index. All notifications are
+ <a href="../../../org/cojen/tupl/LockMode.html#READ_UNCOMMITTED"><code>uncommitted</code></a>, and so loading with an appropriate lock
+ mode is required for confirmation. The current thread is free to perform any blocking
+ operations &mdash; it will not suspend replication processing unless <a href="../../../org/cojen/tupl/DatabaseConfig.html#maxReplicaThreads(int)"><code>all</code></a> replication threads are consumed.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - non-null index</dd><dd><code>key</code> - non-null key; contents must not be modified</dd><dd><code>value</code> - null if entry is deleted; contents can be modified</dd></dl>
 </li>
 </ul>
