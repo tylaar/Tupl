@@ -173,8 +173,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm</a></strong>(long&nbsp;position,
-           long&nbsp;timeoutNanos)</code>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long)">syncConfirm</a></strong>(long&nbsp;position)</code>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
 </td>
@@ -377,19 +376,17 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="syncConfirm(long, long)">
+<a name="syncConfirm(long)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>syncConfirm</h4>
-<pre>void&nbsp;syncConfirm(long&nbsp;position,
-               long&nbsp;timeoutNanos)
+<pre>void&nbsp;syncConfirm(long&nbsp;position)
                  throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
-<dt><span class="strong">Throws:</span></dt>
+<dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
