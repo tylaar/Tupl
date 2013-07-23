@@ -130,6 +130,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#position()">position</a></strong>()</code>
+<div class="block">Returns the <a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)"><code>position</code></a> that the snapsnot applies to.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)</code>
 <div class="block">Writes out snapshot data, and then closes this object.</div>
@@ -159,6 +165,16 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <pre>long&nbsp;length()</pre>
 <div class="block">Returns total amount of bytes expected to be written to the snapshot
  stream.</div>
+</li>
+</ul>
+<a name="position()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>position</h4>
+<pre>long&nbsp;position()</pre>
+<div class="block">Returns the <a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)"><code>position</code></a> that the snapsnot applies to.</div>
 </li>
 </ul>
 <a name="writeTo(java.io.OutputStream)">
