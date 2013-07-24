@@ -722,6 +722,10 @@
 <dd>
 <div class="block">Rreturns true if lock request timed out.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#isUnmodifiable()">isUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns true if any attempt to modify this view causes an <a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>UnmodifiableViewException</code></a> to be thrown.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#isUnmodifiable()">isUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns true if any attempt to modify this view causes an <a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>UnmodifiableViewException</code></a> to be thrown.</div>
@@ -1440,33 +1444,65 @@ the order they are declared.</div>
 <dd>
 <div class="block">Mapping of keys to values, in no particular order.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewGe(byte[])">viewGe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
+ equal to the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewGe(byte[])">viewGe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
  equal to the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewGt(byte[])">viewGt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
+ given key.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewGt(byte[])">viewGt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
  given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewLe(byte[])">viewLe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than or
+ equal to the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewLe(byte[])">viewLe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than or
  equal to the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewLt(byte[])">viewLt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than the
+ given key.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewLt(byte[])">viewLt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than the
  given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewPrefix(byte[], int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewUnmodifiable()">viewUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Returns a view, backed by this one, whose entries cannot be modified.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewUnmodifiable()">viewUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>

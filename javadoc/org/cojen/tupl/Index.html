@@ -171,6 +171,12 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#isClosed()">isClosed</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#isUnmodifiable()">isUnmodifiable</a></strong>()</code>
+<div class="block">Returns true if any attempt to modify this view causes an <a href="../../../org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>UnmodifiableViewException</code></a> to be thrown.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#load(org.cojen.tupl.Transaction, byte[])">load</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
     byte[]&nbsp;key)</code>
@@ -178,11 +184,11 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
  entry exists.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#newCursor(org.cojen.tupl.Transaction)">newCursor</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn)</code></td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
@@ -191,7 +197,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
  value matches.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#replace(org.cojen.tupl.Transaction, byte[], byte[])">replace</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
        byte[]&nbsp;key,
@@ -200,7 +206,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
  already exists.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#store(org.cojen.tupl.Transaction, byte[], byte[])">store</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
      byte[]&nbsp;key,
@@ -208,7 +214,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <div class="block">Unconditionally associates a value with the given key.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#update(org.cojen.tupl.Transaction, byte[], byte[], byte[])">update</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
@@ -218,20 +224,60 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
  matches.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#verify(org.cojen.tupl.VerificationObserver)">verify</a></strong>(<a href="../../../org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a>&nbsp;observer)</code>
 <div class="block">Verifies the integrity of the index.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewGe(byte[])">viewGe</a></strong>(byte[]&nbsp;key)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
+ equal to the given key.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewGt(byte[])">viewGt</a></strong>(byte[]&nbsp;key)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
+ given key.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewLe(byte[])">viewLe</a></strong>(byte[]&nbsp;key)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than or
+ equal to the given key.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewLt(byte[])">viewLt</a></strong>(byte[]&nbsp;key)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than the
+ given key.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewPrefix(byte[], int)">viewPrefix</a></strong>(byte[]&nbsp;prefix,
+          int&nbsp;trim)</code>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewReverse()">viewReverse</a></strong>()</code>
+<div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Index.html#viewUnmodifiable()">viewUnmodifiable</a></strong>()</code>
+<div class="block">Returns a view, backed by this one, whose entries cannot be modified.</div>
+</td>
+</tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods_inherited_from_class_org.cojen.tupl.View">
-<!--   -->
-</a>
-<h3>Methods inherited from interface&nbsp;org.cojen.tupl.<a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></h3>
-<code><a href="../../../org/cojen/tupl/View.html#isUnmodifiable()">isUnmodifiable</a>, <a href="../../../org/cojen/tupl/View.html#viewGe(byte[])">viewGe</a>, <a href="../../../org/cojen/tupl/View.html#viewGt(byte[])">viewGt</a>, <a href="../../../org/cojen/tupl/View.html#viewLe(byte[])">viewLe</a>, <a href="../../../org/cojen/tupl/View.html#viewLt(byte[])">viewLt</a>, <a href="../../../org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix</a>, <a href="../../../org/cojen/tupl/View.html#viewReverse()">viewReverse</a>, <a href="../../../org/cojen/tupl/View.html#viewUnmodifiable()">viewUnmodifiable</a></code></li>
-</ul>
 </li>
 </ul>
 </li>
@@ -477,6 +523,145 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>false if existing value doesn't match</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="viewGe(byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewGe</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewGe(byte[]&nbsp;key)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
+ equal to the given key. Ownership of the key instance is transferred,
+ and so it must not be modified after calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewGe(byte[])">viewGe</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="viewGt(byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewGt</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewGt(byte[]&nbsp;key)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
+ given key. Ownership of the key instance is transferred, and so it must
+ not be modified after calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewGt(byte[])">viewGt</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="viewLe(byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewLe</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewLe(byte[]&nbsp;key)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than or
+ equal to the given key. Ownership of the key instance is transferred,
+ and so it must not be modified after calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewLe(byte[])">viewLe</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="viewLt(byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewLt</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewLt(byte[]&nbsp;key)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than the
+ given key. Ownership of the key instance is transferred, and so it must
+ not be modified after calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewLt(byte[])">viewLt</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="viewPrefix(byte[], int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewPrefix</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewPrefix(byte[]&nbsp;prefix,
+              int&nbsp;trim)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.
+ Ownership of the prefix instance is transferred, and so it must not be modified after
+ calling this method.
+
+ <p>The returned view will throw an IllegalArgumentException on an attempt
+ to insert a key outside its range.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+<dd><code>trim</code> - amount of prefix length to trim from all keys in the view</dd></dl>
+</li>
+</ul>
+<a name="viewReverse()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewReverse</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewReverse()</pre>
+<div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewReverse()">viewReverse</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="viewUnmodifiable()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewUnmodifiable</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewUnmodifiable()</pre>
+<div class="block">Returns a view, backed by this one, whose entries cannot be modified. Any attempt to do
+ so causes an <a href="../../../org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>UnmodifiableViewException</code></a> to be thrown.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#viewUnmodifiable()">viewUnmodifiable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="isUnmodifiable()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>isUnmodifiable</h4>
+<pre>boolean&nbsp;isUnmodifiable()</pre>
+<div class="block">Returns true if any attempt to modify this view causes an <a href="../../../org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>UnmodifiableViewException</code></a> to be thrown.</div>
+<dl>
+<dt><strong>Specified by:</strong></dt>
+<dd><code><a href="../../../org/cojen/tupl/View.html#isUnmodifiable()">isUnmodifiable</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
+</dl>
 </li>
 </ul>
 <a name="verify(org.cojen.tupl.VerificationObserver)">
