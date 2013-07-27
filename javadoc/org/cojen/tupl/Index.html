@@ -333,7 +333,9 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../org/cojen/tupl/View.html#newCursor(org.cojen.tupl.Transaction)">newCursor</a></code>&nbsp;in interface&nbsp;<code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>txn</code> - optional transaction for Cursor to <a href="../../../org/cojen/tupl/Cursor.html#link(org.cojen.tupl.Transaction)"><code>link</code></a> to</dd>
-<dt><span class="strong">Returns:</span></dt><dd>a new unpositioned cursor</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>a new unpositioned cursor</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd></dl>
 </li>
 </ul>
 <a name="load(org.cojen.tupl.Transaction, byte[])">
@@ -357,6 +359,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>copy of value, or null if entry doesn't exist</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -380,7 +383,8 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Parameters:</span></dt><dd><code>txn</code> - optional transaction; pass null for auto-commit mode</dd><dd><code>key</code> - non-null key</dd><dd><code>value</code> - value to store; pass null to delete</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range or if transaction
+ belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -405,7 +409,8 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>copy of previous value, or null if none</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range or if transaction
+ belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -432,7 +437,8 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>false if entry already exists</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range and value is non-null</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range and value is non-null,
+ or if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -458,6 +464,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>false if no existing entry</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -485,7 +492,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if key is outside allowed range and attempting to
- update a null value to non-null</dd>
+ update a null value to non-null, or if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -510,6 +517,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>false if no existing entry</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -535,6 +543,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <dt><span class="strong">Returns:</span></dt><dd>false if existing value doesn't match</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if key is null</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>

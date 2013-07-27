@@ -365,7 +365,9 @@
  continue using a cursor after the transaction is complete, link it to
  null or another transaction. Otherwise, the orginal transaction will be
  resurrected.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>prior linked transaction</dd></dl>
+<dl><dt><span class="strong">Returns:</span></dt><dd>prior linked transaction</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if transaction belongs to another database instance</dd></dl>
 </li>
 </ul>
 <a name="key()">
