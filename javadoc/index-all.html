@@ -135,6 +135,11 @@
 <div class="block">Set the maximum delay before an automatic <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> is
  performed, regardless of the redo log size threshold.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#checkpointed(long)">checkpointed(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Indicates that all data prior to the given log position has been durably
+ checkpointed.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointRate(long, java.util.concurrent.TimeUnit)">checkpointRate(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the rate at which <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoints</code></a> are

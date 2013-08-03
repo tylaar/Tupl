@@ -118,19 +118,26 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#checkpointed(long)">checkpointed</a></strong>(long&nbsp;position)</code>
+<div class="block">Indicates that all data prior to the given log position has been durably
+ checkpointed.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#confirm(long, long)">confirm</a></strong>(long&nbsp;position,
        long&nbsp;timeoutNanos)</code>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#flip()">flip</a></strong>()</code>
 <div class="block">Called to acknowledge mode change from replica to leader, or vice versa.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index, byte[], byte[])">notifyStore</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
            byte[]&nbsp;key,
@@ -138,7 +145,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Notification to replica when an entry is stored into an index.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read</a></strong>(byte[]&nbsp;b,
     int&nbsp;off,
@@ -146,39 +153,39 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition</a></strong>()</code>
 <div class="block">Returns the next position a replica will read from.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover</a></strong>(<a href="../../../org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a>&nbsp;listener)</code>
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
  replication has sufficiently "caught up".</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)">start</a></strong>(long&nbsp;position)</code>
 <div class="block">Start the replication manager in replica mode.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#sync()">sync</a></strong>()</code>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long)">syncConfirm</a></strong>(long&nbsp;position)</code>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write</a></strong>(byte[]&nbsp;b,
      int&nbsp;off,
@@ -186,7 +193,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writeCommit(byte[], int, int)">writeCommit</a></strong>(byte[]&nbsp;b,
            int&nbsp;off,
@@ -194,7 +201,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Fully writes and commits the given data, defining a confirmation position.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition</a></strong>()</code>
 <div class="block">Returns the next position a leader will write to.</div>
@@ -387,6 +394,22 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="checkpointed(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>checkpointed</h4>
+<pre>void&nbsp;checkpointed(long&nbsp;position)
+                  throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Indicates that all data prior to the given log position has been durably
+ checkpointed. The log can discard the old data. This method is never invoked
+ concurrently, and the implementation should return quickly.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>position</code> - log position immediately after the checkpoint position</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
