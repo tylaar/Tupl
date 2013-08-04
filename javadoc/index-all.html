@@ -230,10 +230,20 @@
 <dd>
 <div class="block">Compare the current key to the one given.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long)">confirm(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long, long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl"><span class="strong">ConfirmationTimeoutException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Thrown by <a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> when replication cannot be confirmed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#ConfirmationTimeoutException(long)">ConfirmationTimeoutException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#copy()">copy()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Returns a new independent Cursor, positioned where this one is, and
@@ -593,6 +603,8 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockSet.html#getKey(int)">getKey(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockSet.html" title="class in org.cojen.tupl">DeadlockSet</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
@@ -611,7 +623,11 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getShortMessage()">getShortMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getTimeout()">getTimeout()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#getTimeout()">getTimeout()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getUnit()">getUnit()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#getUnit()">getUnit()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
 <dd>&nbsp;</dd>
@@ -1266,6 +1282,11 @@
 <div class="block">Durably flushes all local data to non-volatile storage, up to the current position.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long)">syncConfirm(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given
+ position, and then blocks until confirmed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
