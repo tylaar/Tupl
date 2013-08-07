@@ -180,48 +180,54 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#commitAll()">commitAll</a></strong>()</code>
+<div class="block">Commits and exits all transaction scopes.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#durabilityMode()">durabilityMode</a></strong>()</code>
 <div class="block">Returns the fixed durability mode of this transaction.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#enter()">enter</a></strong>()</code>
 <div class="block">Enters a nested transaction scope.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#exit()">exit</a></strong>()</code>
 <div class="block">Exits the current transaction scope, rolling back all uncommitted
  modifications made within.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#hashCode()">hashCode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lastLockedIndex()">lastLockedIndex</a></strong>()</code>
 <div class="block">Returns the index id of the last lock acquired, within the current scope.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lastLockedKey()">lastLockedKey</a></strong>()</code>
 <div class="block">Returns the key of the last lock acquired, within the current scope.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockCheck(long, byte[])">lockCheck</a></strong>(long&nbsp;indexId,
          byte[]&nbsp;key)</code>
 <div class="block">Checks the lock ownership for the given key.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long, byte[])">lockExclusive</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key)</code>
@@ -229,7 +235,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  additional locks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long, byte[], long)">lockExclusive</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key,
@@ -238,19 +244,19 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  additional locks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockMode.html" title="enum in org.cojen.tupl">LockMode</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockMode()">lockMode</a></strong>()</code>
 <div class="block">Returns the current lock mode.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockMode(org.cojen.tupl.LockMode)">lockMode</a></strong>(<a href="../../../org/cojen/tupl/LockMode.html" title="enum in org.cojen.tupl">LockMode</a>&nbsp;mode)</code>
 <div class="block">Sets the lock mode for the current scope.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long, byte[])">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key)</code>
@@ -258,7 +264,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  locks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long, byte[], long)">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key,
@@ -267,20 +273,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  locks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Sets the lock timeout for the current scope.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockTimeout(java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Returns the current lock timeout, in the given unit.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[])">lockUpgradable</a></strong>(long&nbsp;indexId,
               byte[]&nbsp;key)</code>
@@ -288,7 +294,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  exclusive and additional upgradable locks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[], long)">lockUpgradable</a></strong>(long&nbsp;indexId,
               byte[]&nbsp;key,
@@ -297,18 +303,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  exclusive and additional upgradable locks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#reset()">reset</a></strong>()</code>
 <div class="block">Exits all transaction scopes, rolling back all uncommitted
  modifications.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockExclusive(long, byte[], long)">tryLockExclusive</a></strong>(long&nbsp;indexId,
                 byte[]&nbsp;key,
@@ -317,7 +323,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  additional locks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockShared(long, byte[], long)">tryLockShared</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key,
@@ -326,7 +332,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  locks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockUpgradable(long, byte[], long)">tryLockUpgradable</a></strong>(long&nbsp;indexId,
                  byte[]&nbsp;key,
@@ -335,20 +341,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  exclusive and additional upgradable locks.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#unlock()">unlock</a></strong>()</code>
 <div class="block">Fully releases last lock acquired, within the current scope.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#unlockToShared()">unlockToShared</a></strong>()</code>
 <div class="block">Releases last lock acquired, within the current scope, retaining a
  shared lock.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#unlockToUpgradable()">unlockToUpgradable</a></strong>()</code>
 <div class="block">Releases last lock acquired or upgraded, within the current scope,
@@ -481,6 +487,19 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  current scope is still valid after this method is called, unless an
  exception is thrown. Call exit or reset to fully release transaction
  resources.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="commitAll()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>commitAll</h4>
+<pre>public final&nbsp;void&nbsp;commitAll()
+                     throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Commits and exits all transaction scopes.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
