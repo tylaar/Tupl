@@ -396,8 +396,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
              throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></code> - if position not confirmed before the default
- timeout elapsed</dd>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -413,8 +412,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></code> - if position not confirmed before the given
- timeout elapsed</dd>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -442,8 +440,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></code> - if position not confirmed before the default
- timeout elapsed</dd>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -460,8 +457,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
  position, and then blocks until confirmed.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></code> - if position not confirmed before the given
- timeout elapsed</dd>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>

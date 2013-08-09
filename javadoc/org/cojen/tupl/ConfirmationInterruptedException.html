@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>DatabaseException (Tupl 1.0 API)</title>
+<title>ConfirmationInterruptedException (Tupl 1.0 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="DatabaseException (Tupl 1.0 API)";
+        parent.document.title="ConfirmationInterruptedException (Tupl 1.0 API)";
     }
 //-->
 </script>
@@ -26,7 +26,7 @@
 <li><a href="../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/DatabaseException.html">Use</a></li>
+<li><a href="class-use/ConfirmationInterruptedException.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../index-all.html">Index</a></li>
@@ -35,12 +35,12 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../index.html?org/cojen/tupl/DatabaseException.html" target="_top">Frames</a></li>
-<li><a href="DatabaseException.html" target="_top">No Frames</a></li>
+<li><a href="../../../index.html?org/cojen/tupl/ConfirmationInterruptedException.html" target="_top">Frames</a></li>
+<li><a href="ConfirmationInterruptedException.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
 <li><a href="../../../allclasses-noframe.html">All Classes</a></li>
@@ -79,7 +79,7 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.cojen.tupl</div>
-<h2 title="Class DatabaseException" class="title">Class DatabaseException</h2>
+<h2 title="Class ConfirmationInterruptedException" class="title">Class ConfirmationInterruptedException</h2>
 </div>
 <div class="contentContainer">
 <ul class="inheritance">
@@ -95,7 +95,17 @@
 <li><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">java.io.IOException</a></li>
 <li>
 <ul class="inheritance">
-<li>org.cojen.tupl.DatabaseException</li>
+<li><a href="../../../org/cojen/tupl/DatabaseException.html" title="class in org.cojen.tupl">org.cojen.tupl.DatabaseException</a></li>
+<li>
+<ul class="inheritance">
+<li><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">org.cojen.tupl.ConfirmationFailureException</a></li>
+<li>
+<ul class="inheritance">
+<li>org.cojen.tupl.ConfirmationInterruptedException</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -112,19 +122,14 @@
 <dt>All Implemented Interfaces:</dt>
 <dd><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html?is-external=true" title="class or interface in java.io">Serializable</a></dd>
 </dl>
-<dl>
-<dt>Direct Known Subclasses:</dt>
-<dd><a href="../../../org/cojen/tupl/CacheExhaustedException.html" title="class in org.cojen.tupl">CacheExhaustedException</a>, <a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a>, <a href="../../../org/cojen/tupl/CorruptDatabaseException.html" title="class in org.cojen.tupl">CorruptDatabaseException</a>, <a href="../../../org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a>, <a href="../../../org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a>, <a href="../../../org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl">LockFailureException</a>, <a href="../../../org/cojen/tupl/UnmodifiableReplicaException.html" title="class in org.cojen.tupl">UnmodifiableReplicaException</a>, <a href="../../../org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl">UnmodifiableViewException</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public class <span class="strong">DatabaseException</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Exception thrown which indicates a <a href="../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl"><code>database</code></a> problem not due
- to general I/O problems.</div>
+<pre>public class <span class="strong">ConfirmationInterruptedException</span>
+extends <a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></pre>
+<div class="block">Thrown by <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> when confirmation was interrupted by another thread.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Brian S O'Neill</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="../../../serialized-form.html#org.cojen.tupl.DatabaseException">Serialized Form</a></dd></dl>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../serialized-form.html#org.cojen.tupl.ConfirmationInterruptedException">Serialized Form</a></dd></dl>
 </li>
 </ul>
 </div>
@@ -143,17 +148,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.ht
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DatabaseException.html#DatabaseException()">DatabaseException</a></strong>()</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.String)">DatabaseException</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.String, java.lang.Throwable)">DatabaseException</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
-                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.Throwable)">DatabaseException</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>&nbsp;</td>
+<td class="colOne"><code><strong><a href="../../../org/cojen/tupl/ConfirmationInterruptedException.html#ConfirmationInterruptedException()">ConfirmationInterruptedException</a></strong>()</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -192,41 +187,13 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.ht
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="DatabaseException()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>DatabaseException</h4>
-<pre>public&nbsp;DatabaseException()</pre>
-</li>
-</ul>
-<a name="DatabaseException(java.lang.String)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>DatabaseException</h4>
-<pre>public&nbsp;DatabaseException(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</pre>
-</li>
-</ul>
-<a name="DatabaseException(java.lang.Throwable)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>DatabaseException</h4>
-<pre>public&nbsp;DatabaseException(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</pre>
-</li>
-</ul>
-<a name="DatabaseException(java.lang.String, java.lang.Throwable)">
+<a name="ConfirmationInterruptedException()">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>DatabaseException</h4>
-<pre>public&nbsp;DatabaseException(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message,
-                 <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</pre>
+<h4>ConfirmationInterruptedException</h4>
+<pre>public&nbsp;ConfirmationInterruptedException()</pre>
 </li>
 </ul>
 </li>
@@ -246,7 +213,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.ht
 <li><a href="../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/DatabaseException.html">Use</a></li>
+<li><a href="class-use/ConfirmationInterruptedException.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../index-all.html">Index</a></li>
@@ -255,12 +222,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.ht
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../index.html?org/cojen/tupl/DatabaseException.html" target="_top">Frames</a></li>
-<li><a href="DatabaseException.html" target="_top">No Frames</a></li>
+<li><a href="../../../index.html?org/cojen/tupl/ConfirmationInterruptedException.html" target="_top">Frames</a></li>
+<li><a href="ConfirmationInterruptedException.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">
 <li><a href="../../../allclasses-noframe.html">All Classes</a></li>
