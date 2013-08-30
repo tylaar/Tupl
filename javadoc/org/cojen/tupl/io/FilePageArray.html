@@ -106,7 +106,7 @@
 <br>
 <pre>public class <span class="strong">FilePageArray</span>
 extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></pre>
-<div class="block">Basic <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which access a file.</div>
+<div class="block">Basic <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which accesses a file.</div>
 <dl><dt><span class="strong">Author:</span></dt>
   <dd>Brian S O'Neill</dd></dl>
 </li>
@@ -129,6 +129,12 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <tr class="altColor">
 <td class="colOne"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, java.util.EnumSet)">FilePageArray</a></strong>(int&nbsp;pageSize,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/EnumSet.html?is-external=true" title="class or interface in java.util">EnumSet</a>&lt;<a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a>&gt;&nbsp;options)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
+<td class="colOne"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, org.cojen.tupl.io.FileFactory, java.util.EnumSet)">FilePageArray</a></strong>(int&nbsp;pageSize,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
+             <a href="../../../../org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a>&nbsp;factory,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/util/EnumSet.html?is-external=true" title="class or interface in java.util">EnumSet</a>&lt;<a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a>&gt;&nbsp;options)</code>&nbsp;</td>
 </tr>
 </table>
@@ -232,11 +238,26 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <a name="FilePageArray(int, java.io.File, java.util.EnumSet)">
 <!--   -->
 </a>
+<ul class="blockList">
+<li class="blockList">
+<h4>FilePageArray</h4>
+<pre>public&nbsp;FilePageArray(int&nbsp;pageSize,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
+             <a href="http://docs.oracle.com/javase/7/docs/api/java/util/EnumSet.html?is-external=true" title="class or interface in java.util">EnumSet</a>&lt;<a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a>&gt;&nbsp;options)
+              throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="FilePageArray(int, java.io.File, org.cojen.tupl.io.FileFactory, java.util.EnumSet)">
+<!--   -->
+</a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>FilePageArray</h4>
 <pre>public&nbsp;FilePageArray(int&nbsp;pageSize,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file,
+             <a href="../../../../org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a>&nbsp;factory,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/util/EnumSet.html?is-external=true" title="class or interface in java.util">EnumSet</a>&lt;<a href="../../../../org/cojen/tupl/io/OpenOption.html" title="enum in org.cojen.tupl.io">OpenOption</a>&gt;&nbsp;options)
               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl><dt><span class="strong">Throws:</span></dt>

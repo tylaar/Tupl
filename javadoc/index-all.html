@@ -74,6 +74,14 @@
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io"><span class="strong">AttributedFileFactory</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Applies file attributes to newly created files and directories.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.lang.String, java.lang.String)">AttributedFileFactory(String, String)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.nio.file.attribute.FileAttribute[], java.nio.file.attribute.FileAttribute[])">AttributedFileFactory(FileAttribute&lt;?&gt;[], FileAttribute&lt;?&gt;[])</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#autoload(boolean)">autoload(boolean)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">By default, values are loaded automatically, as they are seen.</div>
@@ -280,6 +288,25 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CorruptDatabaseException.html#CorruptDatabaseException(java.lang.Throwable)">CorruptDatabaseException(Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/CorruptDatabaseException.html" title="class in org.cojen.tupl">CorruptDatabaseException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#createDirectories(java.io.File)">createDirectories(File)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileFactory.html#createDirectories(java.io.File)">createDirectories(File)</a></span> - Method in interface org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a></dt>
+<dd>
+<div class="block">Create the given directory path for read/write access, unless the directory path already
+ exists.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#createDirectory(java.io.File)">createDirectory(File)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileFactory.html#createDirectory(java.io.File)">createDirectory(File)</a></span> - Method in interface org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a></dt>
+<dd>
+<div class="block">Create the given directory for read/write access, unless the directory already exists.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#createFile(java.io.File)">createFile(File)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileFactory.html#createFile(java.io.File)">createFile(File)</a></span> - Method in interface org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a></dt>
+<dd>
+<div class="block">Create the given file for read/write access, unless the file already exists.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#createFilePath(boolean)">createFilePath(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set true to create directories for the base and data file, if they don't
@@ -545,6 +572,15 @@
 </a>
 <h2 class="title">F</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#fileFactory(org.cojen.tupl.io.FileFactory)">fileFactory(FileFactory)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Optionally define a custom factory for every file and directory created by the
+ database.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io"><span class="strong">FileFactory</span></a> - Interface in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Provides control over how files and directories are created.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io"><span class="strong">FileIO</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
 <dd>
 <div class="block">Lowest I/O interface to a file or device.</div>
@@ -553,9 +589,11 @@
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io"><span class="strong">FilePageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
 <dd>
-<div class="block">Basic <a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which access a file.</div>
+<div class="block">Basic <a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which accesses a file.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, java.util.EnumSet)">FilePageArray(int, File, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, org.cojen.tupl.io.FileFactory, java.util.EnumSet)">FilePageArray(int, File, FileFactory, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#find(byte[])">find(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
