@@ -193,6 +193,12 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/StripedPageArray.html#syncPage(long)">syncPage</a></strong>(long&nbsp;index)</code>
+<div class="block">Durably flushes the page at the given index, but implementation might flush more pages.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/StripedPageArray.html#writePage(long, byte[], int)">writePage</a></strong>(long&nbsp;index,
          byte[]&nbsp;buf,
          int&nbsp;offset)</code>
@@ -383,6 +389,24 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <dt><strong>Specified by:</strong></dt>
 <dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#sync(boolean)">sync</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>metadata</code> - pass true to flush all file metadata</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="syncPage(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>syncPage</h4>
+<pre>public&nbsp;void&nbsp;syncPage(long&nbsp;index)
+              throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html#syncPage(long)">PageArray</a></code></strong></div>
+<div class="block">Durably flushes the page at the given index, but implementation might flush more pages.
+ File metadata is not flushed.</div>
+<dl>
+<dt><strong>Overrides:</strong></dt>
+<dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#syncPage(long)">syncPage</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
