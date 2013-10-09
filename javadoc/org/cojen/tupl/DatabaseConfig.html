@@ -289,7 +289,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites</a></strong>(boolean&nbsp;fileSync)</code>
-<div class="block">Set true to ensure all writes the main database file are immediately
+<div class="block">Set true to ensure all writes to the main database file are immediately
  durable, although not checkpointed.</div>
 </td>
 </tr>
@@ -538,7 +538,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <li class="blockList">
 <h4>syncWrites</h4>
 <pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;syncWrites(boolean&nbsp;fileSync)</pre>
-<div class="block">Set true to ensure all writes the main database file are immediately
+<div class="block">Set true to ensure all writes to the main database file are immediately
  durable, although not checkpointed. This option typically reduces
  overall performance, but checkpoints complete more quickly. As a result,
  the main database file requires less pre-allocated pages and is smaller.</div>
