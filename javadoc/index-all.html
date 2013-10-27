@@ -1081,6 +1081,14 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/EventPrinter.html#notify(org.cojen.tupl.EventType, java.lang.String, java.lang.Object...)">notify(EventType, String, Object...)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/EventPrinter.html" title="class in org.cojen.tupl">EventPrinter</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyDrop(org.cojen.tupl.Index)">notifyDrop(Index)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Notification to replica after an index is dropped.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index, byte[], byte[])">notifyRename(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dd>
+<div class="block">Notification to replica after an index is renamed.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index, byte[], byte[])">notifyStore(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Notification to replica when an entry is stored into an index.</div>
@@ -1228,6 +1236,14 @@
 <dd>
 <div class="block">Removes the entry associated with the given key, but only if the given
  value matches.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index, byte[])">renameIndex(Index, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Renames the given index to the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index, java.lang.String)">renameIndex(Index, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Renames the given index to the one given.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#replace(org.cojen.tupl.Transaction, byte[], byte[])">replace(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
