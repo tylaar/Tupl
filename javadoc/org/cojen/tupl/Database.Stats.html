@@ -169,15 +169,15 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#transactionCount()">transactionCount</a></strong>()</code>
-<div class="block">Returns the amount of transactions which are in a non-reset
+<div class="block">Returns the amount of fully-established transactions which are in a non-reset
  state.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#transactionsCreated()">transactionsCreated</a></strong>()</code>
-<div class="block">Returns the total amount of transactions explicitly created over the
- life of the database.</div>
+<div class="block">Returns the total amount of fully-established transactions created over the life of
+ the database.</div>
 </td>
 </tr>
 </table>
@@ -249,10 +249,9 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li class="blockList">
 <h4>lockCount</h4>
 <pre>public&nbsp;long&nbsp;lockCount()</pre>
-<div class="block">Returns the amount of locks currently allocated. Locks are created
- as transactions access or modify records, and they are destroyed
- when transactions exit or reset. An accumulation of locks can
- indicate that transactions are not being reset properly.</div>
+<div class="block">Returns the amount of locks currently allocated. Locks are created as transactions
+ access or modify records, and they are destroyed when transactions exit or reset. An
+ accumulation of locks can indicate that transactions are not being reset properly.</div>
 </li>
 </ul>
 <a name="cursorCount()">
@@ -262,9 +261,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li class="blockList">
 <h4>cursorCount</h4>
 <pre>public&nbsp;long&nbsp;cursorCount()</pre>
-<div class="block">Returns the amount of cursors which are in a non-reset state. An
- accumulation of cursors can indicate that cursors are not being
- reset properly.</div>
+<div class="block">Returns the amount of cursors which are in a non-reset state. An accumulation of
+ cursors can indicate that they are not being reset properly.</div>
 </li>
 </ul>
 <a name="transactionCount()">
@@ -274,9 +272,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li class="blockList">
 <h4>transactionCount</h4>
 <pre>public&nbsp;long&nbsp;transactionCount()</pre>
-<div class="block">Returns the amount of transactions which are in a non-reset
- state. An accumulation of transactions can indicate that
- transactions are not being reset properly.</div>
+<div class="block">Returns the amount of fully-established transactions which are in a non-reset
+ state. This value is unaffected by transactions which make no changes, and it is
+ also unaffected by auto-commit transactions. An accumulation of transactions can
+ indicate that they are not being reset properly.</div>
 </li>
 </ul>
 <a name="transactionsCreated()">
@@ -286,8 +285,10 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <li class="blockList">
 <h4>transactionsCreated</h4>
 <pre>public&nbsp;long&nbsp;transactionsCreated()</pre>
-<div class="block">Returns the total amount of transactions explicitly created over the
- life of the database.</div>
+<div class="block">Returns the total amount of fully-established transactions created over the life of
+ the database. This value is unaffected by transactions which make no changes, and it
+ is also unaffected by auto-commit transactions. A resurrected transaction can become
+ fully-established again, further increasing the total created value.</div>
 </li>
 </ul>
 <a name="toString()">
