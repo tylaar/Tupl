@@ -234,6 +234,16 @@
 <dd>
 <div class="block">Commits and exits all transaction scopes.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#compactFile(org.cojen.tupl.CompactionObserver, double)">compactFile(CompactionObserver, double)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Compacts the database by shrinking the database file.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl"><span class="strong">CompactionObserver</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Index compaction observer.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#CompactionObserver()">CompactionObserver()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[])">compareKeyTo(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Compare the current key to the one given.</div>
@@ -735,6 +745,10 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/IllegalUpgradeException.html#IllegalUpgradeException()">IllegalUpgradeException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/IllegalUpgradeException.html" title="class in org.cojen.tupl">IllegalUpgradeException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#index">index</a></span> - Variable in class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
+<dd>
+<div class="block">Index currently being compacted.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl"><span class="strong">Index</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Mapping of keys to values, ordered by key, in lexicographical
@@ -743,6 +757,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#index">index</a></span> - Variable in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Index currently being verified.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#indexBegin(org.cojen.tupl.Index)">indexBegin(Index)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
+<dd>
+<div class="block">Called before full index compaction begins.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index, int)">indexBegin(Index, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
@@ -756,6 +774,10 @@
 <dd>
 <div class="block">Returns an index by its identifier, returning null if not found.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#indexComplete(org.cojen.tupl.Index)">indexComplete(Index)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
+<dd>
+<div class="block">Called after index compaction has finished.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexComplete(org.cojen.tupl.Index, boolean, java.lang.String)">indexComplete(Index, boolean, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after index verification has finished.</div>
@@ -767,6 +789,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodePassed(long, int, int, int, int)">indexNodePassed(long, int, int, int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after an index node passes verification.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#indexNodeVisited(long)">indexNodeVisited(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
+<dd>
+<div class="block">Called after an index node has been visted by the compactor.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#indexRegistryById()">indexRegistryById()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>

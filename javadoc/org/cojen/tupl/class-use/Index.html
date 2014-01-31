@@ -102,6 +102,12 @@
 <div class="block">Index currently being verified.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><code>protected <a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></code></td>
+<td class="colLast"><span class="strong">CompactionObserver.</span><code><strong><a href="../../../../org/cojen/tupl/CompactionObserver.html#index">index</a></strong></code>
+<div class="block">Index currently being compacted.</div>
+</td>
+</tr>
 </tbody>
 </table>
 <table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
@@ -158,9 +164,21 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="strong">CompactionObserver.</span><code><strong><a href="../../../../org/cojen/tupl/CompactionObserver.html#indexBegin(org.cojen.tupl.Index)">indexBegin</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index)</code>
+<div class="block">Called before full index compaction begins.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">VerificationObserver.</span><code><strong><a href="../../../../org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index, int)">indexBegin</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
           int&nbsp;height)</code>
 <div class="block">Called before full index verification begins.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="strong">CompactionObserver.</span><code><strong><a href="../../../../org/cojen/tupl/CompactionObserver.html#indexComplete(org.cojen.tupl.Index)">indexComplete</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index)</code>
+<div class="block">Called after index compaction has finished.</div>
 </td>
 </tr>
 <tr class="rowColor">
