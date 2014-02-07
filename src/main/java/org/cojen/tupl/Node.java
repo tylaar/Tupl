@@ -506,32 +506,6 @@ final class Node extends Latch {
     }
 
     /**
-     * Copies the key at the given position based on a limit. If equal, the
-     * limitKey instance is returned. If beyond the limit, null is returned.
-     *
-     * @param pos position as provided by binarySearch; must be positive
-     * @param limitKey comparison key
-     * @param limitMode positive for LE behavior, negative for GE behavior
-     */
-    byte[] retrieveKeyCmp(int pos, byte[] limitKey, int limitMode) {
-        final byte[] page = mPage;
-        int loc = decodeUnsignedShortLE(page, mSearchVecStart + pos);
-        int keyLen = page[loc++];
-        keyLen = keyLen >= 0 ? ((keyLen & 0x3f) + 1)
-            : (((keyLen & 0x3f) << 8) | ((page[loc++]) & 0xff));
-        int cmp = compareKeys(page, loc, keyLen, limitKey, 0, limitKey.length);
-        if (cmp == 0) {
-            return limitKey;
-        } else if ((cmp ^ limitMode) < 0) {
-            byte[] key = new byte[keyLen];
-            arraycopy(page, loc, key, 0, keyLen);
-            return key;
-        } else {
-            return null;
-        }
-    }
-
-    /**
      * Used by UndoLog for decoding entries. Only works for non-fragmented values.
      *
      * @param loc absolute location of entry
@@ -596,18 +570,6 @@ final class Node extends Latch {
 
     /**
      * @param pos position as provided by binarySearch; must be positive
-     * @return Cursor.NOT_LOADED if value exists, null if ghost
-     */
-    byte[] hasLeafValue(int pos) {
-        final byte[] page = mPage;
-        int loc = decodeUnsignedShortLE(page, mSearchVecStart + pos);
-        int header = page[loc++];
-        loc += (header >= 0 ? header : (((header & 0x3f) << 8) | (page[loc] & 0xff))) + 1;
-        return page[loc] == -1 ? null : Cursor.NOT_LOADED;
-    }
-
-    /**
-     * @param pos position as provided by binarySearch; must be positive
      * @return null if ghost
      */
     byte[] retrieveLeafValue(Tree tree, int pos) throws IOException {
@@ -649,30 +611,8 @@ final class Node extends Latch {
     /**
      * @param pos position as provided by binarySearch; must be positive
      */
-    void retrieveLeafEntry(int pos, TreeCursor cursor) throws IOException {
-        final byte[] page = mPage;
-        int loc = decodeUnsignedShortLE(page, mSearchVecStart + pos);
-        int header = page[loc++];
-        int keyLen = header >= 0 ? ((header & 0x3f) + 1)
-            : (((header & 0x3f) << 8) | ((page[loc++]) & 0xff));
-        byte[] key = new byte[keyLen];
-        arraycopy(page, loc, key, 0, keyLen);
-        cursor.mKey = key;
-        cursor.mValue = retrieveLeafValueAtLoc(this, cursor.mTree, page, loc + keyLen);
-    }
-
-    /**
-     * @param pos position as provided by binarySearch; must be positive
-     */
     long retrieveChildRefId(int pos) {
         return decodeLongLE(mPage, mSearchVecEnd + 2 + (pos << 2));
-    }
-
-    /**
-     * @param index index in child node array
-     */
-    long retrieveChildRefIdFromIndex(int index) {
-        return decodeLongLE(mPage, mSearchVecEnd + 2 + (index << 3));
     }
 
     /**
@@ -1130,13 +1070,6 @@ final class Node extends Latch {
     private static int calculateLeafValueLength(byte[] value) {
         int len = value.length;
         return len + ((len <= 127) ? 1 : ((len <= 8192) ? 2 : 3));
-    }
-
-    /**
-     * Calculate encoded value length for leaf, including header.
-     */
-    private static long calculateLeafValueLength(long vlength) {
-        return vlength + ((vlength <= 127) ? 1 : ((vlength <= 8192) ? 2 : 3));
     }
 
     /**
