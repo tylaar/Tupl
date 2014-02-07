@@ -24,14 +24,7 @@ package org.cojen.tupl;
  * @author Brian S O'Neill
  */
 public class LargeKeyException extends DatabaseException {
-    private static final long serialVersionUID = 1L;
-
     public LargeKeyException(int length) {
         super("Key is too large: " + length);
-    }
-
-    @Override
-    boolean isRecoverable() {
-        return true;
     }
 }

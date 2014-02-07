@@ -18,19 +18,15 @@ package org.cojen.tupl;
 
 import java.io.IOException;
 
-import java.util.BitSet;
-
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-
-import org.cojen.tupl.io.CauseCloseable;
 
 /**
  * @author Brian S O'Neill
  * @see DurablePageDb
  * @see NonPageDb
  */
-abstract class PageDb implements CauseCloseable {
+abstract class PageDb {
     final ReentrantReadWriteLock mCommitLock;
 
     PageDb() {
@@ -45,63 +41,10 @@ abstract class PageDb implements CauseCloseable {
         mCommitLock = new ReentrantReadWriteLock(false);
     }
 
-    public abstract boolean isDurable();
-
     /**
      * Returns the fixed size of all pages in the store, in bytes.
      */
     public abstract int pageSize();
-
-    /**
-     * Returns a snapshot of additional store stats.
-     */
-    public abstract Stats stats();
-
-    public static final class Stats {
-        public long totalPages;
-        public long freePages;
-
-        public String toString() {
-            return "PageDb.Stats {totalPages=" + totalPages + ", freePages=" + freePages + '}';
-        }
-    }
-
-    /**
-     * Returns a BitSet where each clear bit indicates a free page.
-     */
-    public abstract BitSet tracePages() throws IOException;
-
-    /**
-     * Reads a page without locking. Caller must ensure that a deleted page
-     * is not read during or after a commit.
-     *
-     * @param id page id to read
-     * @param buf receives read data
-     */
-    public abstract void readPage(long id, byte[] buf) throws IOException;
-
-    /**
-     * Reads a page without locking. Caller must ensure that a deleted page
-     * is not read during or after a commit.
-     *
-     * @param id page id to read
-     * @param buf receives read data
-     * @param offset offset into data buffer
-     */
-    public abstract void readPage(long id, byte[] buf, int offset) throws IOException;
-
-    /**
-     * Reads a part of a page without locking. Caller must ensure that a
-     * deleted page is not read during or after a commit.
-     *
-     * @param id page id to read
-     * @param start start of page to read
-     * @param buf receives read data
-     * @param offset offset into data buffer
-     * @param length length to read
-     */
-    public abstract void readPartial(long id, int start, byte[] buf, int offset, int length)
-        throws IOException;
 
     /**
      * Allocates a page to be written to.
@@ -109,46 +52,6 @@ abstract class PageDb implements CauseCloseable {
      * @return page id; never zero or one
      */
     public abstract long allocPage() throws IOException;
-
-    /**
-     * Writes to an allocated page, but doesn't commit it. A written page is
-     * immediately readable even if not committed. An uncommitted page can be
-     * deleted, but it remains readable until after a commit.
-     *
-     * @param id previously allocated page id
-     * @param buf data to write
-     */
-    public abstract void writePage(long id, byte[] buf) throws IOException;
-
-    /**
-     * Writes to an allocated page, but doesn't commit it. A written page is
-     * immediately readable even if not committed. An uncommitted page can be
-     * deleted, but it remains readable until after a commit.
-     *
-     * @param id previously allocated page id
-     * @param buf data to write
-     * @param offset offset into data buffer
-     */
-    public abstract void writePage(long id, byte[] buf, int offset) throws IOException;
-
-    /**
-     * Deletes a page, but doesn't commit it. Deleted pages are not used for
-     * new writes, and they are still readable until after a commit. Caller
-     * must ensure that a page is deleted at most once between commits.
-     */
-    public abstract void deletePage(long id) throws IOException;
-
-    /**
-     * Recycles a page for immediate re-use.
-     */
-    public abstract void recyclePage(long id) throws IOException;
-
-    /**
-     * Allocates pages for immediate use.
-     *
-     * @return actual amount allocated
-     */
-    public abstract long allocatePages(long pageCount) throws IOException;
 
     /**
      * Access the shared commit lock, which prevents commits while held.
@@ -163,74 +66,4 @@ abstract class PageDb implements CauseCloseable {
     public Lock exclusiveCommitLock() {
         return mCommitLock.writeLock();
     }
-
-    /**
-     * Caller must ensure that at most one compaction is in progress and that no checkpoints
-     * occur when compaction starts and ends. Only one thread may control the compaction
-     * sequence:
-     *
-     * 1. start
-     * 2. scan free list (finds and moves pages in the compaction zone)
-     * 3. checkpoint (ensures dirty nodes are flushed out)
-     * 4. trace indexes and re-allocate pages which are in the compaction zone
-     * 5. scan free list (finds and moves additional pages)
-     * 6. forced checkpoint (ensures previous scan is applied)
-     * 7. verify; if not, scan and checkpoint again
-     * 8. end (must always be called if start returned true)
-     * 8. truncate
-     *
-     * @return false if target cannot be met or compaction is not supported
-     * @throws IllegalStateException if compaction is already in progress
-     */
-    public abstract boolean compactionStart(long targetPageCount) throws IOException;
-
-    /**
-     * Moves as many free pages as possible from the compaction zone into the reserve
-     * list. Other threads may concurrently allocate pages and might be stalled if they are
-     * required to do this work.
-     *
-     * @return false if aborted
-     */
-    public abstract boolean compactionScanFreeList() throws IOException;
-
-    /**
-     * @return false if verification failed
-     */
-    public abstract boolean compactionVerify() throws IOException;
-
-    /**
-     * @return false if aborted
-     */
-    public abstract boolean compactionEnd() throws IOException;
-
-    /**
-     * Called after compaction, to actually shrink the file.
-     *
-     * @return false if nothing was truncated
-     */
-    public abstract boolean truncatePages() throws IOException;
-
-    /**
-     * Durably commits all writes and deletes to the underlying device.
-     *
-     * @param callback optional callback to run during commit
-     */
-    public abstract void commit(final CommitCallback callback) throws IOException;
-
-    public static interface CommitCallback {
-        /**
-         * Write all allocated pages which should be committed and return extra
-         * data. Extra commit data is stored in PageDb header.
-         *
-         * @return optional extra data to commit, up to 256 bytes
-         */
-        public byte[] prepare() throws IOException;
-    }
-
-    /**
-     * Reads extra data that was stored with the last commit.
-     *
-     * @param extra optional extra data which was committed, up to 256 bytes
-     */
-    public abstract void readExtraCommitData(byte[] extra) throws IOException;
 }

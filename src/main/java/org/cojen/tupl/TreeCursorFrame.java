@@ -188,47 +188,4 @@ final class TreeCursorFrame {
             }
         } while (frame != null);
     }
-
-    /**
-     * Copy this frame and all parent frames.
-     *
-     * @param dest new frame instance to receive copy
-     */
-    void copyInto(TreeCursorFrame dest) {
-        Node node = acquireExclusive();
-        TreeCursorFrame parent = mParentFrame;
-
-        if (parent != null) {
-            node.releaseExclusive();
-            TreeCursorFrame parentCopy = new TreeCursorFrame();
-
-            while (true) {
-                // Need to check if parent is null, when looping back.
-                if (parent != null) {
-                    parent.copyInto(parentCopy);
-                }
-
-                // Parent can change when tree height is concurrently changing.
-                node = acquireExclusive();
-                final TreeCursorFrame actualParent = mParentFrame;
-
-                if (actualParent == parent) {
-                    // Parent frame hasn't changed, so use the copy.
-                    if (parent != null) {
-                        dest.mParentFrame = parentCopy;
-                    }
-                    break;
-                }
-
-                // Get rid of the stale copy and do over, which should be rare.
-                node.releaseExclusive();
-                popAll(parentCopy);
-                parent = actualParent;
-            }
-        }
-
-        dest.mNotFoundKey = mNotFoundKey;
-        dest.bind(node, mNodePos);
-        node.releaseExclusive();
-    }
 }

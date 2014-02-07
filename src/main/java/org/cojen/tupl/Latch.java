@@ -45,13 +45,6 @@ class Latch extends AbstractQueuedSynchronizer {
     }
 
     /**
-     * Attempt to acquire the exclusive latch, aborting if interrupted.
-     */
-    public final boolean tryAcquireExclusiveNanos(long nanosTimeout) throws InterruptedException {
-        return tryAcquireNanos(0, nanosTimeout);
-    }
-
-    /**
      * Acquire the exclusive latch, barging ahead of any waiting threads if
      * possible.
      */
@@ -59,13 +52,6 @@ class Latch extends AbstractQueuedSynchronizer {
         if (getState() != 0 || !compareAndSetState(0, 0x80000001)) {
             acquire(0);
         }
-    }
-
-    /**
-     * Acquire the exclusive latch, aborting if interrupted.
-     */
-    public final void acquireExclusiveInterruptibly() throws InterruptedException {
-        acquireInterruptibly(0);
     }
 
     /**
@@ -86,62 +72,10 @@ class Latch extends AbstractQueuedSynchronizer {
     }
 
     /**
-     * Convenience method, which releases the held exclusive or shared latch.
-     *
-     * @param exclusive call releaseExclusive if true, else call releaseShared.
-     */
-    public final void release(boolean exclusive) {
-        if (exclusive) {
-            release(0);
-        } else {
-            releaseShared(0);
-        }
-    }
-
-    /**
-     * Releases exclusive or shared latch.
-     */
-    public final void releaseEither() {
-        if (getState() < 0) {
-            release(0);
-        } else {
-            releaseShared(0);
-        }
-    }
-
-    /**
-     * Attempt to acquire a shared latch, barging ahead of any waiting threads
-     * if possible.
-     */
-    public final boolean tryAcquireShared() {
-        int state;
-        while ((state = getState()) >= 0) {
-            if (compareAndSetState(state, state + 1)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Attempt to acquire a shared latch, aborting if interrupted.
-     */
-    public final boolean tryAcquireSharedNanos(long nanosTimeout) throws InterruptedException {
-        return tryAcquireSharedNanos(0, nanosTimeout);
-    }
-
-    /**
      * Acquire a shared latch, barging ahead of any waiting threads if possible.
      */
     public final void acquireShared() {
         acquireShared(0);
-    }
-
-    /**
-     * Acquire a shared latch, aborting if interrupted.
-     */
-    public final void acquireSharedInterruptibly() throws InterruptedException {
-        acquireSharedInterruptibly(0);
     }
 
     /**

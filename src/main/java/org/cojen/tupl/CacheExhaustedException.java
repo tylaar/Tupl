@@ -23,13 +23,6 @@ package org.cojen.tupl;
  * @author Brian S O'Neill
  */
 public class CacheExhaustedException extends DatabaseException {
-    private static final long serialVersionUID = 1L;
-
     public CacheExhaustedException() {
-    }
-
-    @Override
-    boolean isRecoverable() {
-        return true;
     }
 }

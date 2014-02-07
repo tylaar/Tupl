@@ -30,17 +30,8 @@ import java.util.BitSet;
 class NonPageDb extends PageDb {
     private final int mPageSize;
 
-    private long mAllocId;
-
     NonPageDb(int pageSize) {
         mPageSize = pageSize;
-        // Next assigned id is 2, the first legal identifier.
-        mAllocId = 1;
-    }
-
-    @Override
-    public boolean isDurable() {
-        return false;
     }
 
     @Override
@@ -49,121 +40,9 @@ class NonPageDb extends PageDb {
     }
 
     @Override
-    public Stats stats() {
-        return new Stats();
-    }
-
-    @Override
-    public BitSet tracePages() throws IOException {
-        return new BitSet();
-    }
-
-    @Override
-    public void readPage(long id, byte[] buf) throws IOException {
-        fail(false);
-    }
-
-    @Override
-    public void readPage(long id, byte[] buf, int offset) throws IOException {
-        fail(false);
-    }
-
-    @Override
-    public void readPartial(long id, int start, byte[] buf, int offset, int length)
-        throws IOException
-    {
-        fail(false);
-    }
-
-    @Override
-    public synchronized long allocPage() throws IOException {
+    public long allocPage() throws IOException {
         // For ordinary nodes, the same identifier can be vended out each
         // time. Fragmented values require unique identifiers.
-        long id = mAllocId + 1;
-        if (id == 0) {
-            // Wrapped around. In practice, this will not happen in 100 years.
-            throw new DatabaseException("All page identifiers exhausted");
-        }
-        mAllocId = id;
-        return id;
-    }
-
-    @Override
-    public void writePage(long id, byte[] buf) throws IOException {
-        fail(true);
-    }
-
-    @Override
-    public void writePage(long id, byte[] buf, int offset) throws IOException {
-        fail(true);
-    }
-
-    @Override
-    public void deletePage(long id) throws IOException {
-        // Do nothing.
-    }
-
-    @Override
-    public void recyclePage(long id) throws IOException {
-        // Do nothing.
-    }
-
-    @Override
-    public long allocatePages(long pageCount) throws IOException {
-        // Do nothing.
-        return 0;
-    }
-
-    @Override
-    public boolean compactionStart(long targetPageCount) throws IOException {
-        return false;
-    }
-
-    @Override
-    public boolean compactionScanFreeList() throws IOException {
-        return false;
-    }
-
-    @Override
-    public boolean compactionVerify() throws IOException {
-        return false;
-    }
-
-    @Override
-    public boolean compactionEnd() throws IOException {
-        return false;
-    }
-
-    @Override
-    public boolean truncatePages() throws IOException {
-        return false;
-    }
-
-    @Override
-    public void commit(final CommitCallback callback) throws IOException {
-        fail(false);
-    }
-
-    @Override
-    public void readExtraCommitData(byte[] extra) throws IOException {
-        Arrays.fill(extra, (byte) 0);
-    }
-
-    @Override
-    public void close() throws IOException {
-        // Do nothing.
-    }
-
-    @Override
-    public void close(Throwable cause) throws IOException {
-        // Do nothing.
-    }
-
-    private static void fail(boolean forWrite) throws DatabaseException {
-        String message = "Non-durable database";
-        if (forWrite) {
-            message += " is full";
-        }
-        throw new DatabaseException(message);
+        return 2;
     }
 }

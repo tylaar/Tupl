@@ -18,8 +18,6 @@ package org.cojen.tupl;
 
 import java.io.IOException;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Exception thrown which indicates a {@link Database database} problem not due
  * to general I/O problems.
@@ -27,8 +25,6 @@ import java.util.concurrent.TimeUnit;
  * @author Brian S O'Neill
  */
 public class DatabaseException extends IOException {
-    private static final long serialVersionUID = 1L;
-
     public DatabaseException() {
     }
 
@@ -42,26 +38,5 @@ public class DatabaseException extends IOException {
 
     public DatabaseException(String message, Throwable cause) {
         super(message, cause);
-    }
-
-    /**
-     * Returns false if database should be closed as a result of this exception.
-     */
-    boolean isRecoverable() {
-        return false;
-    }
-
-    /*
-     * Applicable to timeout exceptions.
-     */
-    long getTimeout() {
-        return 0;
-    }
-
-    /*
-     * Applicable to timeout exceptions.
-     */
-    TimeUnit getUnit() {
-        return null;
     }
 }

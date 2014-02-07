@@ -53,67 +53,6 @@ final class Split {
     }
 
     /**
-     * Allows a search to continue into a split node by selecting the original node or the
-     * sibling. If the original node is returned, its shared lock is still held. If the
-     * sibling is returned, it will have a shared latch held and the original node's latch
-     * is released.
-     *
-     * @param node node which was split; shared latch must be held
-     * @return original node or sibling
-     */
-    final Node selectNodeShared(Node node, byte[] key) {
-        Node sibling = mSibling;
-        sibling.acquireShared();
-
-        Node left, right;
-        if (mSplitRight) {
-            left = node;
-            right = sibling;
-        } else {
-            left = sibling;
-            right = node;
-        }
-
-        if (compare(key) < 0) {
-            right.releaseShared();
-            return left;
-        } else {
-            left.releaseShared();
-            return right;
-        }
-    }
-
-    /**
-     * Allows a search/insert/update to continue into a split node by selecting the
-     * original node or the sibling. If the original node is returned, its exclusive lock
-     * is still held. If the sibling is returned, it will have an exclusive latch held and
-     * the original node's latch is released.
-     *
-     * @param node node which was split; exclusive latch must be held
-     * @return original node or sibling
-     */
-    final Node selectNodeExclusive(Node node, byte[] key) {
-        Node sibling = latchSibling();
-
-        Node left, right;
-        if (mSplitRight) {
-            left = node;
-            right = sibling;
-        } else {
-            left = sibling;
-            right = node;
-        }
-
-        if (compare(key) < 0) {
-            right.releaseExclusive();
-            return left;
-        } else {
-            left.releaseExclusive();
-            return right;
-        }
-    }
-
-    /**
      * Performs a binary search against the split, returning the position
      * within the original node as if it had not split.
      */
