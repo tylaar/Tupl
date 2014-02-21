@@ -1020,7 +1020,6 @@ final class Node extends Latch {
 
         InResult result = new InResult();
         result.mPage = page;
-        result.mKeyLoc = keyPos;
         result.mNewChildLoc = newChildPos;
         result.mEntryLoc = entryLoc;
 
@@ -1518,7 +1517,6 @@ final class Node extends Latch {
             // This case is expected to only occur when using very large keys.
 
             // Signals that key should not be inserted.
-            result.mKeyLoc = -1;
             result.mEntryLoc = -1;
 
             int leftKeyLoc = decodeUnsignedShortLE(page, searchVecStart);
@@ -1866,8 +1864,6 @@ final class Node extends Latch {
         mGarbage += garbageAccum;
         mSplit = split;
 
-        result.mKeyLoc = newKeyLoc;
-
         // Write pointer to key entry.
         encodeShortLE(newPage, newKeyLoc, result.mEntryLoc);
 
@@ -1961,7 +1957,6 @@ final class Node extends Latch {
 
         InResult result = new InResult();
         result.mPage = dest;
-        result.mKeyLoc = newLoc;
         result.mNewChildLoc = newSearchVecLoc + childPos;
         result.mEntryLoc = destLoc;
 
@@ -1974,7 +1969,6 @@ final class Node extends Latch {
      */
     static final class InResult {
         byte[] mPage;
-        int mKeyLoc;      // location of key reference in search vector
         int mNewChildLoc; // location of child pointer
         int mEntryLoc;    // location of key entry, referenced by search vector
     }
