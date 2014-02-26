@@ -72,6 +72,19 @@ class Latch extends AbstractQueuedSynchronizer {
     }
 
     /**
+     * Convenience method, which releases the held exclusive or shared latch.
+     *
+     * @param exclusive call releaseExclusive if true, else call releaseShared.
+     */
+    public final void release(boolean exclusive) {
+        if (exclusive) {
+            release(0);
+        } else {
+            releaseShared(0);
+        }
+    }
+
+    /**
      * Acquire a shared latch, barging ahead of any waiting threads if possible.
      */
     public final void acquireShared() {

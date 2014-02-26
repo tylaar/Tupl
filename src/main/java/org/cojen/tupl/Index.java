@@ -31,8 +31,9 @@ public interface Index extends View {
     /**
      * {@inheritDoc}
      *
+     * @throws NullPointerException {@inheritDoc}
      * @throws IllegalArgumentException {@inheritDoc}
      */
     @Override
-    public Cursor newCursor();
+    public byte[] load(byte[] key) throws IOException;
 }

@@ -22,8 +22,6 @@ package org.cojen.tupl;
  * @author Brian S O'Neill
  */
 public class DatabaseConfig {
-    private static final long serialVersionUID = 1L;
-
     long mMinCachedBytes;
     long mMaxCachedBytes;
     int mPageSize;

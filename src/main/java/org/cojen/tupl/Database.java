@@ -69,7 +69,6 @@ public final class Database {
     private static final int MINIMUM_PAGE_SIZE = 512;
     private static final int MAXIMUM_PAGE_SIZE = 65536;
 
-    final PageDb mPageDb;
     final int mPageSize;
 
     private final Latch mUsageLatch;
@@ -78,14 +77,10 @@ public final class Database {
     private Node mMostRecentlyUsed;
     private Node mLeastRecentlyUsed;
 
-    private final Lock mSharedCommitLock;
-
     // Is either CACHED_DIRTY_0 or CACHED_DIRTY_1. Access is guarded by commit lock.
     private byte mCommitState;
 
     private final Tree mRoot;
-
-    private final PageAllocator mAllocator;
 
     /**
      * Open a database, creating it if necessary.
@@ -145,8 +140,6 @@ public final class Database {
         mMaxNodeCount = maxCache;
 
         mPageSize = pageSize;
-        mPageDb = new NonPageDb(pageSize);
-        mSharedCommitLock = mPageDb.sharedCommitLock();
 
         // Pre-allocate nodes. They are automatically added to the usage list, and so nothing
         // special needs to be done to allow them to get used. Since the initial state is
@@ -156,20 +149,11 @@ public final class Database {
             allocLatchedNode(true).releaseExclusive();
         }
 
-        mSharedCommitLock.lock();
-        try {
-            mCommitState = CACHED_DIRTY_0;
-        } finally {
-            mSharedCommitLock.unlock();
-        }
-
         Node rootNode = allocLatchedNode(false);
         rootNode.asEmptyRoot();
         rootNode.releaseExclusive();
 
         mRoot = new Tree(this, rootNode);
-
-        mAllocator = new PageAllocator(mPageDb);
     }
 
     public Index rootIndex() throws IOException {
@@ -181,13 +165,6 @@ public final class Database {
      */
     int pageSize() {
         return mPageSize;
-    }
-
-    /**
-     * Access the shared commit lock, which prevents commits while held.
-     */
-    Lock sharedCommitLock() {
-        return mSharedCommitLock;
     }
 
     /**
@@ -250,18 +227,6 @@ public final class Database {
                     continue;
                 }
 
-                usageLatch.releaseExclusive();
-
-                if ((node = Node.evict(node, mPageDb)) != null) {
-                    if (!evictable) {
-                        makeUnevictable(node);
-                    }
-                    // Return with node latch still held.
-                    return node;
-                }
-
-                usageLatch.acquireExclusive();
-
                 if (mMaxNodeCount == 0) {
                     break alloc;
                 }
@@ -270,148 +235,6 @@ public final class Database {
 
         usageLatch.releaseExclusive();
         throw new CacheExhaustedException();
-    }
-
-    /**
-     * Returns a new or recycled Node instance, latched exclusively and marked
-     * dirty. Caller must hold commit lock.
-     */
-    Node allocDirtyNode() throws IOException {
-        Node node = allocLatchedNode(true);
-        try {
-            dirty(node, mAllocator.allocPage(node));
-            return node;
-        } catch (IOException e) {
-            node.releaseExclusive();
-            throw e;
-        }
-    }
-
-    /**
-     * Returns a new or recycled Node instance, latched exclusively, marked
-     * dirty and unevictable. Caller must hold commit lock.
-     */
-    Node allocUnevictableNode() throws IOException {
-        Node node = allocLatchedNode(false);
-        try {
-            dirty(node, mAllocator.allocPage(node));
-            return node;
-        } catch (IOException e) {
-            makeEvictableNow(node);
-            node.releaseExclusive();
-            throw e;
-        }
-    }
-
-    /**
-     * Allow a Node which was allocated as unevictable to be evictable,
-     * starting off as the most recently used.
-     */
-    void makeEvictable(Node node) {
-        final Latch usageLatch = mUsageLatch;
-        usageLatch.acquireExclusive();
-        try {
-            if (mMaxNodeCount == 0) {
-                // Closed.
-                return;
-            }
-            if (node.mMoreUsed != null || node.mLessUsed != null) {
-                throw new IllegalStateException();
-            }
-            (node.mLessUsed = mMostRecentlyUsed).mMoreUsed = node;
-            mMostRecentlyUsed = node;
-        } finally {
-            usageLatch.releaseExclusive();
-        }
-    }
-
-    /**
-     * Allow a Node which was allocated as unevictable to be evictable, as the
-     * least recently used.
-     */
-    void makeEvictableNow(Node node) {
-        final Latch usageLatch = mUsageLatch;
-        usageLatch.acquireExclusive();
-        try {
-            if (mMaxNodeCount == 0) {
-                // Closed.
-                return;
-            }
-            if (node.mMoreUsed != null || node.mLessUsed != null) {
-                throw new IllegalStateException();
-            }
-            (node.mMoreUsed = mLeastRecentlyUsed).mLessUsed = node;
-            mLeastRecentlyUsed = node;
-        } finally {
-            usageLatch.releaseExclusive();
-        }
-    }
-
-    /**
-     * Allow a Node which was allocated as evictable to be unevictable.
-     */
-    void makeUnevictable(final Node node) {
-        final Latch usageLatch = mUsageLatch;
-        usageLatch.acquireExclusive();
-        try {
-            if (mMaxNodeCount == 0) {
-                // Closed.
-                return;
-            }
-            final Node lessUsed = node.mLessUsed;
-            final Node moreUsed = node.mMoreUsed;
-            if (lessUsed == null) {
-                (mLeastRecentlyUsed = moreUsed).mLessUsed = null;
-            } else if (moreUsed == null) {
-                (mMostRecentlyUsed = lessUsed).mMoreUsed = null;
-            } else {
-                lessUsed.mMoreUsed = moreUsed;
-                moreUsed.mLessUsed = lessUsed;
-            }
-            node.mMoreUsed = null;
-            node.mLessUsed = null;
-        } finally {
-            usageLatch.releaseExclusive();
-        }
-    }
-
-    /**
-     * Caller must hold commit lock and any latch on node.
-     */
-    boolean shouldMarkDirty(Node node) {
-        return node.mCachedState != mCommitState && node.mId != Node.STUB_ID;
-    }
-
-    /**
-     * Caller must hold commit lock and exclusive latch on node. Method does
-     * nothing if node is already dirty. Latch is never released by this method,
-     * even if an exception is thrown.
-     *
-     * @return true if just made dirty and id changed
-     */
-    boolean markDirty(Tree tree, Node node) throws IOException {
-        if (node.mCachedState == mCommitState || node.mId == Node.STUB_ID) {
-            return false;
-        } else {
-            doMarkDirty(tree, node);
-            return true;
-        }
-    }
-
-    /**
-     * Caller must hold commit lock and exclusive latch on node. Method must
-     * not be called if node is already dirty. Latch is never released by this
-     * method, even if an exception is thrown.
-     */
-    void doMarkDirty(Tree tree, Node node) throws IOException {
-    }
-
-    /**
-     * Caller must hold commit lock and exclusive latch on node.
-     */
-    private void dirty(Node node, long newId) {
-        node.mId = newId;
-        node.mCachedState = mCommitState;
     }
 
     /**
@@ -441,13 +264,5 @@ public final class Database {
             }
             usageLatch.releaseExclusive();
         }
-    }
-
-    byte[] removeSpareBuffer() {
-        return new byte[mPageSize];
-    }
-
-    void addSpareBuffer(byte[] buffer) {
-        // FIXME: delete buffer
     }
 }

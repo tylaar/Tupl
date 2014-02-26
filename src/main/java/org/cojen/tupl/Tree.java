@@ -53,14 +53,7 @@ final class Tree implements Index {
     }
 
     @Override
-    public Cursor newCursor() {
-        return new TreeCursor(this);
-    }
-
-    /**
-     * @see Database#markDirty
-     */
-    boolean markDirty(Node node) throws IOException {
-        return mDatabase.markDirty(this, node);
+    public byte[] load(byte[] key) throws IOException {
+        return mRoot.search(this, key);
     }
 }

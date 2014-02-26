@@ -27,7 +27,18 @@ import java.io.IOException;
  */
 public interface View {
     /**
-     * @return a new unpositioned cursor
+     * Returns a copy of the value for the given key, or null if no matching
+     * entry exists.
+     *
+     * <p>If the entry must be locked, ownership of the key instance is
+     * transferred. The key must not be modified after calling this method.
+     *
+     * @param txn optional transaction; pass null for {@link
+     * LockMode#READ_COMMITTED READ_COMMITTED} locking behavior
+     * @param key non-null key
+     * @return copy of value, or null if entry doesn't exist
+     * @throws NullPointerException if key is null
+     * @throws IllegalArgumentException if transaction belongs to another database instance
      */
-    public Cursor newCursor();
+    public byte[] load(byte[] key) throws IOException;
 }
