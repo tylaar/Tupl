@@ -181,35 +181,47 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#applyCachePrimer(java.io.InputStream)">applyCachePrimer</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)</code>
+<div class="block">Prime the cache, from a set encoded <a href="../../../org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)"><code>earlier</code></a>.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#beginSnapshot()">beginSnapshot</a></strong>()</code>
 <div class="block">Support for capturing a snapshot (hot backup) of the database, while
  still allowing concurrent modifications.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#checkpoint()">checkpoint</a></strong>()</code>
 <div class="block">Durably sync and checkpoint all changes to the database.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#close()">close</a></strong>()</code>
 <div class="block">Closes the database, ensuring durability of committed transactions.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#close(java.lang.Throwable)">close</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Closes the database after an unexpected failure.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#compactFile(org.cojen.tupl.CompactionObserver, double)">compactFile</a></strong>(<a href="../../../org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a>&nbsp;observer,
            double&nbsp;target)</code>
 <div class="block">Compacts the database by shrinking the database file.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)">createCachePrimer</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)</code>
+<div class="block">Writes a cache priming set into the given stream, which can then be used later to <a href="../../../org/cojen/tupl/Database.html#applyCachePrimer(java.io.InputStream)"><code>prime</code></a> the cache.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -641,6 +653,34 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - snapshot source; does not require extra buffering; auto-closed</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="createCachePrimer(java.io.OutputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCachePrimer</h4>
+<pre>public&nbsp;void&nbsp;createCachePrimer(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)
+                       throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Writes a cache priming set into the given stream, which can then be used later to <a href="../../../org/cojen/tupl/Database.html#applyCachePrimer(java.io.InputStream)"><code>prime</code></a> the cache.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>out</code> - cache priming destination; buffering is recommended; not auto-closed</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/DatabaseConfig.html#cachePriming(boolean)"><code>DatabaseConfig.cachePriming(boolean)</code></a></dd></dl>
+</li>
+</ul>
+<a name="applyCachePrimer(java.io.InputStream)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>applyCachePrimer</h4>
+<pre>public&nbsp;void&nbsp;applyCachePrimer(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)
+                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Prime the cache, from a set encoded <a href="../../../org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)"><code>earlier</code></a>.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>in</code> - caching priming source; buffering is recommended; not auto-closed</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/DatabaseConfig.html#cachePriming(boolean)"><code>DatabaseConfig.cachePriming(boolean)</code></a></dd></dl>
 </li>
 </ul>
 <a name="stats()">

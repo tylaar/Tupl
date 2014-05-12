@@ -74,6 +74,10 @@
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#applyCachePrimer(java.io.InputStream)">applyCachePrimer(InputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Prime the cache, from a set encoded <a href="./org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)"><code>earlier</code></a>.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io"><span class="strong">AttributedFileFactory</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
 <dd>
 <div class="block">Applies file attributes to newly created files and directories.</div>
@@ -124,6 +128,11 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CacheExhaustedException.html#CacheExhaustedException()">CacheExhaustedException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/CacheExhaustedException.html" title="class in org.cojen.tupl">CacheExhaustedException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#cachePriming(boolean)">cachePriming(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Enable automatic cache priming, which writes a priming set into a special file when the
+ database is cleanly shutdown.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/EventType.html#category">category</a></span> - Variable in enum org.cojen.tupl.<a href="./org/cojen/tupl/EventType.html" title="enum in org.cojen.tupl">EventType</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><span class="strong">CauseCloseable</span></a> - Interface in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
@@ -298,6 +307,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CorruptDatabaseException.html#CorruptDatabaseException(java.lang.Throwable)">CorruptDatabaseException(Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/CorruptDatabaseException.html" title="class in org.cojen.tupl">CorruptDatabaseException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)">createCachePrimer(OutputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dd>
+<div class="block">Writes a cache priming set into the given stream, which can then be used later to <a href="./org/cojen/tupl/Database.html#applyCachePrimer(java.io.InputStream)"><code>prime</code></a> the cache.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#createDirectories(java.io.File)">createDirectories(File)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileFactory.html#createDirectories(java.io.File)">createDirectories(File)</a></span> - Method in interface org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a></dt>
@@ -513,7 +526,8 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)">encrypt(Crypto)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
-<div class="block">Enable full encryption of the data files, transaction logs, and snapshots.</div>
+<div class="block">Enable full encryption of the data files, transaction logs, snapshots, and cache priming
+ sets.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#encryptPage(long, int, byte[], int)">encryptPage(long, int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
