@@ -128,60 +128,66 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#cachedPages()">cachedPages</a></strong>()</code>
+<div class="block">Returns the current size of the cache, in pages.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#cursorCount()">cursorCount</a></strong>()</code>
 <div class="block">Returns the amount of cursors which are in a non-reset state.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#equals(java.lang.Object)">equals</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#freePages()">freePages</a></strong>()</code>
 <div class="block">Returns the amount of unused pages in the database.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#hashCode()">hashCode</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#lockCount()">lockCount</a></strong>()</code>
 <div class="block">Returns the amount of locks currently allocated.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#openIndexes()">openIndexes</a></strong>()</code>
 <div class="block">Returns the amount of indexes currently open.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#pageSize()">pageSize</a></strong>()</code>
 <div class="block">Returns the allocation page size.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#toString()">toString</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#totalPages()">totalPages</a></strong>()</code>
 <div class="block">Returns the total amount of pages in the database.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#transactionCount()">transactionCount</a></strong>()</code>
 <div class="block">Returns the amount of fully-established transactions which are in a non-reset
  state.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Database.Stats.html#transactionsCreated()">transactionsCreated</a></strong>()</code>
 <div class="block">Returns the total amount of fully-established transactions created over the life of
@@ -238,6 +244,16 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Serializabl
 <h4>totalPages</h4>
 <pre>public&nbsp;long&nbsp;totalPages()</pre>
 <div class="block">Returns the total amount of pages in the database.</div>
+</li>
+</ul>
+<a name="cachedPages()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cachedPages</h4>
+<pre>public&nbsp;long&nbsp;cachedPages()</pre>
+<div class="block">Returns the current size of the cache, in pages.</div>
 </li>
 </ul>
 <a name="openIndexes()">
