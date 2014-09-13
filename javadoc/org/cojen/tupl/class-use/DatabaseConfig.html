@@ -119,7 +119,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long, java.util.concurrent.TimeUnit)">checkpointDelayThreshold</a></strong>(long&nbsp;delay,
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long,%20java.util.concurrent.TimeUnit)">checkpointDelayThreshold</a></strong>(long&nbsp;delay,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the maximum delay before an automatic <a href="../../../../org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> is
  performed, regardless of the redo log size threshold.</div>
@@ -127,7 +127,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long, java.util.concurrent.TimeUnit)">checkpointRate</a></strong>(long&nbsp;rate,
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)">checkpointRate</a></strong>(long&nbsp;rate,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the rate at which <a href="../../../../org/cojen/tupl/Database.html#checkpoint()"><code>checkpoints</code></a> are
  automatically performed.</div>
@@ -199,7 +199,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the default lock acquisition timeout, which is 1 second if not
  overridden.</div>
@@ -251,6 +251,12 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#secondaryCacheSize(long)">secondaryCacheSize</a></strong>(long&nbsp;size)</code>
+<div class="block">Set the size of the secondary off-heap cache, which is empty by default.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites</a></strong>(boolean&nbsp;fileSync)</code>
 <div class="block">Set true to ensure all writes to the main database file are immediately
  durable, although not checkpointed.</div>
@@ -280,7 +286,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></code></td>
-<td class="colLast"><span class="strong">Database.</span><code><strong><a href="../../../../org/cojen/tupl/Database.html#restoreFromSnapshot(org.cojen.tupl.DatabaseConfig, java.io.InputStream)">restoreFromSnapshot</a></strong>(<a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;config,
+<td class="colLast"><span class="strong">Database.</span><code><strong><a href="../../../../org/cojen/tupl/Database.html#restoreFromSnapshot(org.cojen.tupl.DatabaseConfig,%20java.io.InputStream)">restoreFromSnapshot</a></strong>(<a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;config,
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)</code>
 <div class="block">Restore from a <a href="../../../../org/cojen/tupl/Database.html#beginSnapshot()"><code>snapshot</code></a>, into the data files defined by the given
  configuration.</div>

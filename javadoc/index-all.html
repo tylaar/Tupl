@@ -82,9 +82,9 @@
 <dd>
 <div class="block">Applies file attributes to newly created files and directories.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.lang.String, java.lang.String)">AttributedFileFactory(String, String)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.lang.String,%20java.lang.String)">AttributedFileFactory(String, String)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.nio.file.attribute.FileAttribute[], java.nio.file.attribute.FileAttribute[])">AttributedFileFactory(FileAttribute&lt;?&gt;[], FileAttribute&lt;?&gt;[])</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/AttributedFileFactory.html#AttributedFileFactory(java.nio.file.attribute.FileAttribute[],%20java.nio.file.attribute.FileAttribute[])">AttributedFileFactory(FileAttribute&lt;?&gt;[], FileAttribute&lt;?&gt;[])</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/AttributedFileFactory.html" title="class in org.cojen.tupl.io">AttributedFileFactory</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#autoload(boolean)">autoload(boolean)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -132,6 +132,14 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CacheExhaustedException.html#CacheExhaustedException()">CacheExhaustedException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/CacheExhaustedException.html" title="class in org.cojen.tupl">CacheExhaustedException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#cachePage(long,%20byte[])">cachePage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">If supported, copies a page into the cache, but does not write it.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#cachePage(long,%20byte[],%20int)">cachePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">If supported, copies a page into the cache, but does not write it.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#cachePriming(boolean)">cachePriming(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Enable automatic cache priming, which writes a priming set into a special file when the
@@ -151,7 +159,7 @@
 <dd>
 <div class="block">Durably sync and checkpoint all changes to the database.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long, java.util.concurrent.TimeUnit)">checkpointDelayThreshold(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long,%20java.util.concurrent.TimeUnit)">checkpointDelayThreshold(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the maximum delay before an automatic <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> is
  performed, regardless of the redo log size threshold.</div>
@@ -161,7 +169,7 @@
 <div class="block">Indicates that all data prior to the given log position has been durably
  checkpointed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointRate(long, java.util.concurrent.TimeUnit)">checkpointRate(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)">checkpointRate(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the rate at which <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoints</code></a> are
  automatically performed.</div>
@@ -211,7 +219,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#close(java.lang.Throwable)">close(Throwable)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#close(java.io.Closeable, java.lang.Throwable)">close(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#close(java.io.Closeable,%20java.lang.Throwable)">close(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Closes a resource, which may throw a new exception.</div>
 </dd>
@@ -227,15 +235,15 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ClosedIndexException.html#ClosedIndexException()">ClosedIndexException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl">ClosedIndexException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeOnFailure(java.io.Closeable, java.lang.Throwable)">closeOnFailure(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeOnFailure(java.io.Closeable,%20java.lang.Throwable)">closeOnFailure(Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Closes the given resource, passing the cause if the resource implements <a href="./org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><code>CauseCloseable</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable)">closeQuietly(IOException, Closeable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException,%20java.io.Closeable)">closeQuietly(IOException, Closeable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Closes a resource without throwing another exception.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable, java.lang.Throwable)">closeQuietly(IOException, Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException,%20java.io.Closeable,%20java.lang.Throwable)">closeQuietly(IOException, Closeable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Closes a resource without throwing another exception.</div>
 </dd>
@@ -247,7 +255,7 @@
 <dd>
 <div class="block">Commits and exits all transaction scopes.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#compactFile(org.cojen.tupl.CompactionObserver, double)">compactFile(CompactionObserver, double)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#compactFile(org.cojen.tupl.CompactionObserver,%20double)">compactFile(CompactionObserver, double)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Compacts the database by shrinking the database file.</div>
 </dd>
@@ -261,7 +269,7 @@
 <dd>
 <div class="block">Compare the current key to the one given.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[], int, int)">compareKeyTo(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[],%20int,%20int)">compareKeyTo(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Compare the current key to the one given.</div>
 </dd>
@@ -269,7 +277,7 @@
 <dd>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long, long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long,%20long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
@@ -283,7 +291,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationFailureException.html#ConfirmationFailureException(java.lang.Throwable)">ConfirmationFailureException(Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationFailureException.html#ConfirmationFailureException(java.lang.String, java.lang.Throwable)">ConfirmationFailureException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationFailureException.html#ConfirmationFailureException(java.lang.String,%20java.lang.Throwable)">ConfirmationFailureException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/ConfirmationInterruptedException.html" title="class in org.cojen.tupl"><span class="strong">ConfirmationInterruptedException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -382,7 +390,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.Throwable)">DatabaseException(Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseException.html" title="class in org.cojen.tupl">DatabaseException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.String, java.lang.Throwable)">DatabaseException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseException.html" title="class in org.cojen.tupl">DatabaseException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseException.html#DatabaseException(java.lang.String,%20java.lang.Throwable)">DatabaseException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseException.html" title="class in org.cojen.tupl">DatabaseException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/DatabaseFullException.html" title="class in org.cojen.tupl"><span class="strong">DatabaseFullException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -413,58 +421,62 @@
 <dd>
 <div class="block">Set of lock requests which were in a deadlock.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeIntBE(byte[], int)">decodeIntBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeIntBE(byte[],%20int)">decodeIntBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 32-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeIntLE(byte[], int)">decodeIntLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeIntLE(byte[],%20int)">decodeIntLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 32-bit integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeLongBE(byte[], int)">decodeLongBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeLongBE(byte[],%20int)">decodeLongBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 64-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeLongLE(byte[], int)">decodeLongLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeLongLE(byte[],%20int)">decodeLongLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 64-bit integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedInt48BE(byte[], int)">decodeUnsignedInt48BE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedInt48BE(byte[],%20int)">decodeUnsignedInt48BE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 48-bit unsigned integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedInt48LE(byte[], int)">decodeUnsignedInt48LE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedInt48LE(byte[],%20int)">decodeUnsignedInt48LE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 48-bit unsigned integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedShortBE(byte[], int)">decodeUnsignedShortBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedShortBE(byte[],%20int)">decodeUnsignedShortBE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 16-bit unsigned integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedShortLE(byte[], int)">decodeUnsignedShortLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#decodeUnsignedShortLE(byte[],%20int)">decodeUnsignedShortLE(byte[], int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Decodes a 16-bit unsigned integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#decryptPage(long, int, byte[], int)">decryptPage(long, int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#decryptPage(long,%20int,%20byte[],%20int)">decryptPage(long, int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#decryptPage(long, int, byte[], int, byte[], int)">decryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#decryptPage(long,%20int,%20byte[],%20int,%20byte[],%20int)">decryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#decryptPage(long, int, byte[], int)">decryptPage(long, int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#decryptPage(long,%20int,%20byte[],%20int)">decryptPage(long, int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called by multiple threads to decrypt a fixed-size database
  page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#decryptPage(long, int, byte[], int, byte[], int)">decryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#decryptPage(long,%20int,%20byte[],%20int,%20byte[],%20int)">decryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called by multiple threads to decrypt a fixed-size database
  page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#delete(org.cojen.tupl.Transaction, byte[])">delete(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Unconditionally removes the entry associated with the given
  key.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#delete(org.cojen.tupl.Transaction, byte[])">delete(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#delete(java.nio.Buffer)">delete(Buffer)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dd>
+<div class="block">Attempt to delete the given direct or mapped byte buffer.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Unconditionally removes the entry associated with the given
  key.</div>
@@ -497,35 +509,35 @@
 </a>
 <h2 class="title">E</h2>
 <dl>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeInt48BE(byte[], int, long)">encodeInt48BE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeInt48BE(byte[],%20int,%20long)">encodeInt48BE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 48-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeInt48LE(byte[], int, long)">encodeInt48LE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeInt48LE(byte[],%20int,%20long)">encodeInt48LE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 48-bit integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeIntBE(byte[], int, int)">encodeIntBE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeIntBE(byte[],%20int,%20int)">encodeIntBE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 32-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeIntLE(byte[], int, int)">encodeIntLE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeIntLE(byte[],%20int,%20int)">encodeIntLE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 32-bit integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeLongBE(byte[], int, long)">encodeLongBE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeLongBE(byte[],%20int,%20long)">encodeLongBE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 64-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeLongLE(byte[], int, long)">encodeLongLE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeLongLE(byte[],%20int,%20long)">encodeLongLE(byte[], int, long)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 64-bit integer, in little-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeShortBE(byte[], int, int)">encodeShortBE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeShortBE(byte[],%20int,%20int)">encodeShortBE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 16-bit integer, in big-endian format.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeShortLE(byte[], int, int)">encodeShortLE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#encodeShortLE(byte[],%20int,%20int)">encodeShortLE(byte[], int, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Encodes a 16-bit integer, in little-endian format.</div>
 </dd>
@@ -539,16 +551,16 @@
 <div class="block">Enable full encryption of the data files, transaction logs, snapshots, and cache priming
  sets.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#encryptPage(long, int, byte[], int)">encryptPage(long, int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#encryptPage(long,%20int,%20byte[],%20int)">encryptPage(long, int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#encryptPage(long, int, byte[], int, byte[], int)">encryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#encryptPage(long,%20int,%20byte[],%20int,%20byte[],%20int)">encryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#encryptPage(long, int, byte[], int)">encryptPage(long, int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#encryptPage(long,%20int,%20byte[],%20int)">encryptPage(long, int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called by multiple threads to encrypt a fixed-size database
  page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#encryptPage(long, int, byte[], int, byte[], int)">encryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#encryptPage(long,%20int,%20byte[],%20int,%20byte[],%20int)">encryptPage(long, int, byte[], int, byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called by multiple threads to encrypt a fixed-size database
  page.</div>
@@ -589,11 +601,11 @@
 <dd>
 <div class="block">Event type category.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#exchange(org.cojen.tupl.Transaction, byte[], byte[])">exchange(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#exchange(org.cojen.tupl.Transaction,%20byte[],%20byte[])">exchange(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Unconditionally associates a value with the given key, returning the previous value.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#exchange(org.cojen.tupl.Transaction, byte[], byte[])">exchange(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#exchange(org.cojen.tupl.Transaction,%20byte[],%20byte[])">exchange(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Unconditionally associates a value with the given key, returning the previous value.</div>
 </dd>
@@ -627,9 +639,9 @@
 <dd>
 <div class="block">Basic <a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io"><code>PageArray</code></a> implementation which accesses a file.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, java.util.EnumSet)">FilePageArray(int, File, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int,%20java.io.File,%20java.util.EnumSet)">FilePageArray(int, File, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int, java.io.File, org.cojen.tupl.io.FileFactory, java.util.EnumSet)">FilePageArray(int, File, FileFactory, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int,%20java.io.File,%20org.cojen.tupl.io.FileFactory,%20java.util.EnumSet)">FilePageArray(int, File, FileFactory, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#find(byte[])">find(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -785,7 +797,7 @@
 <dd>
 <div class="block">Called before full index compaction begins.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index, int)">indexBegin(Index, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index,%20int)">indexBegin(Index, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called before full index verification begins.</div>
 </dd>
@@ -801,15 +813,15 @@
 <dd>
 <div class="block">Called after index compaction has finished.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexComplete(org.cojen.tupl.Index, boolean, java.lang.String)">indexComplete(Index, boolean, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexComplete(org.cojen.tupl.Index,%20boolean,%20java.lang.String)">indexComplete(Index, boolean, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after index verification has finished.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long, int, java.lang.String)">indexNodeFailed(long, int, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)">indexNodeFailed(long, int, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after an index node fails verification.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodePassed(long, int, int, int, int)">indexNodePassed(long, int, int, int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#indexNodePassed(long,%20int,%20int,%20int,%20int)">indexNodePassed(long, int, int, int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Called after an index node passes verification.</div>
 </dd>
@@ -827,22 +839,22 @@
 <div class="block">Returns an <a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a> View which maps all available
  index names to identifiers.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#initCipher(javax.crypto.Cipher, int, javax.crypto.SecretKey)">initCipher(Cipher, int, SecretKey)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#initCipher(javax.crypto.Cipher,%20int,%20javax.crypto.SecretKey)">initCipher(Cipher, int, SecretKey)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>
 <div class="block">Called to initialize a new or re-used <a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html?is-external=true" title="class or interface in javax.crypto"><code>Cipher</code></a>, generating a random initialization
  vector.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#initCipher(javax.crypto.Cipher, int, javax.crypto.SecretKey, javax.crypto.spec.IvParameterSpec)">initCipher(Cipher, int, SecretKey, IvParameterSpec)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#initCipher(javax.crypto.Cipher,%20int,%20javax.crypto.SecretKey,%20javax.crypto.spec.IvParameterSpec)">initCipher(Cipher, int, SecretKey, IvParameterSpec)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>
 <div class="block">Called to initialize a new or re-used <a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html?is-external=true" title="class or interface in javax.crypto"><code>Cipher</code></a>, using the given initialization
  vector.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#insert(org.cojen.tupl.Transaction, byte[], byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, unless a corresponding value
  already exists.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#insert(org.cojen.tupl.Transaction, byte[], byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, unless a corresponding value
  already exists.</div>
@@ -914,7 +926,7 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#LargeValueException(long)">LargeValueException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#LargeValueException(long, java.lang.Throwable)">LargeValueException(long, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#LargeValueException(long,%20java.lang.Throwable)">LargeValueException(long, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#last()">last()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -937,12 +949,12 @@
 <dd>
 <div class="block">Loads or reloads the value at the cursor's current position.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#load(org.cojen.tupl.Transaction, byte[])">load(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#load(org.cojen.tupl.Transaction,%20byte[])">load(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#load(org.cojen.tupl.Transaction, byte[])">load(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#load(org.cojen.tupl.Transaction,%20byte[])">load(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
@@ -951,7 +963,7 @@
 <dd>
 <div class="block">Returns the amount of locks currently allocated.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockExclusive(long, byte[])">lockExclusive(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockExclusive(long,%20byte[])">lockExclusive(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
  additional locks.</div>
@@ -966,7 +978,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockFailureException.html#LockFailureException(java.lang.Throwable)">LockFailureException(Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl">LockFailureException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LockFailureException.html#LockFailureException(java.lang.String, java.lang.Throwable)">LockFailureException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl">LockFailureException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/LockFailureException.html#LockFailureException(java.lang.String,%20java.lang.Throwable)">LockFailureException(String, Throwable)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl">LockFailureException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/LockInterruptedException.html" title="class in org.cojen.tupl"><span class="strong">LockInterruptedException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -991,17 +1003,17 @@
 <dd>
 <div class="block">Result code returned by transactional operations which acquire locks.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockShared(long, byte[])">lockShared(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockShared(long,%20byte[])">lockShared(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
  locks.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the default lock acquisition timeout, which is 1 second if not
  overridden.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Sets the lock timeout for the current scope.</div>
 </dd>
@@ -1015,7 +1027,7 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#LockTimeoutException(long)">LockTimeoutException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[])">lockUpgradable(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockUpgradable(long,%20byte[])">lockUpgradable(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
  exclusive and additional upgradable locks.</div>
@@ -1073,15 +1085,15 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#newCursor(org.cojen.tupl.Transaction)">newCursor(Transaction)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#newCursor(org.cojen.tupl.Transaction)">newCursor(Transaction)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#newDecryptingStream(long, java.io.InputStream)">newDecryptingStream(long, InputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#newDecryptingStream(long,%20java.io.InputStream)">newDecryptingStream(long, InputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#newDecryptingStream(long, java.io.InputStream)">newDecryptingStream(long, InputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#newDecryptingStream(long,%20java.io.InputStream)">newDecryptingStream(long, InputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called to wrap an InputStream for supporting decryption.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#newEncryptingStream(long, java.io.OutputStream)">newEncryptingStream(long, OutputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#newEncryptingStream(long,%20java.io.OutputStream)">newEncryptingStream(long, OutputStream)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#newEncryptingStream(long, java.io.OutputStream)">newEncryptingStream(long, OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Crypto.html#newEncryptingStream(long,%20java.io.OutputStream)">newEncryptingStream(long, OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a></dt>
 <dd>
 <div class="block">Called to wrap an OutputStream for supporting encryption.</div>
 </dd>
@@ -1135,19 +1147,19 @@
 <dd>
 <div class="block">Empty marker which indicates that value exists but has not been <a href="./org/cojen/tupl/Cursor.html#load()"><code>loaded</code></a>.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/EventListener.html#notify(org.cojen.tupl.EventType, java.lang.String, java.lang.Object...)">notify(EventType, String, Object...)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/EventListener.html#notify(org.cojen.tupl.EventType,%20java.lang.String,%20java.lang.Object...)">notify(EventType, String, Object...)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/EventPrinter.html#notify(org.cojen.tupl.EventType, java.lang.String, java.lang.Object...)">notify(EventType, String, Object...)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/EventPrinter.html" title="class in org.cojen.tupl">EventPrinter</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/EventPrinter.html#notify(org.cojen.tupl.EventType,%20java.lang.String,%20java.lang.Object...)">notify(EventType, String, Object...)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/EventPrinter.html" title="class in org.cojen.tupl">EventPrinter</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyDrop(org.cojen.tupl.Index)">notifyDrop(Index)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Notification to replica after an index is dropped.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index, byte[], byte[])">notifyRename(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyRename(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Notification to replica after an index is renamed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index, byte[], byte[])">notifyStore(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyStore(Index, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Notification to replica when an entry is stored into an index.</div>
 </dd>
@@ -1161,9 +1173,9 @@
 <dd>
 <div class="block">Open a database, creating it if necessary.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File, java.util.EnumSet)">open(File, EnumSet&lt;OpenOption&gt;)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File,%20java.util.EnumSet)">open(File, EnumSet&lt;OpenOption&gt;)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File, java.util.EnumSet, int)">open(File, EnumSet&lt;OpenOption&gt;, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#open(java.io.File,%20java.util.EnumSet,%20int)">open(File, EnumSet&lt;OpenOption&gt;, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#openIndex(byte[])">openIndex(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
@@ -1245,32 +1257,32 @@
 </a>
 <h2 class="title">R</h2>
 <dl>
-<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#random(byte[], byte[])">random(byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#random(byte[],%20byte[])">random(byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#read(long, byte[], int, int)">read(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#read(long,%20byte[],%20int,%20int)">read(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#read(byte[],%20int,%20int)">read(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long, byte[])">readPage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[])">readPage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPage(long, byte[], int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>
 <div class="block">Subclass should override to improve performance.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPartial(long, int, byte[], int, int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
@@ -1285,30 +1297,30 @@
 <dd>
 <div class="block">If file is mapped, remaps it if the file length has changed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Removes the entry associated with the given key, but only if the given
  value matches.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Removes the entry associated with the given key, but only if the given
  value matches.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index, byte[])">renameIndex(Index, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index,%20byte[])">renameIndex(Index, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Renames the given index to the one given.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index, java.lang.String)">renameIndex(Index, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index,%20java.lang.String)">renameIndex(Index, String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Renames the given index to the one given.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#replace(org.cojen.tupl.Transaction, byte[], byte[])">replace(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#replace(org.cojen.tupl.Transaction,%20byte[],%20byte[])">replace(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, but only if a corresponding value
  already exists.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#replace(org.cojen.tupl.Transaction, byte[], byte[])">replace(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#replace(org.cojen.tupl.Transaction,%20byte[],%20byte[])">replace(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, but only if a corresponding value
  already exists.</div>
@@ -1323,7 +1335,7 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#reportFailure(java.lang.String)">reportFailure(String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
-<div class="block">Invoked by default implementation of <a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long, int, java.lang.String)"><code>indexNodeFailed</code></a>.</div>
+<div class="block">Invoked by default implementation of <a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)"><code>indexNodeFailed</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#reset()">reset()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -1334,7 +1346,7 @@
 <div class="block">Exits all transaction scopes, rolling back all uncommitted
  modifications.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#restoreFromSnapshot(org.cojen.tupl.DatabaseConfig, java.io.InputStream)">restoreFromSnapshot(DatabaseConfig, InputStream)</a></span> - Static method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#restoreFromSnapshot(org.cojen.tupl.DatabaseConfig,%20java.io.InputStream)">restoreFromSnapshot(DatabaseConfig, InputStream)</a></span> - Static method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Restore from a <a href="./org/cojen/tupl/Database.html#beginSnapshot()"><code>snapshot</code></a>, into the data files defined by the given
  configuration.</div>
@@ -1348,7 +1360,7 @@
 <div class="block">Rethrows the given exception without the compiler complaining about it being checked or
  not.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable, java.lang.Throwable)">rethrow(Throwable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable,%20java.lang.Throwable)">rethrow(Throwable, Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Rethrows the given exception without the compiler complaining about it being checked or
  not.</div>
@@ -1365,6 +1377,10 @@
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#secondaryCacheSize(long)">secondaryCacheSize(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Set the size of the secondary off-heap cache, which is empty by default.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#secretKey()">secretKey()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#setLength(long)">setLength(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
@@ -1406,11 +1422,11 @@
 <div class="block">Stores a value into the current entry, leaving the position
  unchanged.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#store(org.cojen.tupl.Transaction, byte[], byte[])">store(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Unconditionally associates a value with the given key.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction, byte[], byte[])">store(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Unconditionally associates a value with the given key.</div>
 </dd>
@@ -1451,7 +1467,7 @@
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long,%20long)">syncConfirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
@@ -1511,6 +1527,10 @@
 </a>
 <h2 class="title">U</h2>
 <dl>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#uncachePage(long)">uncachePage(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dd>
+<div class="block">If supported, removes a page from the cache.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/Utils.html#uncaught(java.lang.Throwable)">uncaught(Throwable)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/Utils.html" title="class in org.cojen.tupl.io">Utils</a></dt>
 <dd>
 <div class="block">Convenience method to pass the given exception to the current thread's uncaught
@@ -1533,12 +1553,12 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/UnmodifiableViewException.html#UnmodifiableViewException()">UnmodifiableViewException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl">UnmodifiableViewException</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#update(org.cojen.tupl.Transaction, byte[], byte[], byte[])">update(Transaction, byte[], byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update(Transaction, byte[], byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, but only if the given old value
  matches.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#update(org.cojen.tupl.Transaction, byte[], byte[], byte[])">update(Transaction, byte[], byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update(Transaction, byte[], byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, but only if the given old value
  matches.</div>
@@ -1698,11 +1718,11 @@ the order they are declared.</div>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than the
  given key.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewPrefix(byte[], int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewPrefix(byte[],%20int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewPrefix(byte[],%20int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </dd>
@@ -1728,27 +1748,27 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long, byte[], int, int)">write(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long,%20byte[],%20int,%20int)">write(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writeCommit(byte[], int, int)">writeCommit(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writeCommit(byte[],%20int,%20int)">writeCommit(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
 <div class="block">Fully writes and commits the given data, defining a confirmation position.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePage(long,%20byte[],%20int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long, byte[])">writePage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long,%20byte[])">writePage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>
 <div class="block">Writes a page, which is lazily flushed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#writePage(long,%20byte[],%20int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>
 <div class="block">Writes a page, which is lazily flushed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePage(long, byte[], int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePage(long,%20byte[],%20int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>

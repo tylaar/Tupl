@@ -222,14 +222,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockCheck(long, byte[])">lockCheck</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockCheck(long,%20byte[])">lockCheck</a></strong>(long&nbsp;indexId,
          byte[]&nbsp;key)</code>
 <div class="block">Checks the lock ownership for the given key.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long, byte[])">lockExclusive</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long,%20byte[])">lockExclusive</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
  additional locks.</div>
@@ -237,7 +237,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long, byte[], long)">lockExclusive</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockExclusive(long,%20byte[],%20long)">lockExclusive</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key,
              long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
@@ -258,7 +258,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long, byte[])">lockShared</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long,%20byte[])">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
  locks.</div>
@@ -266,7 +266,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long, byte[], long)">lockShared</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockShared(long,%20byte[],%20long)">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key,
           long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
@@ -275,7 +275,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Sets the lock timeout for the current scope.</div>
 </td>
@@ -288,7 +288,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[])">lockUpgradable</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long,%20byte[])">lockUpgradable</a></strong>(long&nbsp;indexId,
               byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
  exclusive and additional upgradable locks.</div>
@@ -296,7 +296,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[], long)">lockUpgradable</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#lockUpgradable(long,%20byte[],%20long)">lockUpgradable</a></strong>(long&nbsp;indexId,
               byte[]&nbsp;key,
               long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
@@ -316,7 +316,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockExclusive(long, byte[], long)">tryLockExclusive</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockExclusive(long,%20byte[],%20long)">tryLockExclusive</a></strong>(long&nbsp;indexId,
                 byte[]&nbsp;key,
                 long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
@@ -325,7 +325,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockShared(long, byte[], long)">tryLockShared</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockShared(long,%20byte[],%20long)">tryLockShared</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key,
              long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
@@ -334,7 +334,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockUpgradable(long, byte[], long)">tryLockUpgradable</a></strong>(long&nbsp;indexId,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#tryLockUpgradable(long,%20byte[],%20long)">tryLockUpgradable</a></strong>(long&nbsp;indexId,
                  byte[]&nbsp;key,
                  long&nbsp;nanosTimeout)</code>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
@@ -367,7 +367,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>

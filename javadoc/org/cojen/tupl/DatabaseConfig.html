@@ -164,7 +164,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long, java.util.concurrent.TimeUnit)">checkpointDelayThreshold</a></strong>(long&nbsp;delay,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long,%20java.util.concurrent.TimeUnit)">checkpointDelayThreshold</a></strong>(long&nbsp;delay,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the maximum delay before an automatic <a href="../../../org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> is
  performed, regardless of the redo log size threshold.</div>
@@ -172,7 +172,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long, java.util.concurrent.TimeUnit)">checkpointRate</a></strong>(long&nbsp;rate,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)">checkpointRate</a></strong>(long&nbsp;rate,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the rate at which <a href="../../../org/cojen/tupl/Database.html#checkpoint()"><code>checkpoints</code></a> are
  automatically performed.</div>
@@ -244,7 +244,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long, java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
 <div class="block">Set the default lock acquisition timeout, which is 1 second if not
  overridden.</div>
@@ -296,6 +296,12 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#secondaryCacheSize(long)">secondaryCacheSize</a></strong>(long&nbsp;size)</code>
+<div class="block">Set the size of the secondary off-heap cache, which is empty by default.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites</a></strong>(boolean&nbsp;fileSync)</code>
 <div class="block">Set true to ensure all writes to the main database file are immediately
  durable, although not checkpointed.</div>
@@ -307,7 +313,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -451,6 +457,20 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;maxCacheSize(long&nbsp;maxBytes)</pre>
 <div class="block">Set the maximum cache size, overriding the default.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>maxBytes</code> - cache size, in bytes</dd></dl>
+</li>
+</ul>
+<a name="secondaryCacheSize(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>secondaryCacheSize</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;secondaryCacheSize(long&nbsp;size)</pre>
+<div class="block">Set the size of the secondary off-heap cache, which is empty by default. A secondary
+ cache is slower than a primary cache, but a very large primary cache can cause high
+ garbage collection overhead. The -XX:MaxDirectMemorySize Java option might be required
+ when specifying a secondary cache.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>size</code> - secondary cache size, in bytes</dd></dl>
 </li>
 </ul>
 <a name="durabilityMode(org.cojen.tupl.DurabilityMode)">

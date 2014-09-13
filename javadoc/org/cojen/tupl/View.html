@@ -117,7 +117,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#delete(org.cojen.tupl.Transaction, byte[])">delete</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key)</code>
 <div class="block">Unconditionally removes the entry associated with the given
  key.</div>
@@ -125,7 +125,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#exchange(org.cojen.tupl.Transaction, byte[], byte[])">exchange</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#exchange(org.cojen.tupl.Transaction,%20byte[],%20byte[])">exchange</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
         byte[]&nbsp;key,
         byte[]&nbsp;value)</code>
 <div class="block">Unconditionally associates a value with the given key, returning the previous value.</div>
@@ -139,7 +139,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#insert(org.cojen.tupl.Transaction, byte[], byte[])">insert</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
       byte[]&nbsp;value)</code>
 <div class="block">Associates a value with the given key, unless a corresponding value
@@ -154,7 +154,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#load(org.cojen.tupl.Transaction, byte[])">load</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#load(org.cojen.tupl.Transaction,%20byte[])">load</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
     byte[]&nbsp;key)</code>
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
@@ -172,7 +172,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#remove(org.cojen.tupl.Transaction, byte[], byte[])">remove</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
       byte[]&nbsp;value)</code>
 <div class="block">Removes the entry associated with the given key, but only if the given
@@ -181,7 +181,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#replace(org.cojen.tupl.Transaction, byte[], byte[])">replace</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#replace(org.cojen.tupl.Transaction,%20byte[],%20byte[])">replace</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
        byte[]&nbsp;key,
        byte[]&nbsp;value)</code>
 <div class="block">Associates a value with the given key, but only if a corresponding value
@@ -190,7 +190,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction, byte[], byte[])">store</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
      byte[]&nbsp;key,
      byte[]&nbsp;value)</code>
 <div class="block">Unconditionally associates a value with the given key.</div>
@@ -198,7 +198,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#update(org.cojen.tupl.Transaction, byte[], byte[], byte[])">update</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update</a></strong>(<a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
       byte[]&nbsp;oldValue,
       byte[]&nbsp;newValue)</code>
@@ -236,7 +236,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewPrefix(byte[], int)">viewPrefix</a></strong>(byte[]&nbsp;prefix,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewPrefix(byte[],%20int)">viewPrefix</a></strong>(byte[]&nbsp;prefix,
           int&nbsp;trim)</code>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </td>

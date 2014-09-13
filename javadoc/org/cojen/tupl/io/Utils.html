@@ -139,28 +139,28 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#close(java.io.Closeable, java.lang.Throwable)">close</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#close(java.io.Closeable,%20java.lang.Throwable)">close</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource,
      <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Closes a resource, which may throw a new exception.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeOnFailure(java.io.Closeable, java.lang.Throwable)">closeOnFailure</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeOnFailure(java.io.Closeable,%20java.lang.Throwable)">closeOnFailure</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Closes the given resource, passing the cause if the resource implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="interface in org.cojen.tupl.io"><code>CauseCloseable</code></a>.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable)">closeQuietly</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>&nbsp;first,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException,%20java.io.Closeable)">closeQuietly</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>&nbsp;first,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource)</code>
 <div class="block">Closes a resource without throwing another exception.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException, java.io.Closeable, java.lang.Throwable)">closeQuietly</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>&nbsp;first,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#closeQuietly(java.io.IOException,%20java.io.Closeable,%20java.lang.Throwable)">closeQuietly</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a>&nbsp;first,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a>&nbsp;resource,
             <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Closes a resource without throwing another exception.</div>
@@ -168,146 +168,152 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeIntBE(byte[], int)">decodeIntBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeIntBE(byte[],%20int)">decodeIntBE</a></strong>(byte[]&nbsp;b,
            int&nbsp;offset)</code>
 <div class="block">Decodes a 32-bit integer, in big-endian format.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeIntLE(byte[], int)">decodeIntLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeIntLE(byte[],%20int)">decodeIntLE</a></strong>(byte[]&nbsp;b,
            int&nbsp;offset)</code>
 <div class="block">Decodes a 32-bit integer, in little-endian format.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeLongBE(byte[], int)">decodeLongBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeLongBE(byte[],%20int)">decodeLongBE</a></strong>(byte[]&nbsp;b,
             int&nbsp;offset)</code>
 <div class="block">Decodes a 64-bit integer, in big-endian format.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeLongLE(byte[], int)">decodeLongLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeLongLE(byte[],%20int)">decodeLongLE</a></strong>(byte[]&nbsp;b,
             int&nbsp;offset)</code>
 <div class="block">Decodes a 64-bit integer, in little-endian format.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedInt48BE(byte[], int)">decodeUnsignedInt48BE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedInt48BE(byte[],%20int)">decodeUnsignedInt48BE</a></strong>(byte[]&nbsp;b,
                      int&nbsp;offset)</code>
 <div class="block">Decodes a 48-bit unsigned integer, in big-endian format.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedInt48LE(byte[], int)">decodeUnsignedInt48LE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedInt48LE(byte[],%20int)">decodeUnsignedInt48LE</a></strong>(byte[]&nbsp;b,
                      int&nbsp;offset)</code>
 <div class="block">Decodes a 48-bit unsigned integer, in little-endian format.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedShortBE(byte[], int)">decodeUnsignedShortBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedShortBE(byte[],%20int)">decodeUnsignedShortBE</a></strong>(byte[]&nbsp;b,
                      int&nbsp;offset)</code>
 <div class="block">Decodes a 16-bit unsigned integer, in big-endian format.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>static int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedShortLE(byte[], int)">decodeUnsignedShortLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#decodeUnsignedShortLE(byte[],%20int)">decodeUnsignedShortLE</a></strong>(byte[]&nbsp;b,
                      int&nbsp;offset)</code>
 <div class="block">Decodes a 16-bit unsigned integer, in little-endian format.</div>
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>static boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#delete(java.nio.Buffer)">delete</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/Buffer.html?is-external=true" title="class or interface in java.nio">Buffer</a>&nbsp;bb)</code>
+<div class="block">Attempt to delete the given direct or mapped byte buffer.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeInt48BE(byte[], int, long)">encodeInt48BE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeInt48BE(byte[],%20int,%20long)">encodeInt48BE</a></strong>(byte[]&nbsp;b,
              int&nbsp;offset,
              long&nbsp;v)</code>
 <div class="block">Encodes a 48-bit integer, in big-endian format.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeInt48LE(byte[], int, long)">encodeInt48LE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeInt48LE(byte[],%20int,%20long)">encodeInt48LE</a></strong>(byte[]&nbsp;b,
              int&nbsp;offset,
              long&nbsp;v)</code>
 <div class="block">Encodes a 48-bit integer, in little-endian format.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeIntBE(byte[], int, int)">encodeIntBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeIntBE(byte[],%20int,%20int)">encodeIntBE</a></strong>(byte[]&nbsp;b,
            int&nbsp;offset,
            int&nbsp;v)</code>
 <div class="block">Encodes a 32-bit integer, in big-endian format.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeIntLE(byte[], int, int)">encodeIntLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeIntLE(byte[],%20int,%20int)">encodeIntLE</a></strong>(byte[]&nbsp;b,
            int&nbsp;offset,
            int&nbsp;v)</code>
 <div class="block">Encodes a 32-bit integer, in little-endian format.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeLongBE(byte[], int, long)">encodeLongBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeLongBE(byte[],%20int,%20long)">encodeLongBE</a></strong>(byte[]&nbsp;b,
             int&nbsp;offset,
             long&nbsp;v)</code>
 <div class="block">Encodes a 64-bit integer, in big-endian format.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeLongLE(byte[], int, long)">encodeLongLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeLongLE(byte[],%20int,%20long)">encodeLongLE</a></strong>(byte[]&nbsp;b,
             int&nbsp;offset,
             long&nbsp;v)</code>
 <div class="block">Encodes a 64-bit integer, in little-endian format.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeShortBE(byte[], int, int)">encodeShortBE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeShortBE(byte[],%20int,%20int)">encodeShortBE</a></strong>(byte[]&nbsp;b,
              int&nbsp;offset,
              int&nbsp;v)</code>
 <div class="block">Encodes a 16-bit integer, in big-endian format.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeShortLE(byte[], int, int)">encodeShortLE</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#encodeShortLE(byte[],%20int,%20int)">encodeShortLE</a></strong>(byte[]&nbsp;b,
              int&nbsp;offset,
              int&nbsp;v)</code>
 <div class="block">Encodes a 16-bit integer, in little-endian format.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang">RuntimeException</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable)">rethrow</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)</code>
 <div class="block">Rethrows the given exception without the compiler complaining about it being checked or
  not.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/RuntimeException.html?is-external=true" title="class or interface in java.lang">RuntimeException</a></code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable, java.lang.Throwable)">rethrow</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#rethrow(java.lang.Throwable,%20java.lang.Throwable)">rethrow</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e,
        <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;cause)</code>
 <div class="block">Rethrows the given exception without the compiler complaining about it being checked or
  not.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a></code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#rootCause(java.lang.Throwable)">rootCause</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)</code>
 <div class="block">Returns the root cause of the given exception.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/Utils.html#uncaught(java.lang.Throwable)">uncaught</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html?is-external=true" title="class or interface in java.lang">Throwable</a>&nbsp;e)</code>
 <div class="block">Convenience method to pass the given exception to the current thread's uncaught
@@ -320,7 +326,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -559,6 +565,16 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <div class="block">Decodes a 64-bit integer, in little-endian format.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>b</code> - decode source</dd><dd><code>offset</code> - offset into byte array</dd>
 <dt><span class="strong">Returns:</span></dt><dd>decoded value</dd></dl>
+</li>
+</ul>
+<a name="delete(java.nio.Buffer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>delete</h4>
+<pre>public static&nbsp;boolean&nbsp;delete(<a href="http://docs.oracle.com/javase/7/docs/api/java/nio/Buffer.html?is-external=true" title="class or interface in java.nio">Buffer</a>&nbsp;bb)</pre>
+<div class="block">Attempt to delete the given direct or mapped byte buffer.</div>
 </li>
 </ul>
 <a name="closeOnFailure(java.io.Closeable, java.lang.Throwable)">

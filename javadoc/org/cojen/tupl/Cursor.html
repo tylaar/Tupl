@@ -100,7 +100,7 @@
  <a href="../../../org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl"><code>LockTimeoutException</code></a> is thrown when a lock cannot be acquired in
  time. When cursor is <a href="../../../org/cojen/tupl/Cursor.html#link(org.cojen.tupl.Transaction)"><code>linked</code></a> to a transaction, it defines the
  locking behavior and timeout. Otherwise, a lock is always acquired, with the
- <a href="../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long, java.util.concurrent.TimeUnit)"><code>default</code></a> timeout.
+ <a href="../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)"><code>default</code></a> timeout.
 
  <p>If a <a href="../../../org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl"><code>LockFailureException</code></a> is thrown from any method, the Cursor
  is positioned at the desired key, but the value is <a href="../../../org/cojen/tupl/Cursor.html#NOT_LOADED"><code>NOT_LOADED</code></a>.</div>
@@ -160,7 +160,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Cursor.html#compareKeyTo(byte[], int, int)">compareKeyTo</a></strong>(byte[]&nbsp;rkey,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Cursor.html#compareKeyTo(byte[],%20int,%20int)">compareKeyTo</a></strong>(byte[]&nbsp;rkey,
             int&nbsp;offset,
             int&nbsp;length)</code>
 <div class="block">Compare the current key to the one given.</div>
@@ -300,7 +300,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Cursor.html#random(byte[], byte[])">random</a></strong>(byte[]&nbsp;lowKey,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Cursor.html#random(byte[],%20byte[])">random</a></strong>(byte[]&nbsp;lowKey,
       byte[]&nbsp;highKey)</code>
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>

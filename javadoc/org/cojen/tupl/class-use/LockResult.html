@@ -157,7 +157,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockExclusive(long, byte[])">lockExclusive</a></strong>(long&nbsp;indexId,
+<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockExclusive(long,%20byte[])">lockExclusive</a></strong>(long&nbsp;indexId,
              byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
  additional locks.</div>
@@ -165,7 +165,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockShared(long, byte[])">lockShared</a></strong>(long&nbsp;indexId,
+<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockShared(long,%20byte[])">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
  locks.</div>
@@ -173,7 +173,7 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockUpgradable(long, byte[])">lockUpgradable</a></strong>(long&nbsp;indexId,
+<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockUpgradable(long,%20byte[])">lockUpgradable</a></strong>(long&nbsp;indexId,
               byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
  exclusive and additional upgradable locks.</div>
@@ -221,7 +221,7 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
-<td class="colLast"><span class="strong">Cursor.</span><code><strong><a href="../../../../org/cojen/tupl/Cursor.html#random(byte[], byte[])">random</a></strong>(byte[]&nbsp;lowKey,
+<td class="colLast"><span class="strong">Cursor.</span><code><strong><a href="../../../../org/cojen/tupl/Cursor.html#random(byte[],%20byte[])">random</a></strong>(byte[]&nbsp;lowKey,
       byte[]&nbsp;highKey)</code>
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>

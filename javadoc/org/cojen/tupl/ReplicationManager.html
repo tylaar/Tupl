@@ -132,7 +132,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#confirm(long, long)">confirm</a></strong>(long&nbsp;position,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#confirm(long,%20long)">confirm</a></strong>(long&nbsp;position,
        long&nbsp;timeoutNanos)</code>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </td>
@@ -158,7 +158,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index, byte[], byte[])">notifyRename</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyRename</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
             byte[]&nbsp;oldName,
             byte[]&nbsp;newName)</code>
 <div class="block">Notification to replica after an index is renamed.</div>
@@ -166,7 +166,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index, byte[], byte[])">notifyStore</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyStore</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
            byte[]&nbsp;key,
            byte[]&nbsp;value)</code>
 <div class="block">Notification to replica when an entry is stored into an index.</div>
@@ -174,7 +174,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#read(byte[], int, int)">read</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#read(byte[],%20int,%20int)">read</a></strong>(byte[]&nbsp;b,
     int&nbsp;off,
     int&nbsp;len)</code>
 <div class="block">Blocks at most once, reading as much replication input as possible.</div>
@@ -214,7 +214,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long, long)">syncConfirm</a></strong>(long&nbsp;position,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long,%20long)">syncConfirm</a></strong>(long&nbsp;position,
            long&nbsp;timeoutNanos)</code>
 <div class="block">Durably flushes all local data to non-volatile storage, up to the given
  position, and then blocks until confirmed.</div>
@@ -222,7 +222,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[], int, int)">write</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[],%20int,%20int)">write</a></strong>(byte[]&nbsp;b,
      int&nbsp;off,
      int&nbsp;len)</code>
 <div class="block">Fully writes the given data, returning false if local instance is not the leader.</div>
@@ -230,7 +230,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writeCommit(byte[], int, int)">writeCommit</a></strong>(byte[]&nbsp;b,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writeCommit(byte[],%20int,%20int)">writeCommit</a></strong>(byte[]&nbsp;b,
            int&nbsp;off,
            int&nbsp;len)</code>
 <div class="block">Fully writes and commits the given data, defining a confirmation position.</div>

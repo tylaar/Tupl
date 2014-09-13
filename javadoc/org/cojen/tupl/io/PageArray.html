@@ -149,6 +149,21 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#cachePage(long,%20byte[])">cachePage</a></strong>(long&nbsp;index,
+         byte[]&nbsp;buf)</code>
+<div class="block">If supported, copies a page into the cache, but does not write it.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#cachePage(long,%20byte[],%20int)">cachePage</a></strong>(long&nbsp;index,
+         byte[]&nbsp;buf,
+         int&nbsp;offset)</code>
+<div class="block">If supported, copies a page into the cache, but does not write it.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#close()">close</a></strong>()</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
@@ -177,18 +192,18 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long, byte[])">readPage</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[])">readPage</a></strong>(long&nbsp;index,
         byte[]&nbsp;buf)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long, byte[], int)">readPage</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int)">readPage</a></strong>(long&nbsp;index,
         byte[]&nbsp;buf,
         int&nbsp;offset)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPartial(long, int, byte[], int, int)">readPartial</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial</a></strong>(long&nbsp;index,
            int&nbsp;start,
            byte[]&nbsp;buf,
            int&nbsp;offset,
@@ -216,14 +231,20 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long, byte[])">writePage</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#uncachePage(long)">uncachePage</a></strong>(long&nbsp;index)</code>
+<div class="block">If supported, removes a page from the cache.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long,%20byte[])">writePage</a></strong>(long&nbsp;index,
          byte[]&nbsp;buf)</code>
 <div class="block">Writes a page, which is lazily flushed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long, byte[], int)">writePage</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/PageArray.html#writePage(long,%20byte[],%20int)">writePage</a></strong>(long&nbsp;index,
          byte[]&nbsp;buf,
          int&nbsp;offset)</code>
 <div class="block">Writes a page, which is lazily flushed.</div>
@@ -235,7 +256,7 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -386,8 +407,9 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 <pre>public&nbsp;void&nbsp;writePage(long&nbsp;index,
              byte[]&nbsp;buf)
                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Writes a page, which is lazily flushed. The array grows automatically if
- the index is greater than or equal to the current page count.</div>
+<div class="block">Writes a page, which is lazily flushed. The array grows automatically if the index is
+ greater than or equal to the current page count. If array supports caching, page must be
+ immediately copied into it.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IndexOutOfBoundsException.html?is-external=true" title="class or interface in java.lang">IndexOutOfBoundsException</a></code> - if index is negative</dd>
@@ -404,11 +426,59 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
              byte[]&nbsp;buf,
              int&nbsp;offset)
                         throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Writes a page, which is lazily flushed. The array grows automatically if
- the index is greater than or equal to the current page count.</div>
+<div class="block">Writes a page, which is lazily flushed. The array grows automatically if the index is
+ greater than or equal to the current page count. If array supports caching, page must be
+ immediately copied into it.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IndexOutOfBoundsException.html?is-external=true" title="class or interface in java.lang">IndexOutOfBoundsException</a></code> - if index is negative</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="cachePage(long, byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cachePage</h4>
+<pre>public&nbsp;void&nbsp;cachePage(long&nbsp;index,
+             byte[]&nbsp;buf)
+               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">If supported, copies a page into the cache, but does not write it. Cached copy can be
+ removed when read again or be evicted sooner. Default implementation does nothing.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="cachePage(long, byte[], int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>cachePage</h4>
+<pre>public&nbsp;void&nbsp;cachePage(long&nbsp;index,
+             byte[]&nbsp;buf,
+             int&nbsp;offset)
+               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">If supported, copies a page into the cache, but does not write it. Cached copy can be
+ removed when read again or be evicted sooner. Default implementation does nothing.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="uncachePage(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>uncachePage</h4>
+<pre>public&nbsp;void&nbsp;uncachePage(long&nbsp;index)
+                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">If supported, removes a page from the cache. Default implementation does nothing.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to write</dd>
+<dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>

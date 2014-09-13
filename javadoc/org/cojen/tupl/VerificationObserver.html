@@ -167,14 +167,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index, int)">indexBegin</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexBegin(org.cojen.tupl.Index,%20int)">indexBegin</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
           int&nbsp;height)</code>
 <div class="block">Called before full index verification begins.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexComplete(org.cojen.tupl.Index, boolean, java.lang.String)">indexComplete</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexComplete(org.cojen.tupl.Index,%20boolean,%20java.lang.String)">indexComplete</a></strong>(<a href="../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
              boolean&nbsp;passed,
              <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>
 <div class="block">Called after index verification has finished.</div>
@@ -182,7 +182,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long, int, java.lang.String)">indexNodeFailed</a></strong>(long&nbsp;id,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)">indexNodeFailed</a></strong>(long&nbsp;id,
                int&nbsp;level,
                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>
 <div class="block">Called after an index node fails verification.</div>
@@ -190,7 +190,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodePassed(long, int, int, int, int)">indexNodePassed</a></strong>(long&nbsp;id,
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodePassed(long,%20int,%20int,%20int,%20int)">indexNodePassed</a></strong>(long&nbsp;id,
                int&nbsp;level,
                int&nbsp;entryCount,
                int&nbsp;freeBytes,
@@ -201,7 +201,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <tr class="altColor">
 <td class="colFirst"><code>protected void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/VerificationObserver.html#reportFailure(java.lang.String)">reportFailure</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</code>
-<div class="block">Invoked by default implementation of <a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long, int, java.lang.String)"><code>indexNodeFailed</code></a>.</div>
+<div class="block">Invoked by default implementation of <a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)"><code>indexNodeFailed</code></a>.</div>
 </td>
 </tr>
 </table>
@@ -210,7 +210,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></h3>
-<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long, int)" title="class or interface in java.lang">wait</a></code></li>
+<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#clone()" title="class or interface in java.lang">clone</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#equals(java.lang.Object)" title="class or interface in java.lang">equals</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#finalize()" title="class or interface in java.lang">finalize</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#getClass()" title="class or interface in java.lang">getClass</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#hashCode()" title="class or interface in java.lang">hashCode</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notify()" title="class or interface in java.lang">notify</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#notifyAll()" title="class or interface in java.lang">notifyAll</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#toString()" title="class or interface in java.lang">toString</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait()" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long)" title="class or interface in java.lang">wait</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true#wait(long,%20int)" title="class or interface in java.lang">wait</a></code></li>
 </ul>
 </li>
 </ul>
@@ -341,7 +341,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>reportFailure</h4>
 <pre>protected&nbsp;void&nbsp;reportFailure(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;message)</pre>
-<div class="block">Invoked by default implementation of <a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long, int, java.lang.String)"><code>indexNodeFailed</code></a>.</div>
+<div class="block">Invoked by default implementation of <a href="../../../org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)"><code>indexNodeFailed</code></a>.</div>
 </li>
 </ul>
 </li>
