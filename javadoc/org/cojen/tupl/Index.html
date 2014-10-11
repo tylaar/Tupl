@@ -759,8 +759,7 @@ extends <a href="../../../org/cojen/tupl/View.html" title="interface in org.coje
 <h4>close</h4>
 <pre>void&nbsp;close()
            throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Closes this index reference, causing it to appear empty and <a href="../../../org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a>. The underlying index is still valid and can be re-opened. Closing an
- index is relatively expensive, and so it should be kept open if frequently accessed.
+<div class="block">Closes this index reference, causing it to appear empty and <a href="../../../org/cojen/tupl/ClosedIndexException.html" title="class in org.cojen.tupl"><code>unmodifiable</code></a>. The underlying index is still valid and can be re-opened.
 
  <p>In general, indexes should not be closed if they are referenced by active
  transactions. Although closing the index is safe, the transaction might re-open it.</div>
