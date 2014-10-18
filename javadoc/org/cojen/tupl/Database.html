@@ -764,10 +764,10 @@ implements <a href="../../../org/cojen/tupl/io/CauseCloseable.html" title="inter
 <h4>checkpoint</h4>
 <pre>public&nbsp;void&nbsp;checkpoint()
                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Durably sync and checkpoint all changes to the database. In addition to
- ensuring that all transactions are durable, checkpointing ensures that
- non-transactional modifications are durable. Checkpoints are performed
- automatically by a background thread, at a <a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)"><code>configurable</code></a> rate.</div>
+<div class="block">Durably sync and checkpoint all changes to the database. In addition to ensuring that
+ all committed transactions are durable, checkpointing ensures that non-transactional
+ modifications are durable. Checkpoints are performed automatically by a background
+ thread, at a <a href="../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)"><code>configurable</code></a> rate.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
