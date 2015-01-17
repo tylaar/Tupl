@@ -277,11 +277,11 @@
 <dd>
 <div class="block">Compare the current key to the one given.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long)">confirm(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.Writer.html#confirm(long)">confirm(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></dt>
 <dd>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#confirm(long,%20long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.Writer.html#confirm(long,%20long)">confirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></dt>
 <dd>
 <div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </dd>
@@ -1250,6 +1250,10 @@
 <dd>
 <div class="block">Returns the fixed size of all pages in the array, in bytes.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.Writer.html#position()">position()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></dt>
+<dd>
+<div class="block">Returns the next position a leader will write to.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#position()">position()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>
 <div class="block">Returns the <a href="./org/cojen/tupl/ReplicationManager.html#start(long)"><code>position</code></a> that the snapsnot applies to.</div>
@@ -1307,7 +1311,7 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
-<div class="block">Returns the next position a replica will read from.</div>
+<div class="block">Returns the next position a replica will read from, which must be confirmed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#recover(org.cojen.tupl.EventListener)">recover(EventListener)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
@@ -1354,6 +1358,8 @@
 <dd>
 <div class="block">Interface which replaces the redo log, for replicating transactional operations.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl"><span class="strong">ReplicationManager.Writer</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/VerificationObserver.html#reportFailure(java.lang.String)">reportFailure(String)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/VerificationObserver.html" title="class in org.cojen.tupl">VerificationObserver</a></dt>
 <dd>
 <div class="block">Invoked by default implementation of <a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)"><code>indexNodeFailed</code></a>.</div>
@@ -1485,13 +1491,13 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long)">syncConfirm(long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#syncConfirm(long,%20long)">syncConfirm(long, long)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#syncPage(long)">syncPage(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>
@@ -1779,7 +1785,7 @@ the order they are declared.</div>
 <dl>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long,%20byte[],%20int,%20int)">write(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.Writer.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></dt>
 <dd>
 <div class="block">Fully writes the given data, returning a confirmation position.</div>
 </dd>
@@ -1795,9 +1801,9 @@ the order they are declared.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#writePage(long,%20byte[],%20int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/ReplicationManager.html#writer()">writer()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dt>
 <dd>
-<div class="block">Returns the next position a leader will write to.</div>
+<div class="block">Returns an object which allows the leader to write changes.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo(OutputStream)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
 <dd>

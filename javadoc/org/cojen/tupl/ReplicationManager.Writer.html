@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>Snapshot (Tupl 1.1 API)</title>
+<title>ReplicationManager.Writer (Tupl 1.1 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="Snapshot (Tupl 1.1 API)";
+        parent.document.title="ReplicationManager.Writer (Tupl 1.1 API)";
     }
 //-->
 </script>
@@ -26,7 +26,7 @@
 <li><a href="../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/Snapshot.html">Use</a></li>
+<li><a href="class-use/ReplicationManager.Writer.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../index-all.html">Index</a></li>
@@ -35,12 +35,12 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../index.html?org/cojen/tupl/Snapshot.html" target="_top">Frames</a></li>
-<li><a href="Snapshot.html" target="_top">No Frames</a></li>
+<li><a href="../../../index.html?org/cojen/tupl/ReplicationManager.Writer.html" target="_top">Frames</a></li>
+<li><a href="ReplicationManager.Writer.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
 <li><a href="../../../allclasses-noframe.html">All Classes</a></li>
@@ -79,24 +79,19 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.cojen.tupl</div>
-<h2 title="Interface Snapshot" class="title">Interface Snapshot</h2>
+<h2 title="Interface ReplicationManager.Writer" class="title">Interface ReplicationManager.Writer</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
 <dl>
-<dt>All Superinterfaces:</dt>
-<dd><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a>, <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></dd>
+<dt>Enclosing interface:</dt>
+<dd><a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a></dd>
 </dl>
 <hr>
 <br>
-<pre>public interface <span class="strong">Snapshot</span>
-extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></pre>
-<div class="block">Control object used to capture a database snapshot.</div>
-<dl><dt><span class="strong">Author:</span></dt>
-  <dd>Brian S O'Neill</dd>
-<dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/Database.html#beginSnapshot()"><code>Database.beginSnapshot</code></a></dd></dl>
+<pre>public static interface <span class="strong">ReplicationManager.Writer</span></pre>
 </li>
 </ul>
 </div>
@@ -116,29 +111,30 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#close()">close</a></strong>()</code>
-<div class="block">Can be called by another thread to abort the snapshot, causing any
- thread in the writeTo method to throw an exception.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html#confirm(long)">confirm</a></strong>(long&nbsp;position)</code>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#length()">length</a></strong>()</code>
-<div class="block">Returns total amount of bytes expected to be written to the snapshot
- stream.</div>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html#confirm(long,%20long)">confirm</a></strong>(long&nbsp;position,
+       long&nbsp;timeoutNanos)</code>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#position()">position</a></strong>()</code>
-<div class="block">Returns the <a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)"><code>position</code></a> that the snapsnot applies to.</div>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html#position()">position</a></strong>()</code>
+<div class="block">Returns the next position a leader will write to.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Snapshot.html#writeTo(java.io.OutputStream)">writeTo</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)</code>
-<div class="block">Writes out snapshot data, and then closes this object.</div>
+<td class="colFirst"><code>long</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html#write(byte[],%20int,%20int)">write</a></strong>(byte[]&nbsp;b,
+     int&nbsp;off,
+     int&nbsp;len)</code>
+<div class="block">Fully writes the given data, returning a confirmation position.</div>
 </td>
 </tr>
 </table>
@@ -156,17 +152,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="length()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>length</h4>
-<pre>long&nbsp;length()</pre>
-<div class="block">Returns total amount of bytes expected to be written to the snapshot
- stream.</div>
-</li>
-</ul>
 <a name="position()">
 <!--   -->
 </a>
@@ -174,41 +159,56 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <li class="blockList">
 <h4>position</h4>
 <pre>long&nbsp;position()</pre>
-<div class="block">Returns the <a href="../../../org/cojen/tupl/ReplicationManager.html#start(long)"><code>position</code></a> that the snapsnot applies to.</div>
+<div class="block">Returns the next position a leader will write to. Valid only if local instance is
+ the leader.</div>
 </li>
 </ul>
-<a name="writeTo(java.io.OutputStream)">
+<a name="write(byte[], int, int)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>writeTo</h4>
-<pre>void&nbsp;writeTo(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/OutputStream.html?is-external=true" title="class or interface in java.io">OutputStream</a>&nbsp;out)
-             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Writes out snapshot data, and then closes this object. Snapshot aborts
- if the OutputStream throws an exception or if another thread closes this
- Snapshot instance.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>out</code> - snapshot destination; does not require extra buffering; not auto-closed</dd>
+<h4>write</h4>
+<pre>long&nbsp;write(byte[]&nbsp;b,
+         int&nbsp;off,
+         int&nbsp;len)
+           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Fully writes the given data, returning a confirmation position. When the local
+ instance loses leadership, all data rolls back to the highest confirmed position.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>confirmation position, or -1 if not leader</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="close()">
+<a name="confirm(long)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>confirm</h4>
+<pre>boolean&nbsp;confirm(long&nbsp;position)
+                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
+<dl><dt><span class="strong">Returns:</span></dt><dd>false if not leader</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="confirm(long, long)">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>close</h4>
-<pre>void&nbsp;close()
-           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Can be called by another thread to abort the snapshot, causing any
- thread in the writeTo method to throw an exception.</div>
-<dl>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true#close()" title="class or interface in java.lang">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/AutoCloseable.html?is-external=true" title="class or interface in java.lang">AutoCloseable</a></code></dd>
-<dt><strong>Specified by:</strong></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true#close()" title="class or interface in java.io">close</a></code>&nbsp;in interface&nbsp;<code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html?is-external=true" title="class or interface in java.io">Closeable</a></code></dd>
+<h4>confirm</h4>
+<pre>boolean&nbsp;confirm(long&nbsp;position,
+              long&nbsp;timeoutNanos)
+                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Blocks until all data up to the given log position is confirmed.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
+<dt><span class="strong">Returns:</span></dt><dd>false if not leader</dd>
 <dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -229,7 +229,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <li><a href="../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/Snapshot.html">Use</a></li>
+<li><a href="class-use/ReplicationManager.Writer.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../index-all.html">Index</a></li>
@@ -238,12 +238,12 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../index.html?org/cojen/tupl/Snapshot.html" target="_top">Frames</a></li>
-<li><a href="Snapshot.html" target="_top">No Frames</a></li>
+<li><a href="../../../index.html?org/cojen/tupl/ReplicationManager.Writer.html" target="_top">Frames</a></li>
+<li><a href="ReplicationManager.Writer.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">
 <li><a href="../../../allclasses-noframe.html">All Classes</a></li>

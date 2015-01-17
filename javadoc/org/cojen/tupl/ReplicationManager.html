@@ -36,7 +36,7 @@
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/cojen/tupl/ReplicationManager.html" target="_top">Frames</a></li>
@@ -60,7 +60,7 @@
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
@@ -105,6 +105,25 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<ul class="blockList">
+<li class="blockList"><a name="nested_class_summary">
+<!--   -->
+</a>
+<h3>Nested Class Summary</h3>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0" summary="Nested Class Summary table, listing nested classes, and an explanation">
+<caption><span>Nested Classes</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Interface and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static interface&nbsp;</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></strong></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
 <!-- ========== METHOD SUMMARY =========== -->
 <ul class="blockList">
 <li class="blockList"><a name="method_summary">
@@ -122,19 +141,6 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#checkpointed(long)">checkpointed</a></strong>(long&nbsp;position)</code>
 <div class="block">Indicates that all data prior to the given log position has been durably
  checkpointed.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#confirm(long)">confirm</a></strong>(long&nbsp;position)</code>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#confirm(long,%20long)">confirm</a></strong>(long&nbsp;position,
-       long&nbsp;timeoutNanos)</code>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -183,7 +189,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <tr class="rowColor">
 <td class="colFirst"><code>long</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#readPosition()">readPosition</a></strong>()</code>
-<div class="block">Returns the next position a replica will read from.</div>
+<div class="block">Returns the next position a replica will read from, which must be confirmed.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -208,30 +214,22 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long)">syncConfirm</a></strong>(long&nbsp;position)</code>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#syncConfirm(long,%20long)">syncConfirm</a></strong>(long&nbsp;position,
            long&nbsp;timeoutNanos)</code>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#write(byte[],%20int,%20int)">write</a></strong>(byte[]&nbsp;b,
-     int&nbsp;off,
-     int&nbsp;len)</code>
-<div class="block">Fully writes the given data, returning a confirmation position.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writePosition()">writePosition</a></strong>()</code>
-<div class="block">Returns the next position a leader will write to.</div>
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/ReplicationManager.html#writer()">writer</a></strong>()</code>
+<div class="block">Returns an object which allows the leader to write changes.</div>
 </td>
 </tr>
 </table>
@@ -313,19 +311,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <li class="blockList">
 <h4>readPosition</h4>
 <pre>long&nbsp;readPosition()</pre>
-<div class="block">Returns the next position a replica will read from. Position is never
- negative and never retreats.</div>
-</li>
-</ul>
-<a name="writePosition()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>writePosition</h4>
-<pre>long&nbsp;writePosition()</pre>
-<div class="block">Returns the next position a leader will write to. Valid only if local
- instance is the leader.</div>
+<div class="block">Returns the next position a replica will read from, which must be confirmed. Position is
+ never negative and never retreats.</div>
 </li>
 </ul>
 <a name="read(byte[], int, int)">
@@ -359,50 +346,17 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
  instance is a replica.</div>
 </li>
 </ul>
-<a name="write(byte[], int, int)">
+<a name="writer()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>write</h4>
-<pre>long&nbsp;write(byte[]&nbsp;b,
-         int&nbsp;off,
-         int&nbsp;len)
-           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Fully writes the given data, returning a confirmation position. When the local instance
- loses leadership, all data rolls back to the highest confirmed position.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>confirmation position, or -1 if not leader</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="confirm(long)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>confirm</h4>
-<pre>void&nbsp;confirm(long&nbsp;position)
-             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
+<h4>writer</h4>
+<pre><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl">ReplicationManager.Writer</a>&nbsp;writer()
+                                 throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Returns an object which allows the leader to write changes. A new instance is required
+ after a leader transition. Returned object can be null if local instance is a replica.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="confirm(long, long)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>confirm</h4>
-<pre>void&nbsp;confirm(long&nbsp;position,
-           long&nbsp;timeoutNanos)
-             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -427,8 +381,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <h4>syncConfirm</h4>
 <pre>void&nbsp;syncConfirm(long&nbsp;position)
                  throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 <dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
@@ -443,8 +397,8 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <pre>void&nbsp;syncConfirm(long&nbsp;position,
                long&nbsp;timeoutNanos)
                  throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Durably flushes all local data to non-volatile storage, up to the given
- position, and then blocks until confirmed.</div>
+<div class="block">Durably flushes all local data to non-volatile storage, up to the given confirmed
+ position, and then blocks until fully confirmed.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../org/cojen/tupl/ConfirmationFailureException.html" title="class in org.cojen.tupl">ConfirmationFailureException</a></code></dd>
@@ -536,7 +490,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div class="subNav">
 <ul class="navList">
 <li><a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
+<li><a href="../../../org/cojen/tupl/ReplicationManager.Writer.html" title="interface in org.cojen.tupl"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
 <li><a href="../../../index.html?org/cojen/tupl/ReplicationManager.html" target="_top">Frames</a></li>
@@ -560,7 +514,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/io/Closeable.html
 <div>
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested_class_summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method_summary">Method</a></li>
