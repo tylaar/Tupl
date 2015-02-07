@@ -106,10 +106,9 @@
 <br>
 <pre>public enum <span class="strong">DurabilityMode</span>
 extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is-external=true" title="class or interface in java.lang">Enum</a>&lt;<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&gt;</pre>
-<div class="block">Various <a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl"><code>transaction</code></a> durability modes, which control the
- durability strength of committed transactions. Strong modes offer safety,
- but they are also relatively slow. Weak modes are faster, but transactions
- committed in one of these modes can get lost.
+<div class="block">Various <a href="../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl"><code>transaction</code></a> durability modes, which control the durability
+ strength of committed transactions. Strong modes offer safety, but they are also relatively
+ slow. Weak modes are faster, but transactions committed in one of these modes can get lost.
 
  <p>Modes ordered from strongest to weakest:
  <ul>
@@ -146,19 +145,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Enum.html?is
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DurabilityMode.html#NO_REDO">NO_REDO</a></strong></code>
-<div class="block">Weakest durability mode, which doesn't write anything to the redo log.</div>
+<div class="block">Weakest durability mode, which doesn't write anything to the redo log or replication
+ manager.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DurabilityMode.html#NO_SYNC">NO_SYNC</a></strong></code>
-<div class="block">Durability mode which permits the operating system to lazily persist
- modifications to non-volatile storage.</div>
+<div class="block">Durability mode which permits the operating system to lazily persist modifications to
+ non-volatile storage.</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colOne"><code><strong><a href="../../../org/cojen/tupl/DurabilityMode.html#SYNC">SYNC</a></strong></code>
-<div class="block">Strongest durability mode, which ensures all modifications are persisted
- to non-volatile storage.</div>
+<div class="block">Strongest durability mode, which ensures all modifications are persisted to non-volatile
+ storage.</div>
 </td>
 </tr>
 </table>
@@ -225,8 +225,8 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>SYNC</h4>
 <pre>public static final&nbsp;<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a> SYNC</pre>
-<div class="block">Strongest durability mode, which ensures all modifications are persisted
- to non-volatile storage.</div>
+<div class="block">Strongest durability mode, which ensures all modifications are persisted to non-volatile
+ storage.</div>
 </li>
 </ul>
 <a name="NO_SYNC">
@@ -236,10 +236,10 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>NO_SYNC</h4>
 <pre>public static final&nbsp;<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a> NO_SYNC</pre>
-<div class="block">Durability mode which permits the operating system to lazily persist
- modifications to non-volatile storage. This mode is vulnerable to power
- failures and operating system crashes. These events can cause recently
- committed transactions to get lost.</div>
+<div class="block">Durability mode which permits the operating system to lazily persist modifications to
+ non-volatile storage. This mode is vulnerable to power failures, operating system
+ crashes, and replication failures. Any of these events can cause recently committed
+ transactions to get lost.</div>
 </li>
 </ul>
 <a name="NO_FLUSH">
@@ -250,10 +250,10 @@ the order they are declared.</div>
 <h4>NO_FLUSH</h4>
 <pre>public static final&nbsp;<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a> NO_FLUSH</pre>
 <div class="block">Durability mode which writes modifications to the file system when the in-process buffer
- is full, or by automatic checkpoints. This mode is vulnerable to power failures,
- operating system crashes, and process crashes. These events can cause recently committed
- transactions to get lost. When the process exits cleanly, a shutdown hook switches this
- mode to behave like NO_SYNC and flushes the log.</div>
+ is full, or by automatic checkpoints. In addition to the vulnerabilities of NO_SYNC
+ mode, NO_FLUSH mode can lose recently committed transactions when the process crashes.
+ When the process exits cleanly, a shutdown hook switches this mode to behave like
+ NO_SYNC and flushes the log.</div>
 </li>
 </ul>
 <a name="NO_REDO">
@@ -263,10 +263,10 @@ the order they are declared.</div>
 <li class="blockList">
 <h4>NO_REDO</h4>
 <pre>public static final&nbsp;<a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a> NO_REDO</pre>
-<div class="block">Weakest durability mode, which doesn't write anything to the redo log.
- An unlogged transaction does not become durable until a checkpoint is
- performed. In addition to the vulnerabilities of NO_FLUSH mode, NO_REDO
- mode can lose recently committed transactions when the process exits.</div>
+<div class="block">Weakest durability mode, which doesn't write anything to the redo log or replication
+ manager. An unlogged transaction does not become durable until a checkpoint is
+ performed. In addition to the vulnerabilities of NO_FLUSH mode, NO_REDO mode can lose
+ recently committed transactions when the process exits.</div>
 </li>
 </ul>
 </li>
