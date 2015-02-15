@@ -90,6 +90,10 @@
 <dd>
 <div class="block">By default, values are loaded automatically, as they are seen.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#autoload()">autoload()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Returns the current autoload mode.</div>
+</dd>
 </dl>
 <a name="_B_">
 <!--   -->
@@ -652,6 +656,12 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#FilePageArray(int,%20java.io.File,%20org.cojen.tupl.io.FileFactory,%20java.util.EnumSet)">FilePageArray(int, File, FileFactory, EnumSet&lt;OpenOption&gt;)</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl"><span class="strong">Filter</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">View transformer which filters out entries which don't belong.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#Filter()">Filter()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#find(byte[])">find(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the given key.</div>
@@ -874,6 +884,42 @@
 <div class="block">Associates a value with the given key, unless a corresponding value
  already exists.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKey(byte[])">inverseTransformKey(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Returns the same key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKey(byte[])">inverseTransformKey(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Apply an inverse transformation of the given key, if supported.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Returns the key incremented by the minimum amount.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Apply an inverse transformation of the given key, strictly greater than the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Returns the key decremented by the minimum amount.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Apply an inverse transformation of the given key, strictly less than the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformValue(byte[],%20byte[],%20byte[])">inverseTransformValue(byte[], byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Calls the <a href="./org/cojen/tupl/Filter.html#isAllowed(byte[],%20byte[])"><code>isAllowed</code></a> method.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformValue(byte[],%20byte[],%20byte[])">inverseTransformValue(byte[], byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Apply an inverse transformation of the given value, if supported.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#isAllowed(byte[],%20byte[])">isAllowed(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Return true if the given key and value are not to be filtered out.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#isClosed()">isClosed()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#isEmpty()">isEmpty()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
@@ -896,6 +942,11 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#isReadOnly()">isReadOnly()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/LockMode.html#isRepeatable()">isRepeatable()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockMode.html" title="enum in org.cojen.tupl">LockMode</a></dt>
+<dd>
+<div class="block">Returns true if acquired locks are retained for the duration of the
+ transaction.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#isTimedOut()">isTimedOut()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Rreturns true if lock request timed out.</div>
@@ -959,6 +1010,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#link(org.cojen.tupl.Transaction)">link(Transaction)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Link to a transaction, which can be null for auto-commit mode.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#link()">link()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Returns the transaction the cursor is currently linked to.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#load()">load()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -1364,6 +1419,11 @@
 <dd>
 <div class="block">Invoked by default implementation of <a href="./org/cojen/tupl/VerificationObserver.html#indexNodeFailed(long,%20int,%20java.lang.String)"><code>indexNodeFailed</code></a>.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#requireValue()">requireValue()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Returns true by default, indicating that the transform methods always require a value
+ instance to be provided.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#reset()">reset()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Resets Cursor and moves it to an undefined position.</div>
@@ -1549,6 +1609,28 @@
 <dd>
 <div class="block">Returns the total amount of fully-established transactions created over the life of
  the database.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl"><span class="strong">Transformer</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Abstract class which supports filtering and transforming the entries within a <a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl"><code>View</code></a>.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#Transformer()">Transformer()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#transformKey(byte[],%20byte[])">transformKey(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Returns the same key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#transformKey(byte[],%20byte[])">transformKey(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Transform or filter out the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#transformValue(byte[],%20byte[],%20byte[])">transformValue(byte[], byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>
+<div class="block">Calls the <a href="./org/cojen/tupl/Filter.html#isAllowed(byte[],%20byte[])"><code>isAllowed</code></a> method.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#transformValue(byte[],%20byte[],%20byte[])">transformValue(byte[], byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Transform or filter out the given value.</div>
 </dd>
 </dl>
 <a name="_U_">
@@ -1768,6 +1850,11 @@ the order they are declared.</div>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewTransformed(org.cojen.tupl.Transformer)">viewTransformed(Transformer)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose entries have been filtered out and
+ transformed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewUnmodifiable()">viewUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>

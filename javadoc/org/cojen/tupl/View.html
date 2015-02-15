@@ -249,6 +249,13 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewTransformed(org.cojen.tupl.Transformer)">viewTransformed</a></strong>(<a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a>&nbsp;transformer)</code>
+<div class="block">Returns a sub-view, backed by this one, whose entries have been filtered out and
+ transformed.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/View.html#viewUnmodifiable()">viewUnmodifiable</a></strong>()</code>
 <div class="block">Returns a view, backed by this one, whose entries cannot be modified.</div>
 </td>
@@ -575,6 +582,22 @@
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if prefix is null</dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code> - if trim is longer than prefix</dd></dl>
+</li>
+</ul>
+<a name="viewTransformed(org.cojen.tupl.Transformer)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>viewTransformed</h4>
+<pre><a href="../../../org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a>&nbsp;viewTransformed(<a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a>&nbsp;transformer)</pre>
+<div class="block">Returns a sub-view, backed by this one, whose entries have been filtered out and
+ transformed.
+
+ <p>The returned view will throw a <a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl"><code>ViewConstraintException</code></a> on an attempt to
+ insert an entry not supported by the transformer.</div>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/NullPointerException.html?is-external=true" title="class or interface in java.lang">NullPointerException</a></code> - if transformer is null</dd></dl>
 </li>
 </ul>
 <a name="viewReverse()">
