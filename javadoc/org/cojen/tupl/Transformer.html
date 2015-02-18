@@ -247,11 +247,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <h4>transformValue</h4>
 <pre>public abstract&nbsp;byte[]&nbsp;transformValue(byte[]&nbsp;value,
                     byte[]&nbsp;key,
-                    byte[]&nbsp;tkey)</pre>
+                    byte[]&nbsp;tkey)
+                               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Transform or filter out the given value. This method is only called after loading a
  value from a view.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>value</code> - nullable value to transform</dd><dd><code>key</code> - non-null untransformed key associated with the value</dd><dd><code>tkey</code> - non-null transformed key associated with the value</dd>
-<dt><span class="strong">Returns:</span></dt><dd>transformed value or null to discard entry</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>transformed value or null to discard entry</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="inverseTransformValue(byte[], byte[], byte[])">
@@ -263,13 +266,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <pre>public abstract&nbsp;byte[]&nbsp;inverseTransformValue(byte[]&nbsp;tvalue,
                            byte[]&nbsp;key,
                            byte[]&nbsp;tkey)
-                                      throws <a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a></pre>
+                                      throws <a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a>,
+                                             <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Apply an inverse transformation of the given value, if supported. This method is only
  called when attempting to store the value into the view.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>tvalue</code> - nullable value to transform</dd><dd><code>key</code> - non-null untransformed key associated with the value</dd><dd><code>tkey</code> - non-null transformed key associated with the value</dd>
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed value, or null to delete the value</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a></code> - if inverse transformation of given value is not supported</dd></dl>
+<dd><code><a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a></code> - if inverse transformation of given value is not supported</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="transformKey(byte[], byte[])">
@@ -279,11 +284,14 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <li class="blockList">
 <h4>transformKey</h4>
 <pre>public&nbsp;byte[]&nbsp;transformKey(byte[]&nbsp;key,
-                  byte[]&nbsp;value)</pre>
+                  byte[]&nbsp;value)
+                    throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Transform or filter out the given key. This method is only called after loading a value
  from a view. Default implementation returns the same key.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - non-null key to transform</dd><dd><code>value</code> - nullable value associated with the key</dd>
-<dt><span class="strong">Returns:</span></dt><dd>transformed key or null to discard entry</dd></dl>
+<dt><span class="strong">Returns:</span></dt><dd>transformed key or null to discard entry</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="inverseTransformKey(byte[])">
@@ -292,12 +300,15 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>inverseTransformKey</h4>
-<pre>public&nbsp;byte[]&nbsp;inverseTransformKey(byte[]&nbsp;tkey)</pre>
+<pre>public&nbsp;byte[]&nbsp;inverseTransformKey(byte[]&nbsp;tkey)
+                           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Apply an inverse transformation of the given key, if supported. This method can be
  called for load and store operations. Default implementation returns the same key.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
+ supported</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="inverseTransformKeyGt(byte[])">
@@ -306,14 +317,17 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockList">
 <li class="blockList">
 <h4>inverseTransformKeyGt</h4>
-<pre>public&nbsp;byte[]&nbsp;inverseTransformKeyGt(byte[]&nbsp;tkey)</pre>
+<pre>public&nbsp;byte[]&nbsp;inverseTransformKeyGt(byte[]&nbsp;tkey)
+                             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Apply an inverse transformation of the given key, strictly greater than the one given.
  This method is only called after the regular inverse transformation has been attempted.
  Default implementation increments the key by the minimum amount and then calls
  inverseTransformKey.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
+ supported</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 <a name="inverseTransformKeyLt(byte[])">
@@ -322,14 +336,17 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <ul class="blockListLast">
 <li class="blockList">
 <h4>inverseTransformKeyLt</h4>
-<pre>public&nbsp;byte[]&nbsp;inverseTransformKeyLt(byte[]&nbsp;tkey)</pre>
+<pre>public&nbsp;byte[]&nbsp;inverseTransformKeyLt(byte[]&nbsp;tkey)
+                             throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <div class="block">Apply an inverse transformation of the given key, strictly less than the one given.
  This method is only called after the regular inverse transformation has been attempted.
  Default implementation decrements the key by the minimum amount and then calls
  inverseTransformKey.</div>
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
+ supported</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
 </li>
