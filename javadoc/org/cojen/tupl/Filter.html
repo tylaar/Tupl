@@ -144,42 +144,17 @@ extends <a href="../../../org/cojen/tupl/Transformer.html" title="class in org.c
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#inverseTransformKey(byte[])">inverseTransformKey</a></strong>(byte[]&nbsp;tkey)</code>
-<div class="block">Returns the same key.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt</a></strong>(byte[]&nbsp;tkey)</code>
-<div class="block">Returns the key incremented by the minimum amount.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt</a></strong>(byte[]&nbsp;tkey)</code>
-<div class="block">Returns the key decremented by the minimum amount.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#inverseTransformValue(byte[],%20byte[],%20byte[])">inverseTransformValue</a></strong>(byte[]&nbsp;tvalue,
                      byte[]&nbsp;key,
                      byte[]&nbsp;tkey)</code>
 <div class="block">Calls the <a href="../../../org/cojen/tupl/Filter.html#isAllowed(byte[],%20byte[])"><code>isAllowed</code></a> method.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>abstract boolean</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#isAllowed(byte[],%20byte[])">isAllowed</a></strong>(byte[]&nbsp;key,
          byte[]&nbsp;value)</code>
 <div class="block">Return true if the given key and value are not to be filtered out.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>byte[]</code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Filter.html#transformKey(byte[],%20byte[])">transformKey</a></strong>(byte[]&nbsp;key,
-            byte[]&nbsp;value)</code>
-<div class="block">Returns the same key.</div>
 </td>
 </tr>
 <tr class="altColor">
@@ -196,7 +171,7 @@ extends <a href="../../../org/cojen/tupl/Transformer.html" title="class in org.c
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.cojen.tupl.<a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></h3>
-<code><a href="../../../org/cojen/tupl/Transformer.html#requireValue()">requireValue</a></code></li>
+<code><a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKey(byte[])">inverseTransformKey</a>, <a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt</a>, <a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt</a>, <a href="../../../org/cojen/tupl/Transformer.html#requireValue()">requireValue</a>, <a href="../../../org/cojen/tupl/Transformer.html#transformedOrdering(org.cojen.tupl.Ordering)">transformedOrdering</a>, <a href="../../../org/cojen/tupl/Transformer.html#transformKey(byte[],%20byte[])">transformKey</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods_inherited_from_class_java.lang.Object">
@@ -267,7 +242,7 @@ extends <a href="../../../org/cojen/tupl/Transformer.html" title="class in org.c
 <a name="inverseTransformValue(byte[], byte[], byte[])">
 <!--   -->
 </a>
-<ul class="blockList">
+<ul class="blockListLast">
 <li class="blockList">
 <h4>inverseTransformValue</h4>
 <pre>public final&nbsp;byte[]&nbsp;inverseTransformValue(byte[]&nbsp;tvalue,
@@ -282,70 +257,6 @@ extends <a href="../../../org/cojen/tupl/Transformer.html" title="class in org.c
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed value, or null to delete the value</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a></code> - if inverse transformation of given value is not supported</dd></dl>
-</li>
-</ul>
-<a name="transformKey(byte[], byte[])">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>transformKey</h4>
-<pre>public final&nbsp;byte[]&nbsp;transformKey(byte[]&nbsp;key,
-                  byte[]&nbsp;value)</pre>
-<div class="block">Returns the same key.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../org/cojen/tupl/Transformer.html#transformKey(byte[],%20byte[])">transformKey</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>key</code> - non-null key to transform</dd><dd><code>value</code> - nullable value associated with the key</dd>
-<dt><span class="strong">Returns:</span></dt><dd>transformed key or null to discard entry</dd></dl>
-</li>
-</ul>
-<a name="inverseTransformKey(byte[])">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>inverseTransformKey</h4>
-<pre>public final&nbsp;byte[]&nbsp;inverseTransformKey(byte[]&nbsp;tkey)</pre>
-<div class="block">Returns the same key.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKey(byte[])">inverseTransformKey</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
-<dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
-</li>
-</ul>
-<a name="inverseTransformKeyGt(byte[])">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>inverseTransformKeyGt</h4>
-<pre>public final&nbsp;byte[]&nbsp;inverseTransformKeyGt(byte[]&nbsp;tkey)</pre>
-<div class="block">Returns the key incremented by the minimum amount.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
-<dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
-</li>
-</ul>
-<a name="inverseTransformKeyLt(byte[])">
-<!--   -->
-</a>
-<ul class="blockListLast">
-<li class="blockList">
-<h4>inverseTransformKeyLt</h4>
-<pre>public final&nbsp;byte[]&nbsp;inverseTransformKeyLt(byte[]&nbsp;tkey)</pre>
-<div class="block">Returns the key decremented by the minimum amount.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../org/cojen/tupl/Transformer.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt</a></code>&nbsp;in class&nbsp;<code><a href="../../../org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
-<dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
- supported</dd></dl>
 </li>
 </ul>
 </li>

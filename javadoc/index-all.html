@@ -734,6 +734,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockSet.html#getKey(int)">getKey(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockSet.html" title="class in org.cojen.tupl">DeadlockSet</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
@@ -884,25 +888,13 @@
 <div class="block">Associates a value with the given key, unless a corresponding value
  already exists.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKey(byte[])">inverseTransformKey(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
-<dd>
-<div class="block">Returns the same key.</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKey(byte[])">inverseTransformKey(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
 <dd>
 <div class="block">Apply an inverse transformation of the given key, if supported.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
-<dd>
-<div class="block">Returns the key incremented by the minimum amount.</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKeyGt(byte[])">inverseTransformKeyGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
 <dd>
 <div class="block">Apply an inverse transformation of the given key, strictly greater than the one given.</div>
-</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
-<dd>
-<div class="block">Returns the key decremented by the minimum amount.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#inverseTransformKeyLt(byte[])">inverseTransformKeyLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
 <dd>
@@ -984,7 +976,7 @@
 <dd>
 <div class="block">Thrown when a key is too large to fit into a page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(int)">LargeKeyException(int)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(long)">LargeKeyException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl"><span class="strong">LargeValueException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -1610,16 +1602,16 @@
 <div class="block">Returns the total amount of fully-established transactions created over the life of
  the database.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#transformedOrdering(org.cojen.tupl.Ordering)">transformedOrdering(Ordering)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
+<dd>
+<div class="block">Returns the natural ordering of keys, after they have been transformed.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl"><span class="strong">Transformer</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Abstract class which supports filtering and transforming the entries within a <a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl"><code>View</code></a>.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#Transformer()">Transformer()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#transformKey(byte[],%20byte[])">transformKey(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
-<dd>
-<div class="block">Returns the same key.</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transformer.html#transformKey(byte[],%20byte[])">transformKey(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transformer.html" title="class in org.cojen.tupl">Transformer</a></dt>
 <dd>
 <div class="block">Transform or filter out the given key.</div>

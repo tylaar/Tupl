@@ -174,13 +174,19 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl">Ordering</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transformer.html#transformedOrdering(org.cojen.tupl.Ordering)">transformedOrdering</a></strong>(<a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl">Ordering</a>&nbsp;original)</code>
+<div class="block">Returns the natural ordering of keys, after they have been transformed.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transformer.html#transformKey(byte[],%20byte[])">transformKey</a></strong>(byte[]&nbsp;key,
             byte[]&nbsp;value)</code>
 <div class="block">Transform or filter out the given key.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>abstract byte[]</code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transformer.html#transformValue(byte[],%20byte[],%20byte[])">transformValue</a></strong>(byte[]&nbsp;value,
               byte[]&nbsp;key,
@@ -327,7 +333,7 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <a name="inverseTransformKeyLt(byte[])">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>inverseTransformKeyLt</h4>
 <pre>public&nbsp;byte[]&nbsp;inverseTransformKeyLt(byte[]&nbsp;tkey)</pre>
@@ -338,6 +344,18 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>tkey</code> - non-null key</dd>
 <dt><span class="strong">Returns:</span></dt><dd>inverse transformed key or null if inverse transformation of given key is not
  supported</dd></dl>
+</li>
+</ul>
+<a name="transformedOrdering(org.cojen.tupl.Ordering)">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>transformedOrdering</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl">Ordering</a>&nbsp;transformedOrdering(<a href="../../../org/cojen/tupl/Ordering.html" title="enum in org.cojen.tupl">Ordering</a>&nbsp;original)</pre>
+<div class="block">Returns the natural ordering of keys, after they have been transformed. Default
+ implementation returns the same ordering.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>original</code> - natural ordering of view before transformation</dd></dl>
 </li>
 </ul>
 </li>
