@@ -98,26 +98,34 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#baseFile(java.io.File)">baseFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
-<div class="block">Set the base file name for the database, which must reside in an
- ordinary file directory.</div>
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#allowLargeKeys(boolean)">allowLargeKeys</a></strong>(boolean&nbsp;b)</code>
+<div class="block"><strong>Deprecated.</strong>&nbsp;
+<div class="block"><i>experimental</i></div>
+</div>
 </td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#baseFilePath(java.lang.String)">baseFilePath</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#baseFile(java.io.File)">baseFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
 <div class="block">Set the base file name for the database, which must reside in an
  ordinary file directory.</div>
 </td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#baseFilePath(java.lang.String)">baseFilePath</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;path)</code>
+<div class="block">Set the base file name for the database, which must reside in an
+ ordinary file directory.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#cachePriming(boolean)">cachePriming</a></strong>(boolean&nbsp;priming)</code>
 <div class="block">Enable automatic cache priming, which writes a priming set into a special file when the
  database is cleanly shutdown.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointDelayThreshold(long,%20java.util.concurrent.TimeUnit)">checkpointDelayThreshold</a></strong>(long&nbsp;delay,
                         <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
@@ -125,7 +133,7 @@
  performed, regardless of the redo log size threshold.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)">checkpointRate</a></strong>(long&nbsp;rate,
               <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
@@ -133,71 +141,71 @@
  automatically performed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#checkpointSizeThreshold(long)">checkpointSizeThreshold</a></strong>(long&nbsp;bytes)</code>
 <div class="block">Set the minimum redo log size required for an automatic <a href="../../../../org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> to actually be performed.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#clone()">clone</a></strong>()</code>&nbsp;</td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#createFilePath(boolean)">createFilePath</a></strong>(boolean&nbsp;mkdirs)</code>
 <div class="block">Set true to create directories for the base and data file, if they don't
  already exist.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#dataFile(java.io.File)">dataFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
 <div class="block">Set the data file for the database, which by default resides in the same
  directory as the base file.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#dataFiles(java.io.File...)">dataFiles</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>...&nbsp;files)</code>
 <div class="block">Stripe the database data file across several files, expected to be on
  separate devices.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#dataPageArray(org.cojen.tupl.io.PageArray)">dataPageArray</a></strong>(<a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a>&nbsp;array)</code>
 <div class="block">Use a custom storage layer instead of the default data file.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#durabilityMode(org.cojen.tupl.DurabilityMode)">durabilityMode</a></strong>(<a href="../../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&nbsp;durabilityMode)</code>
 <div class="block">Set the default transaction durability mode, which is <a href="../../../../org/cojen/tupl/DurabilityMode.html#SYNC"><code>SYNC</code></a> if not overridden.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#encrypt(org.cojen.tupl.Crypto)">encrypt</a></strong>(<a href="../../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a>&nbsp;crypto)</code>
 <div class="block">Enable full encryption of the data files, transaction logs, snapshots, and cache priming
  sets.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#eventListener(org.cojen.tupl.EventListener)">eventListener</a></strong>(<a href="../../../../org/cojen/tupl/EventListener.html" title="interface in org.cojen.tupl">EventListener</a>&nbsp;listener)</code>
 <div class="block">Set a listener which receives notifications of actions being performed
  by the database.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#fileFactory(org.cojen.tupl.io.FileFactory)">fileFactory</a></strong>(<a href="../../../../org/cojen/tupl/io/FileFactory.html" title="interface in org.cojen.tupl.io">FileFactory</a>&nbsp;factory)</code>
 <div class="block">Optionally define a custom factory for every file and directory created by the
  database.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout</a></strong>(long&nbsp;timeout,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html?is-external=true" title="class or interface in java.util.concurrent">TimeUnit</a>&nbsp;unit)</code>
@@ -205,57 +213,57 @@
  overridden.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#lockUpgradeRule(org.cojen.tupl.LockUpgradeRule)">lockUpgradeRule</a></strong>(<a href="../../../../org/cojen/tupl/LockUpgradeRule.html" title="enum in org.cojen.tupl">LockUpgradeRule</a>&nbsp;lockUpgradeRule)</code>
 <div class="block">Set the default lock upgrade rule, which is <a href="../../../../org/cojen/tupl/LockUpgradeRule.html#STRICT"><code>STRICT</code></a> if not
  overridden.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#mapDataFiles(boolean)">mapDataFiles</a></strong>(boolean&nbsp;mapped)</code>
 <div class="block">Enable memory mapping of the data files.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#maxCacheSize(long)">maxCacheSize</a></strong>(long&nbsp;maxBytes)</code>
 <div class="block">Set the maximum cache size, overriding the default.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#maxReplicaThreads(int)">maxReplicaThreads</a></strong>(int&nbsp;num)</code>
 <div class="block">If replication is enabled, specify the maximum number of threads to process incoming
  changes.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#minCacheSize(long)">minCacheSize</a></strong>(long&nbsp;minBytes)</code>
 <div class="block">Set the minimum cache size, overriding the default.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#pageSize(int)">pageSize</a></strong>(int&nbsp;size)</code>
 <div class="block">Set the page size, which is 4096 bytes by default.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ReplicationManager)">replicate</a></strong>(<a href="../../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</code>
 <div class="block">Enable replication by providing a <a href="../../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#secondaryCacheSize(long)">secondaryCacheSize</a></strong>(long&nbsp;size)</code>
 <div class="block">Set the size of the secondary off-heap cache, which is empty by default.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#syncWrites(boolean)">syncWrites</a></strong>(boolean&nbsp;fileSync)</code>
 <div class="block">Set true to ensure all writes to the main database file are immediately
