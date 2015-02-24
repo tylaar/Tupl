@@ -70,12 +70,6 @@
 <dd>
 <div class="block">Returns "AES" by default; override to change the algorithm.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#allowLargeKeys(boolean)">allowLargeKeys(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span>
-<div class="block"><i>experimental</i></div>
-</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#alreadyOwned()">alreadyOwned()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
@@ -740,10 +734,6 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockSet.html#getKey(int)">getKey(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockSet.html" title="class in org.cojen.tupl">DeadlockSet</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
-<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
@@ -982,7 +972,7 @@
 <dd>
 <div class="block">Thrown when a key is too large to fit into a page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(long)">LargeKeyException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(int)">LargeKeyException(int)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl"><span class="strong">LargeValueException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -1027,6 +1017,10 @@
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#lockCheck(org.cojen.tupl.Transaction,%20byte[])">lockCheck(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Checks the lock ownership for the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.Stats.html#lockCount()">lockCount()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.Stats.html" title="class in org.cojen.tupl">Database.Stats</a></dt>
 <dd>
 <div class="block">Returns the amount of locks currently allocated.</div>
@@ -1035,6 +1029,11 @@
 <dd>
 <div class="block">Attempts to acquire an exclusive lock for the given key, denying any
  additional locks.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#lockExclusive(org.cojen.tupl.Transaction,%20byte[])">lockExclusive(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Explicitly acquire an exclusive lock for the given key, denying any additional
+ locks.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl"><span class="strong">LockFailureException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -1076,6 +1075,10 @@
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
  locks.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#lockShared(org.cojen.tupl.Transaction,%20byte[])">lockShared(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Explicitly acquire a shared lock for the given key, denying exclusive locks.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#lockTimeout(long,%20java.util.concurrent.TimeUnit)">lockTimeout(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the default lock acquisition timeout, which is 1 second if not
@@ -1099,6 +1102,11 @@
 <dd>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
  exclusive and additional upgradable locks.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/View.html#lockUpgradable(org.cojen.tupl.Transaction,%20byte[])">lockUpgradable(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
+<dd>
+<div class="block">Explicitly acquire an upgradable lock for the given key, denying exclusive and
+ additional upgradable locks.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#lockUpgradeRule(org.cojen.tupl.LockUpgradeRule)">lockUpgradeRule(LockUpgradeRule)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
