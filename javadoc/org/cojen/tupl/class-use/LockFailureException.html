@@ -150,15 +150,30 @@
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
+<td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#lockExclusive(org.cojen.tupl.Transaction,%20byte[])">lockExclusive</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+             byte[]&nbsp;key)</code>
+<div class="block">Explicitly acquire an exclusive lock for the given key, denying any additional
+ locks.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#lockShared(long,%20byte[])">lockShared</a></strong>(long&nbsp;indexId,
           byte[]&nbsp;key)</code>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
  locks.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#lockShared(org.cojen.tupl.Transaction,%20byte[])">lockShared</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+          byte[]&nbsp;key)</code>
+<div class="block">Explicitly acquire a shared lock for the given key, denying exclusive locks.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
+<td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#lockShared(org.cojen.tupl.Transaction,%20byte[])">lockShared</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
           byte[]&nbsp;key)</code>
 <div class="block">Explicitly acquire a shared lock for the given key, denying exclusive locks.</div>
 </td>
@@ -174,6 +189,14 @@
 <tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#lockUpgradable(org.cojen.tupl.Transaction,%20byte[])">lockUpgradable</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+              byte[]&nbsp;key)</code>
+<div class="block">Explicitly acquire an upgradable lock for the given key, denying exclusive and
+ additional upgradable locks.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../../org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></code></td>
+<td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#lockUpgradable(org.cojen.tupl.Transaction,%20byte[])">lockUpgradable</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
               byte[]&nbsp;key)</code>
 <div class="block">Explicitly acquire an upgradable lock for the given key, denying exclusive and
  additional upgradable locks.</div>

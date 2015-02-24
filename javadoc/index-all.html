@@ -1017,6 +1017,10 @@
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#lockCheck(org.cojen.tupl.Transaction,%20byte[])">lockCheck(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Checks the lock ownership for the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#lockCheck(org.cojen.tupl.Transaction,%20byte[])">lockCheck(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Checks the lock ownership for the given key.</div>
@@ -1024,6 +1028,11 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.Stats.html#lockCount()">lockCount()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.Stats.html" title="class in org.cojen.tupl">Database.Stats</a></dt>
 <dd>
 <div class="block">Returns the amount of locks currently allocated.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#lockExclusive(org.cojen.tupl.Transaction,%20byte[])">lockExclusive(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Explicitly acquire an exclusive lock for the given key, denying any additional
+ locks.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockExclusive(long,%20byte[])">lockExclusive(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
@@ -1070,6 +1079,10 @@
 <dd>
 <div class="block">Result code returned by transactional operations which acquire locks.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#lockShared(org.cojen.tupl.Transaction,%20byte[])">lockShared(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Explicitly acquire a shared lock for the given key, denying exclusive locks.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockShared(long,%20byte[])">lockShared(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Attempts to acquire a shared lock for the given key, denying exclusive
@@ -1098,6 +1111,11 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockTimeoutException.html#LockTimeoutException(long)">LockTimeoutException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LockTimeoutException.html" title="class in org.cojen.tupl">LockTimeoutException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Index.html#lockUpgradable(org.cojen.tupl.Transaction,%20byte[])">lockUpgradable(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
+<dd>
+<div class="block">Explicitly acquire an upgradable lock for the given key, denying exclusive and
+ additional upgradable locks.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#lockUpgradable(long,%20byte[])">lockUpgradable(long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
 <dd>
 <div class="block">Attempts to acquire an upgradable lock for the given key, denying
