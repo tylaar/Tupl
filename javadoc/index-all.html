@@ -70,6 +70,12 @@
 <dd>
 <div class="block">Returns "AES" by default; override to change the algorithm.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#allowLargeKeys(boolean)">allowLargeKeys(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block"><span class="strong">Deprecated.</span>
+<div class="block"><i>experimental</i></div>
+</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#alreadyOwned()">alreadyOwned()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
@@ -734,6 +740,10 @@
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockSet.html#getKey(int)">getKey(int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockSet.html" title="class in org.cojen.tupl">DeadlockSet</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeValueException.html#getLength()">getLength()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl">LargeValueException</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ConfirmationTimeoutException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/ConfirmationTimeoutException.html" title="class in org.cojen.tupl">ConfirmationTimeoutException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DeadlockException.html#getMessage()">getMessage()</a></span> - Method in exception org.cojen.tupl.<a href="./org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></dt>
@@ -972,7 +982,7 @@
 <dd>
 <div class="block">Thrown when a key is too large to fit into a page.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(int)">LargeKeyException(int)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(long)">LargeKeyException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/LargeValueException.html" title="class in org.cojen.tupl"><span class="strong">LargeValueException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
