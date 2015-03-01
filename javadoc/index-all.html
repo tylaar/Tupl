@@ -70,12 +70,6 @@
 <dd>
 <div class="block">Returns "AES" by default; override to change the algorithm.</div>
 </dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#allowLargeKeys(boolean)">allowLargeKeys(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
-<dd>
-<div class="block"><span class="strong">Deprecated.</span>
-<div class="block"><i>experimental</i></div>
-</div>
-</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LockResult.html#alreadyOwned()">alreadyOwned()</a></span> - Method in enum org.cojen.tupl.<a href="./org/cojen/tupl/LockResult.html" title="enum in org.cojen.tupl">LockResult</a></dt>
 <dd>
 <div class="block">Returns true if lock was already owned when requested.</div>
@@ -980,7 +974,7 @@
 <dl>
 <dt><a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl"><span class="strong">LargeKeyException</span></a> - Exception in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
-<div class="block">Thrown when a key is too large to fit into a page.</div>
+<div class="block">Thrown when attempting to load a key which cannot fit into memory.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/LargeKeyException.html#LargeKeyException(long)">LargeKeyException(long)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/LargeKeyException.html" title="class in org.cojen.tupl">LargeKeyException</a></dt>
 <dd>&nbsp;</dd>
