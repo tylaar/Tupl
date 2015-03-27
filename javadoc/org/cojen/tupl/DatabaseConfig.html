@@ -290,8 +290,8 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
-<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ReplicationManager)">replicate</a></strong>(<a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</code>
-<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#replicate(org.cojen.tupl.ext.ReplicationManager)">replicate</a></strong>(<a href="../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext">ReplicationManager</a>&nbsp;manager)</code>
+<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><code>ReplicationManager</code></a> instance.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -595,14 +595,14 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <dl><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/Database.html#createCachePrimer(java.io.OutputStream)"><code>Database.createCachePrimer(java.io.OutputStream)</code></a></dd></dl>
 </li>
 </ul>
-<a name="replicate(org.cojen.tupl.ReplicationManager)">
+<a name="replicate(org.cojen.tupl.ext.ReplicationManager)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>replicate</h4>
-<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;replicate(<a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl">ReplicationManager</a>&nbsp;manager)</pre>
-<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a> instance.</div>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;replicate(<a href="../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext">ReplicationManager</a>&nbsp;manager)</pre>
+<div class="block">Enable replication by providing a <a href="../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><code>ReplicationManager</code></a> instance.</div>
 </li>
 </ul>
 <a name="maxReplicaThreads(int)">
@@ -626,7 +626,7 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 <pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;encrypt(<a href="../../../org/cojen/tupl/Crypto.html" title="interface in org.cojen.tupl">Crypto</a>&nbsp;crypto)</pre>
 <div class="block">Enable full encryption of the data files, transaction logs, snapshots, and cache priming
  sets. Option has no effect if database is non-durable. If replication is enabled,
- encryption is not applied to the replication stream. A <a href="../../../org/cojen/tupl/ReplicationManager.html" title="interface in org.cojen.tupl"><code>ReplicationManager</code></a>
+ encryption is not applied to the replication stream. A <a href="../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><code>ReplicationManager</code></a>
  implementation must perform its own encryption.
 
  <p>Allocated but never used pages within the data files are unencrypted, although they

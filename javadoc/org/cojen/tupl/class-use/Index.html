@@ -81,6 +81,12 @@
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><a href="#org.cojen.tupl.ext">org.cojen.tupl.ext</a></td>
+<td class="colLast">
+<div class="block">Support for database extensions.</div>
+</td>
+</tr>
+<tr class="altColor">
 <td class="colFirst"><a href="#org.cojen.tupl.tools">org.cojen.tupl.tools</a></td>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -202,38 +208,52 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ReplicationManager.html#notifyDrop(org.cojen.tupl.Index)">notifyDrop</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index)</code>
-<div class="block">Notification to replica after an index is dropped.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ReplicationManager.html#notifyRename(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyRename</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
-            byte[]&nbsp;oldName,
-            byte[]&nbsp;newName)</code>
-<div class="block">Notification to replica after an index is renamed.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ReplicationManager.html#notifyStore(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyStore</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
-           byte[]&nbsp;key,
-           byte[]&nbsp;value)</code>
-<div class="block">Notification to replica when an entry is stored into an index.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">Database.</span><code><strong><a href="../../../../org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index,%20byte[])">renameIndex</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
            byte[]&nbsp;newName)</code>
 <div class="block">Renames the given index to the one given.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">Database.</span><code><strong><a href="../../../../org/cojen/tupl/Database.html#renameIndex(org.cojen.tupl.Index,%20java.lang.String)">renameIndex</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
            <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang">String</a>&nbsp;newName)</code>
 <div class="block">Renames the given index to the one given.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList"><a name="org.cojen.tupl.ext">
+<!--   -->
+</a>
+<h3>Uses of <a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a> in <a href="../../../../org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a></h3>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Methods in <a href="../../../../org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a> with parameters of type <a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html#notifyDrop(org.cojen.tupl.Index)">notifyDrop</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index)</code>
+<div class="block">Notification to replica after an index is dropped.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html#notifyRename(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyRename</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+            byte[]&nbsp;oldName,
+            byte[]&nbsp;newName)</code>
+<div class="block">Notification to replica after an index is renamed.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">ReplicationManager.</span><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html#notifyStore(org.cojen.tupl.Index,%20byte[],%20byte[])">notifyStore</a></strong>(<a href="../../../../org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a>&nbsp;index,
+           byte[]&nbsp;key,
+           byte[]&nbsp;value)</code>
+<div class="block">Notification to replica when an entry is stored into an index.</div>
 </td>
 </tr>
 </tbody>
