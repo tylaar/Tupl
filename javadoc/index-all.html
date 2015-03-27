@@ -66,6 +66,12 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl"><span class="strong">AbstractView</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Implements a few <a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl"><code>View</code></a> methods.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#AbstractView()">AbstractView()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#algorithm()">algorithm()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>
 <div class="block">Returns "AES" by default; override to change the algorithm.</div>
@@ -475,6 +481,11 @@
 <div class="block">Called by multiple threads to decrypt a fixed-size database
  page.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete(Transaction, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Unconditionally removes the entry associated with the given
+ key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Unconditionally removes the entry associated with the given
@@ -877,6 +888,11 @@
 <dd>
 <div class="block">Called to initialize a new or re-used <a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html?is-external=true" title="class or interface in javax.crypto"><code>Cipher</code></a>, using the given initialization
  vector.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Associates a value with the given key, unless a corresponding value
+ already exists.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1407,6 +1423,11 @@
 <dd>
 <div class="block">If file is mapped, remaps it if the file length has changed.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Removes the entry associated with the given key, but only if the given
+ value matches.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Removes the entry associated with the given key, but only if the given
@@ -1825,6 +1846,11 @@ the order they are declared.</div>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ViewConstraintException.html#ViewConstraintException(java.lang.String)">ViewConstraintException(String)</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/ViewConstraintException.html" title="class in org.cojen.tupl">ViewConstraintException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewGe(byte[])">viewGe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
+ equal to the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewGe(byte[])">viewGe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
@@ -1834,6 +1860,11 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are greater than or
  equal to the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewGt(byte[])">viewGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
+ given key.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewGt(byte[])">viewGt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1845,6 +1876,11 @@ the order they are declared.</div>
 <div class="block">Returns a sub-view, backed by this one, whose keys are greater than the
  given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewLe(byte[])">viewLe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than or
+ equal to the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewLe(byte[])">viewLe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than or
@@ -1854,6 +1890,11 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than or
  equal to the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewLt(byte[])">viewLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys are less than the
+ given key.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewLt(byte[])">viewLt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1865,6 +1906,10 @@ the order they are declared.</div>
 <div class="block">Returns a sub-view, backed by this one, whose keys are less than the
  given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewPrefix(byte[],%20int)">viewPrefix(byte[], int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewPrefix(byte[],%20int)">viewPrefix(byte[], int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
@@ -1873,6 +1918,10 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose keys start with the given prefix.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewReverse()">viewReverse()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
@@ -1880,6 +1929,11 @@ the order they are declared.</div>
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#viewReverse()">viewReverse()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns a view, backed by this one, whose natural order is reversed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewTransformed(org.cojen.tupl.Transformer)">viewTransformed(Transformer)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a sub-view, backed by this one, whose entries have been filtered out and
+ transformed.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewTransformed(org.cojen.tupl.Transformer)">viewTransformed(Transformer)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1890,6 +1944,10 @@ the order they are declared.</div>
 <dd>
 <div class="block">Returns a sub-view, backed by this one, whose entries have been filtered out and
  transformed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#viewUnmodifiable()">viewUnmodifiable()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
+<dd>
+<div class="block">Returns a view, backed by this one, whose entries cannot be modified.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#viewUnmodifiable()">viewUnmodifiable()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>

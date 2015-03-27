@@ -162,6 +162,14 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="strong">AbstractView.</span><code><strong><a href="../../../../org/cojen/tupl/AbstractView.html#delete(org.cojen.tupl.Transaction,%20byte[])">delete</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+      byte[]&nbsp;key)</code>
+<div class="block">Unconditionally removes the entry associated with the given
+ key.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#exchange(org.cojen.tupl.Transaction,%20byte[],%20byte[])">exchange</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
         byte[]&nbsp;key,
@@ -169,7 +177,7 @@
 <div class="block">Unconditionally associates a value with the given key, returning the previous value.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>byte[]</code></td>
 <td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#exchange(org.cojen.tupl.Transaction,%20byte[],%20byte[])">exchange</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
         byte[]&nbsp;key,
@@ -177,7 +185,7 @@
 <div class="block">Unconditionally associates a value with the given key, returning the previous value.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
@@ -186,9 +194,18 @@
  already exists.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+      byte[]&nbsp;key,
+      byte[]&nbsp;value)</code>
+<div class="block">Associates a value with the given key, unless a corresponding value
+ already exists.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="strong">AbstractView.</span><code><strong><a href="../../../../org/cojen/tupl/AbstractView.html#insert(org.cojen.tupl.Transaction,%20byte[],%20byte[])">insert</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
       byte[]&nbsp;value)</code>
 <div class="block">Associates a value with the given key, unless a corresponding value
@@ -305,6 +322,15 @@
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><span class="strong">AbstractView.</span><code><strong><a href="../../../../org/cojen/tupl/AbstractView.html#remove(org.cojen.tupl.Transaction,%20byte[],%20byte[])">remove</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+      byte[]&nbsp;key,
+      byte[]&nbsp;value)</code>
+<div class="block">Removes the entry associated with the given key, but only if the given
+ value matches.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#replace(org.cojen.tupl.Transaction,%20byte[],%20byte[])">replace</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
        byte[]&nbsp;key,
        byte[]&nbsp;value)</code>
@@ -312,7 +338,7 @@
  already exists.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#replace(org.cojen.tupl.Transaction,%20byte[],%20byte[])">replace</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
        byte[]&nbsp;key,
@@ -321,7 +347,7 @@
  already exists.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
      byte[]&nbsp;key,
@@ -329,7 +355,7 @@
 <div class="block">Unconditionally associates a value with the given key.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
      byte[]&nbsp;key,
@@ -337,7 +363,7 @@
 <div class="block">Unconditionally associates a value with the given key.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">View.</span><code><strong><a href="../../../../org/cojen/tupl/View.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
@@ -347,7 +373,7 @@
  matches.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>boolean</code></td>
 <td class="colLast"><span class="strong">Index.</span><code><strong><a href="../../../../org/cojen/tupl/Index.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update</a></strong>(<a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
       byte[]&nbsp;key,
