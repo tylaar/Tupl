@@ -629,7 +629,7 @@ final class UndoLog implements DatabaseAccess {
             Index ix = mDatabase.anyIndexById(decodeLongLE(entry, 0));
             System.out.println("OP_UNCREATE_INDEX: " + ix + ", " + decodeLongLE(entry, 0));
             if (ix != null) {
-                // FIXME: concurrent delete?
+                // TODO: delete in the background during recovery?
                 mDatabase.deleteIndex(ix, mTxnId).run();
             }
             break;

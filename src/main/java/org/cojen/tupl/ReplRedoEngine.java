@@ -440,6 +440,30 @@ final class ReplRedoEngine implements RedoVisitor {
     }
 
     @Override
+    public boolean createIndex(long txnId, long indexId) throws IOException {
+        TxnEntry te = getTxnEntry(txnId);
+
+        // Allow side-effect free operations to be performed before acquiring latch.
+        mOpLatch.acquireShared();
+
+        Latch latch = te.latch();
+        try {
+            // Allow another task thread to run while operation completes.
+            nextTask();
+
+            mDatabase.createAnonymousIndex(te.mTxn, indexId);
+        } finally {
+            latch.releaseExclusive();
+        }
+
+        // Only release if no exception.
+        opFinished();
+
+        // Return false to prevent RedoDecoder from looping back.
+        return false;
+    }
+
+    @Override
     public boolean txnEnter(long txnId) throws IOException {
         // Reduce hash collisions.
         long scrambledTxnId = scramble(txnId);

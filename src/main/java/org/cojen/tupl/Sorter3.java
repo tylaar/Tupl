@@ -230,8 +230,8 @@ public class Sorter3 {
         }
 
         // Must be a stable sort, which it is.
-        //Arrays.sort(mNodes, 0, mNodeCount);
-        Arrays.parallelSort(mNodes, 0, mNodeCount);
+        Arrays.sort(mNodes, 0, mNodeCount);
+        //Arrays.parallelSort(mNodes, 0, mNodeCount);
 
         try {
             Tree tree = (Tree) mDatabase.createAnonymousIndex(mTempTxn);

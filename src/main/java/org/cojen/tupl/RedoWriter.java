@@ -160,6 +160,19 @@ abstract class RedoWriter implements CauseCloseable, Checkpointer.Shutdown, Flus
         return commitFlush(mode);
     }
 
+    /**
+     * Create anonymous index.
+     *
+     * @param indexId non-zero index id
+     */
+    public synchronized void createIndex(long txnId, long indexId)
+        throws IOException
+    {
+        writeTxnOp(OP_CREATE_INDEX, txnId);
+        writeLongLE(indexId);
+        writeTerminator();
+    }
+
     public synchronized void reset() throws IOException {
         writeOp(OP_RESET);
         mLastTxnId = 0;

@@ -892,7 +892,59 @@ public final class Database implements CauseCloseable, Flushable {
             byte[] name = mRegistryKeyMap.load(null, idKey);
 
             if (name == null) {
-                return null;
+                // Open an anonymous index.
+
+                byte[] treeIdBytes = new byte[8];
+                encodeLongBE(treeIdBytes, 0, id);
+
+                byte[] trashIdKey = newKey(KEY_TYPE_TRASH_ID, treeIdBytes);
+
+                // Use a transaction to ensure that only one thread loads the
+                // requested index. Nothing is written into it.
+                Transaction txn = newNoRedoTransaction();
+                try {
+                    // Ignore if in the trash.
+                    Cursor c = mRegistryKeyMap.newCursor(txn);
+                    try {
+                        c.autoload(false);
+                        c.find(trashIdKey);
+                        if (c.value() != null) {
+                            return null;
+                        }
+                    } finally {
+                        c.reset();
+                    }
+
+                    // Pass the transaction to acquire the lock.
+                    byte[] rootIdBytes = mRegistry.load(txn, treeIdBytes);
+
+                    if (rootIdBytes == null) {
+                        // Doesn't exist.
+                        return null;
+                    }
+
+                    index = lookupIndexById(id);
+                    if (index != null) {
+                        // Another thread got the lock first and loaded the index.
+                        return index;
+                    }
+
+                    long rootId = rootIdBytes.length == 0 ? 0 : decodeLongLE(rootIdBytes, 0);
+                    Tree tree = newTreeInstance(id, treeIdBytes, name, loadTreeRoot(rootId));
+
+                    TreeRef treeRef = new TreeRef(tree, mOpenTreesRefQueue);
+
+                    mOpenTreesLatch.acquireExclusive();
+                    try {
+                        mOpenTreesById.insert(id).value = treeRef;
+                    } finally {
+                        mOpenTreesLatch.releaseExclusive();
+                    }
+
+                    return tree;
+                } finally {
+                    txn.reset();
+                }
             }
 
             index = openIndex(name, false);
@@ -951,16 +1003,18 @@ public final class Database implements CauseCloseable, Flushable {
 
     /**
      * Creates an index whose name is null and can only be found by its identifier. An
-     * anonymous index can be given a name by {@link #renameIndex renaming} it. If a
-     * transaction is provided, rolling it back deletes the index.
+     * anonymous index can be given a name by {@link #renameIndex renaming} it. Rolling back
+     * the transaction deletes the index.
+     *
+     * @param txn required
+     * @throws IllegalArgumentException if transaction is null
      */
-    public Index createAnonymousIndex(Transaction txn) throws IOException {
+    Index createAnonymousIndex(Transaction txn) throws IOException {
         if (txn == null) {
-            txn = newAlwaysRedoTransaction();
-        } else {
-            txn.enter();
+            throw new IllegalArgumentException("Transaction is required");
         }
 
+        txn.enter();
         try {
             checkClosed();
 
@@ -980,15 +1034,18 @@ public final class Database implements CauseCloseable, Flushable {
                 } while (!mRegistry.insert(Transaction.BOGUS, treeIdBytes, EMPTY_BYTES));
 
                 try {
-                    // Log a redo operation to ensure that index is not lost.
-                    // FIXME: No worky. Recovery ditches the transaction if not committed.
-                    txn.redoStore(treeId, Utils.EMPTY_BYTES, null);
                     txn.pushUncreateIndex(treeId);
+
+                    RedoWriter redo = mRedoWriter;
+                    if (redo != null) {
+                        redo.createIndex(txn.txnId(), treeId);
+                    }
                 } catch (Throwable e) {
                     try {
                         mRegistry.delete(Transaction.BOGUS, treeIdBytes);
                     } catch (Throwable e2) {
                         e.addSuppressed(e2);
+                        throw closeOnFailure(this, e);
                     }
                     throw e;
                 }
@@ -1011,6 +1068,17 @@ public final class Database implements CauseCloseable, Flushable {
             return tree;
         } finally {
             txn.exit();
+        }
+    }
+
+    /**
+     * Only called as redo action.
+     */
+    void createAnonymousIndex(Transaction txn, long treeId) throws IOException {
+        byte[] treeIdBytes = new byte[8];
+        encodeLongBE(treeIdBytes, 0, treeId);
+        if (mRegistry.insert(Transaction.BOGUS, treeIdBytes, EMPTY_BYTES)) {
+            txn.pushUncreateIndex(treeId);
         }
     }
 

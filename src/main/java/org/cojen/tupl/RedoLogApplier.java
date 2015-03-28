@@ -113,6 +113,15 @@ final class RedoLogApplier implements RedoVisitor {
     }
 
     @Override
+    public boolean createIndex(long txnId, long indexId) throws IOException {
+        Transaction txn = txn(txnId);
+        if (txn != null) {
+            mDatabase.createAnonymousIndex(txn, indexId);
+        }
+        return true;
+    }
+
+    @Override
     public boolean txnEnter(long txnId) throws IOException {
         Transaction txn = txn(txnId);
         if (txn == null) {

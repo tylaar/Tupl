@@ -85,6 +85,12 @@ interface RedoVisitor {
     public boolean deleteIndex(long txnId, long indexId) throws IOException;
 
     /**
+     * @param indexId non-zero index id
+     * @return false to stop visiting
+     */
+    public boolean createIndex(long txnId, long indexId) throws IOException;
+
+    /**
      * @param txnId non-zero transaction id
      * @return false to stop visiting
      */

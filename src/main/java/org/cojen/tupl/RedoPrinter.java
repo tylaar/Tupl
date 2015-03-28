@@ -103,6 +103,12 @@ class RedoPrinter implements RedoVisitor {
     }
 
     @Override
+    public boolean createIndex(long txnId, long indexId) {
+        mOut.println("createIndex: txnId=" + txnId + ", indexId=" + indexId);
+        return true;
+    }
+
+    @Override
     public boolean txnEnter(long txnId) {
         mOut.println("txnEnter: txnId=" + txnId);
         return true;

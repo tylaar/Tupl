@@ -64,6 +64,9 @@ class RedoOps {
         /** txnId: delta, indexId: long */
         OP_DELETE_INDEX = 22,
 
+        /** txnId: delta, indexId: long */
+        OP_CREATE_INDEX = 23,
+
         /** txnId: delta */
         OP_TXN_ENTER = 24,
 

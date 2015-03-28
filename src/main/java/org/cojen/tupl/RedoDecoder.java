@@ -203,6 +203,14 @@ abstract class RedoDecoder {
                 }
                 break;
 
+            case OP_CREATE_INDEX:
+                txnId = readTxnId(in);
+                indexId = in.readLongLE();
+                if (!verifyTerminator(in) || !visitor.createIndex(txnId, indexId)) {
+                    return false;
+                }
+                break;
+
             case OP_TXN_ENTER_STORE:
                 txnId = readTxnId(in);
                 indexId = in.readLongLE();
