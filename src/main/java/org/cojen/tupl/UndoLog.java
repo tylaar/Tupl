@@ -111,6 +111,9 @@ final class UndoLog implements DatabaseAccess {
     // Payload is Node-encoded key and trash id, to undo a fragmented value delete.
     static final byte OP_UNDELETE_FRAGMENTED = (byte) 22;
 
+    // Payload is index id, to undo index creation.
+    static final byte OP_UNCREATE_INDEX = (byte) 23;
+
     private final Database mDatabase;
     private final long mTxnId;
 
@@ -224,6 +227,15 @@ final class UndoLog implements DatabaseAccess {
      */
     void pushCommit() throws IOException {
         doPush(OP_COMMIT);
+    }
+
+    /**
+     * Caller must hold db commit lock.
+     */
+    void pushUncreateIndex(long indexId) throws IOException {
+        byte[] payload = new byte[8];
+        encodeLongLE(payload, 0, indexId);
+        doPush(OP_UNCREATE_INDEX, payload, 0, 8, 1);
     }
 
     /**
@@ -521,6 +533,7 @@ final class UndoLog implements DatabaseAccess {
             case OP_COMMIT_TRUNCATE:
             case OP_UNINSERT:
             case OP_UNUPDATE:
+            case OP_UNCREATE_INDEX:
                 // Ignore.
                 break;
 
@@ -609,6 +622,15 @@ final class UndoLog implements DatabaseAccess {
                     // User closed the shared index reference, so re-open it.
                     activeIndex = null;
                 }
+            }
+            break;
+
+        case OP_UNCREATE_INDEX:
+            Index ix = mDatabase.anyIndexById(decodeLongLE(entry, 0));
+            System.out.println("OP_UNCREATE_INDEX: " + ix + ", " + decodeLongLE(entry, 0));
+            if (ix != null) {
+                // FIXME: concurrent delete?
+                mDatabase.deleteIndex(ix, mTxnId).run();
             }
             break;
         }
@@ -960,6 +982,9 @@ final class UndoLog implements DatabaseAccess {
                 if (lockMode != LockMode.UNSAFE) {
                     scope.addLock(mActiveIndexId, Node.retrieveKeyAtLoc(this, entry, 0));
                 }
+                break;
+
+            case OP_UNCREATE_INDEX:
                 break;
             }
         }

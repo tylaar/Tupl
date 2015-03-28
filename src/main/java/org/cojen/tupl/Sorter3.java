@@ -106,6 +106,7 @@ public class Sorter3 {
 
     private final Database mDatabase;
     private final int mMaxMemory;
+    private final Transaction mTempTxn;
 
     private Node[] mNodes;
     private int mNodeCount;
@@ -113,27 +114,20 @@ public class Sorter3 {
 
     private final MultiMerger mMerger;
 
-    private final String mPrefix;
-
     /**
      * @param maxMemory approximate maximum amount of memory to use for sorting; does not
      * influence database cache usage
      */
     public Sorter3(Database db, int maxMemory, int levelMax) {
-        this(db, maxMemory, levelMax, "");
-    }
-
-    Sorter3(Database db, int maxMemory, int levelMax, String prefix) {
         if (db == null) {
             throw new IllegalArgumentException();
         }
 
         mDatabase = db;
         mMaxMemory = maxMemory;
+        mTempTxn = db.newTransaction();
 
-        mMerger = new MultiMerger(db, levelMax);
-
-        mPrefix = prefix;
+        mMerger = new MultiMerger(db, levelMax, mTempTxn);
     }
 
     /**
@@ -213,7 +207,11 @@ public class Sorter3 {
             mMerger.add(tree);
         }
 
-        return mMerger.finish();
+        Index ix = mMerger.finish();
+
+        mTempTxn.commit();
+
+        return ix;
     }
 
     /**
@@ -223,14 +221,7 @@ public class Sorter3 {
         mNodes = null;
         mNodeCount = 0;
         mTotalSize = 0;
-
-        /* FIXME
-        for (Tree tree : mTrees) {
-            mDatabase.deleteIndex(tree);
-        }
-
-        mTrees.clear();
-        */
+        mTempTxn.reset();
     }
 
     private Tree sortAndFillTree() throws IOException {
@@ -243,7 +234,7 @@ public class Sorter3 {
         Arrays.parallelSort(mNodes, 0, mNodeCount);
 
         try {
-            Tree tree = createTempTree();
+            Tree tree = (Tree) mDatabase.createAnonymousIndex(mTempTxn);
 
             TreeCursorFrame leaf = new TreeCursorFrame();
             leaf.bind(tree.mRoot, 0);
@@ -268,13 +259,6 @@ public class Sorter3 {
         } catch (Throwable e) {
             throw cleanup(e);
         }
-    }
-
-    private int mTempCount;
-
-    private synchronized Tree createTempTree() throws IOException {
-        // FIXME: Support temp indexes. When renamed, they're not temp anymore.
-        return (Tree) mDatabase.openIndex(mPrefix + "temp-" + mTempCount++);
     }
 
     private RuntimeException cleanup(Throwable e) {

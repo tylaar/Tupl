@@ -717,6 +717,15 @@ public class Transaction extends Locker {
         }
     }
 
+    final void pushUncreateIndex(long indexId) throws IOException {
+        check();
+        try {
+            undoLog().pushUncreateIndex(indexId);
+        } catch (Throwable e) {
+            throw borked(e, false);
+        }
+    }
+
     /**
      * Caller must hold commit lock.
      */

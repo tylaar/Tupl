@@ -950,6 +950,71 @@ public final class Database implements CauseCloseable, Flushable {
     }
 
     /**
+     * Creates an index whose name is null and can only be found by its identifier. An
+     * anonymous index can be given a name by {@link #renameIndex renaming} it. If a
+     * transaction is provided, rolling it back deletes the index.
+     */
+    public Index createAnonymousIndex(Transaction txn) throws IOException {
+        if (txn == null) {
+            txn = newAlwaysRedoTransaction();
+        } else {
+            txn.enter();
+        }
+
+        try {
+            checkClosed();
+
+            Tree tree;
+            long treeId;
+            byte[] treeIdBytes = new byte[8];
+
+            final Lock commitLock = sharedCommitLock();
+            commitLock.lock();
+            try {
+                // Cleaup before opening more indexes.
+                cleanupUnreferencedTrees();
+
+                do {
+                    treeId = nextTreeId();
+                    encodeLongBE(treeIdBytes, 0, treeId);
+                } while (!mRegistry.insert(Transaction.BOGUS, treeIdBytes, EMPTY_BYTES));
+
+                try {
+                    // Log a redo operation to ensure that index is not lost.
+                    // FIXME: No worky. Recovery ditches the transaction if not committed.
+                    txn.redoStore(treeId, Utils.EMPTY_BYTES, null);
+                    txn.pushUncreateIndex(treeId);
+                } catch (Throwable e) {
+                    try {
+                        mRegistry.delete(Transaction.BOGUS, treeIdBytes);
+                    } catch (Throwable e2) {
+                        e.addSuppressed(e2);
+                    }
+                    throw e;
+                }
+
+                tree = newTreeInstance(treeId, treeIdBytes, null, loadTreeRoot(0));
+
+                TreeRef treeRef = new TreeRef(tree, mOpenTreesRefQueue);
+
+                mOpenTreesLatch.acquireExclusive();
+                try {
+                    mOpenTreesById.insert(treeId).value = treeRef;
+                } finally {
+                    mOpenTreesLatch.releaseExclusive();
+                }
+            } finally {
+                commitLock.unlock();
+            }
+
+            txn.commit();
+            return tree;
+        } finally {
+            txn.exit();
+        }
+    }
+
+    /**
      * Renames the given index to the one given.
      *
      * @param index non-null open index

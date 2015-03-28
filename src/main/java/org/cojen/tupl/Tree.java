@@ -95,8 +95,11 @@ class Tree extends AbstractView implements Index {
         StringBuilder b = new StringBuilder(ix.getClass().getName());
         b.append('@').append(Integer.toHexString(ix.hashCode()));
         b.append(" {");
-        b.append("name").append(": ").append(ix.getNameString());
-        b.append(", ");
+        String nameStr = ix.getNameString();
+        if (nameStr != null) {
+            b.append("name").append(": ").append(nameStr);
+            b.append(", ");
+        }
         b.append("id").append(": ").append(ix.getId());
         return b.append('}').toString();
     }
@@ -119,8 +122,11 @@ class Tree extends AbstractView implements Index {
     @Override
     public final String getNameString() {
         byte[] name = mName;
+        if (name == null) {
+            return null;
+        }
         try {
-            return name == null ? "null" : new String(name, "UTF-8");
+            return new String(name, "UTF-8");
         } catch (IOException e) {
             return new String(name);
         }

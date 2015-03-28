@@ -31,6 +31,7 @@ import java.io.IOException;
 public class MultiMerger {
     private final Database mDatabase;
     private final int mLevelMax;
+    private final Transaction mTempTxn;
 
     private final List<List<Tree>> mLevels;
 
@@ -38,12 +39,10 @@ public class MultiMerger {
 
     private Throwable mException;
 
-    // FIXME: use proper temporary indexes
-    private int mTempId;
-
-    MultiMerger(Database db, int levelMax) {
+    MultiMerger(Database db, int levelMax, Transaction tempTxn) {
         mDatabase = db;
         mLevelMax = Math.max(2, levelMax);
+        mTempTxn = tempTxn;
         mLevels = new ArrayList<>();
     }
 
@@ -91,7 +90,7 @@ public class MultiMerger {
         System.out.println("active merges: " + mActiveMerges);
 
         try {
-            Tree target = (Tree) mDatabase.openIndex("temp-0-" + (mTempId++));
+            Tree target = (Tree) mDatabase.createAnonymousIndex(mTempTxn);
             new Merger(target, -1, all).run();
             return target;
         } catch (Throwable e) {
@@ -102,7 +101,6 @@ public class MultiMerger {
 
     void add(Tree source, int levelIx, boolean fromMerger) throws IOException {
         List<Tree> level;
-        int targetId;
 
         synchronized (this) {
             exceptionCheck();
@@ -125,14 +123,13 @@ public class MultiMerger {
             }
 
             levels.set(levelIx, null);
-            targetId = mTempId++;
 
             mActiveMerges++;
             System.out.println("active merges: " + mActiveMerges);
         }
 
         try {
-            Tree target = (Tree) mDatabase.openIndex("temp-0-" + targetId);
+            Tree target = (Tree) mDatabase.createAnonymousIndex(mTempTxn);
             Merger merger = new Merger(target, levelIx + 1, level);
 
             if (fromMerger) {
