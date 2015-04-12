@@ -1920,9 +1920,7 @@ class TreeCursor implements CauseCloseable, Cursor {
                 result = LockResult.OWNED_EXCLUSIVE;
             } else {
                 result = txn.lockExclusive(mTree.mId, key, hash);
-                if (result == LockResult.ACQUIRED &&
-                    (mode == LockMode.REPEATABLE_READ || mode == LockMode.UPGRADABLE_READ))
-                {
+                if (result == LockResult.ACQUIRED && mode.repeatable) {
                     // Downgrade to upgradable when no modification is made, to
                     // preserve repeatable semantics and allow upgrade later.
                     result = LockResult.UPGRADED;
@@ -1931,18 +1929,24 @@ class TreeCursor implements CauseCloseable, Cursor {
 
             try {
                 if (doFindAndModify(txn, key, oldValue, newValue)) {
-                    // Indicate that no unlock should be performed.
-                    result = LockResult.OWNED_EXCLUSIVE;
                     return true;
                 }
-                return false;
-            } finally {
+            } catch (Throwable e) {
                 if (result == LockResult.ACQUIRED) {
                     txn.unlock();
                 } else if (result == LockResult.UPGRADED) {
                     txn.unlockToUpgradable();
                 }
+                throw e;
             }
+
+            if (result == LockResult.ACQUIRED) {
+                txn.unlock();
+            } else if (result == LockResult.UPGRADED) {
+                txn.unlockToUpgradable();
+            }
+
+            return false;
         } catch (Throwable e) {
             throw handleException(e, true);
         }
@@ -2608,6 +2612,7 @@ class TreeCursor implements CauseCloseable, Cursor {
     final void nextNode() throws IOException {
         // Move to next node by first setting current node position higher than possible.
         mLeaf.mNodePos = Integer.MAX_VALUE - 1;
+        // FIXME: skips nodes that are full of ghosts
         next();
     }
 
