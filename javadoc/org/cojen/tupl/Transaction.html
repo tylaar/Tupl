@@ -186,6 +186,20 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 </td>
 </tr>
 <tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#customRedo(byte[],%20long,%20byte[])">customRedo</a></strong>(byte[]&nbsp;message,
+          long&nbsp;indexId,
+          byte[]&nbsp;key)</code>
+<div class="block">Supply a message for a custom redo handler.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#customUndo(byte[])">customUndo</a></strong>(byte[]&nbsp;message)</code>
+<div class="block">Supply a message for a custom undo handler.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/Transaction.html#durabilityMode()">durabilityMode</a></strong>()</code>
 <div class="block">Returns the fixed durability mode of this transaction.</div>
@@ -623,6 +637,44 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="../../../org/cojen/tupl/LockFailureException.html" title="class in org.cojen.tupl">LockFailureException</a></code> - if interrupted, timed out, or illegal upgrade</dd>
 <dd><code><a href="../../../org/cojen/tupl/DeadlockException.html" title="class in org.cojen.tupl">DeadlockException</a></code> - if deadlock was detected after waiting full timeout</dd></dl>
+</li>
+</ul>
+<a name="customRedo(byte[], long, byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>customRedo</h4>
+<pre>public final&nbsp;void&nbsp;customRedo(byte[]&nbsp;message,
+              long&nbsp;indexId,
+              byte[]&nbsp;key)
+                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Supply a message for a custom redo handler. Redo operations must always be paired with
+ undo operations.
+
+ <p><i>Note: This method is intended for advanced use cases.</i></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to redo handler</dd><dd><code>indexId</code> - index for lock acquisition; zero if not applicable</dd><dd><code>key</code> - key which has been locked exclusively; null if not applicable</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no redo handler is installed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext"><code>RedoHandler</code></a></dd></dl>
+</li>
+</ul>
+<a name="customUndo(byte[])">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>customUndo</h4>
+<pre>public final&nbsp;void&nbsp;customUndo(byte[]&nbsp;message)
+                      throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Supply a message for a custom undo handler. Undo operations must always be paired with
+ redo operations.
+
+ <p><i>Note: This method is intended for advanced use cases.</i></div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to undo handler</dd>
+<dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no undo handler is installed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext"><code>UndoHandler</code></a></dd></dl>
 </li>
 </ul>
 <a name="tryLockShared(long, byte[], long)">

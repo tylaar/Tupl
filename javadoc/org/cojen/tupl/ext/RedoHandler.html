@@ -3,13 +3,13 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-<title>ReplicationManager.Writer (Tupl 1.2 API)</title>
+<title>RedoHandler (Tupl 1.2 API)</title>
 <link rel="stylesheet" type="text/css" href="../../../../stylesheet.css" title="Style">
 </head>
 <body>
 <script type="text/javascript"><!--
     if (location.href.indexOf('is-external=true') == -1) {
-        parent.document.title="ReplicationManager.Writer (Tupl 1.2 API)";
+        parent.document.title="RedoHandler (Tupl 1.2 API)";
     }
 //-->
 </script>
@@ -26,7 +26,7 @@
 <li><a href="../../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/ReplicationManager.Writer.html">Use</a></li>
+<li><a href="class-use/RedoHandler.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../../index-all.html">Index</a></li>
@@ -35,12 +35,12 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext"><span class="strong">Next Class</span></a></li>
+<li>Prev Class</li>
+<li><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../index.html?org/cojen/tupl/ext/ReplicationManager.Writer.html" target="_top">Frames</a></li>
-<li><a href="ReplicationManager.Writer.html" target="_top">No Frames</a></li>
+<li><a href="../../../../index.html?org/cojen/tupl/ext/RedoHandler.html" target="_top">Frames</a></li>
+<li><a href="RedoHandler.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_top">
 <li><a href="../../../../allclasses-noframe.html">All Classes</a></li>
@@ -79,19 +79,20 @@
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="subTitle">org.cojen.tupl.ext</div>
-<h2 title="Interface ReplicationManager.Writer" class="title">Interface ReplicationManager.Writer</h2>
+<h2 title="Interface RedoHandler" class="title">Interface RedoHandler</h2>
 </div>
 <div class="contentContainer">
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>Enclosing interface:</dt>
-<dd><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext">ReplicationManager</a></dd>
-</dl>
 <hr>
 <br>
-<pre>public static interface <span class="strong">ReplicationManager.Writer</span></pre>
+<pre>public interface <span class="strong">RedoHandler</span></pre>
+<div class="block">Handler for custom transactional redo operations, which are applied by recovery and
+ replication.</div>
+<dl><dt><span class="strong">Author:</span></dt>
+  <dd>Brian S O'Neill</dd>
+<dt><span class="strong">See Also:</span></dt><dd><a href="../../../../org/cojen/tupl/DatabaseConfig.html#customRedoHandler(org.cojen.tupl.ext.RedoHandler)"><code>DatabaseConfig.customRedoHandler(org.cojen.tupl.ext.RedoHandler)</code></a></dd></dl>
 </li>
 </ul>
 </div>
@@ -111,30 +112,21 @@
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.Writer.html#confirm(long)">confirm</a></strong>(long&nbsp;position)</code>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[])">redo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+    <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+    byte[]&nbsp;message)</code>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
 </td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>boolean</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.Writer.html#confirm(long,%20long)">confirm</a></strong>(long&nbsp;position,
-       long&nbsp;timeoutNanos)</code>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
-</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.Writer.html#position()">position</a></strong>()</code>
-<div class="block">Returns the next position a leader will write to.</div>
-</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>long</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/ReplicationManager.Writer.html#write(byte[],%20int,%20int)">write</a></strong>(byte[]&nbsp;b,
-     int&nbsp;off,
-     int&nbsp;len)</code>
-<div class="block">Fully writes the given data, returning a confirmation position.</div>
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[],%20long,%20byte[])">redo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+    <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+    byte[]&nbsp;message,
+    long&nbsp;indexId,
+    byte[]&nbsp;key)</code>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
 </td>
 </tr>
 </table>
@@ -152,63 +144,38 @@
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="position()">
+<a name="redo(org.cojen.tupl.Database, org.cojen.tupl.Transaction, byte[])">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>position</h4>
-<pre>long&nbsp;position()</pre>
-<div class="block">Returns the next position a leader will write to. Valid only if local instance is
- the leader.</div>
-</li>
-</ul>
-<a name="write(byte[], int, int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>write</h4>
-<pre>long&nbsp;write(byte[]&nbsp;b,
-         int&nbsp;off,
-         int&nbsp;len)
-           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Fully writes the given data, returning a confirmation position. When the local
- instance loses leadership, all data rolls back to the highest confirmed position.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>confirmation position, or -1 if not leader</dd>
+<h4>redo</h4>
+<pre>void&nbsp;redo(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+        <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+        byte[]&nbsp;message)
+          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>txn</code> - transaction the operation applies to; can be modified</dd><dd><code>message</code> - message originally provided to <a href="../../../../org/cojen/tupl/Transaction.html#customRedo(byte[],%20long,%20byte[])"><code>Transaction.customRedo(byte[], long, byte[])</code></a></dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="confirm(long)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>confirm</h4>
-<pre>boolean&nbsp;confirm(long&nbsp;position)
-                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
-<dl><dt><span class="strong">Returns:</span></dt><dd>false if not leader</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code>ConfirmationFailureException</code></dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
-</li>
-</ul>
-<a name="confirm(long, long)">
+<a name="redo(org.cojen.tupl.Database, org.cojen.tupl.Transaction, byte[], long, byte[])">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>confirm</h4>
-<pre>boolean&nbsp;confirm(long&nbsp;position,
-              long&nbsp;timeoutNanos)
-                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block">Blocks until all data up to the given log position is confirmed.</div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>timeoutNanos</code> - pass -1 for infinite</dd>
-<dt><span class="strong">Returns:</span></dt><dd>false if not leader</dd>
+<h4>redo</h4>
+<pre>void&nbsp;redo(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+        <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+        byte[]&nbsp;message,
+        long&nbsp;indexId,
+        byte[]&nbsp;key)
+          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<div class="block">Non-transactionally apply an idempotent redo operation. Locking an index key allows
+ replication to operate concurrently.</div>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>txn</code> - transaction the operation applies to; can be modified</dd><dd><code>message</code> - message originally provided to <a href="../../../../org/cojen/tupl/Transaction.html#customRedo(byte[],%20long,%20byte[])"><code>Transaction.customRedo(byte[], long, byte[])</code></a></dd><dd><code>indexId</code> - non-zero index for lock acquisition</dd><dd><code>key</code> - non-null key which has been locked exclusively</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code>ConfirmationFailureException</code></dd>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
@@ -229,7 +196,7 @@
 <li><a href="../../../../overview-summary.html">Overview</a></li>
 <li><a href="package-summary.html">Package</a></li>
 <li class="navBarCell1Rev">Class</li>
-<li><a href="class-use/ReplicationManager.Writer.html">Use</a></li>
+<li><a href="class-use/RedoHandler.html">Use</a></li>
 <li><a href="package-tree.html">Tree</a></li>
 <li><a href="../../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../../index-all.html">Index</a></li>
@@ -238,12 +205,12 @@
 </div>
 <div class="subNav">
 <ul class="navList">
-<li><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><span class="strong">Prev Class</span></a></li>
-<li><a href="../../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext"><span class="strong">Next Class</span></a></li>
+<li>Prev Class</li>
+<li><a href="../../../../org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext"><span class="strong">Next Class</span></a></li>
 </ul>
 <ul class="navList">
-<li><a href="../../../../index.html?org/cojen/tupl/ext/ReplicationManager.Writer.html" target="_top">Frames</a></li>
-<li><a href="ReplicationManager.Writer.html" target="_top">No Frames</a></li>
+<li><a href="../../../../index.html?org/cojen/tupl/ext/RedoHandler.html" target="_top">Frames</a></li>
+<li><a href="RedoHandler.html" target="_top">No Frames</a></li>
 </ul>
 <ul class="navList" id="allclasses_navbar_bottom">
 <li><a href="../../../../allclasses-noframe.html">All Classes</a></li>

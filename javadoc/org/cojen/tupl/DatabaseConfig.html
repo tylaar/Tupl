@@ -197,6 +197,18 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#customRedoHandler(org.cojen.tupl.ext.RedoHandler)">customRedoHandler</a></strong>(<a href="../../../org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext">RedoHandler</a>&nbsp;handler)</code>
+<div class="block">Provide a handler for custom redo operations.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
+<td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#customUndoHandler(org.cojen.tupl.ext.UndoHandler)">customUndoHandler</a></strong>(<a href="../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext">UndoHandler</a>&nbsp;handler)</code>
+<div class="block">Provide a handler for custom undo operations.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code><a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><code><strong><a href="../../../org/cojen/tupl/DatabaseConfig.html#dataFile(java.io.File)">dataFile</a></strong>(<a href="http://docs.oracle.com/javase/7/docs/api/java/io/File.html?is-external=true" title="class or interface in java.io">File</a>&nbsp;file)</code>
 <div class="block">Set the data file for the database, which by default resides in the same
  directory as the base file.</div>
@@ -632,6 +644,26 @@ implements <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable
  <p>Allocated but never used pages within the data files are unencrypted, although they
  contain no information. Temporary files used by in-progress snapshots contain encrypted
  content.</div>
+</li>
+</ul>
+<a name="customRedoHandler(org.cojen.tupl.ext.RedoHandler)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>customRedoHandler</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;customRedoHandler(<a href="../../../org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext">RedoHandler</a>&nbsp;handler)</pre>
+<div class="block">Provide a handler for custom redo operations. An undo handler must also be provided.</div>
+</li>
+</ul>
+<a name="customUndoHandler(org.cojen.tupl.ext.UndoHandler)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>customUndoHandler</h4>
+<pre>public&nbsp;<a href="../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a>&nbsp;customUndoHandler(<a href="../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext">UndoHandler</a>&nbsp;handler)</pre>
+<div class="block">Provide a handler for custom undo operations. A redo handler must also be provided.</div>
 </li>
 </ul>
 <a name="clone()">

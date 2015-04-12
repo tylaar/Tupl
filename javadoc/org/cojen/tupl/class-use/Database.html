@@ -80,6 +80,12 @@
 <div class="block">See <a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl"><code>Database</code></a> to get started with Tupl.</div>
 </td>
 </tr>
+<tr class="rowColor">
+<td class="colFirst"><a href="#org.cojen.tupl.ext">org.cojen.tupl.ext</a></td>
+<td class="colLast">
+<div class="block">Support for database extensions.</div>
+</td>
+</tr>
 </tbody>
 </table>
 </li>
@@ -115,6 +121,45 @@
                    <a href="http://docs.oracle.com/javase/7/docs/api/java/io/InputStream.html?is-external=true" title="class or interface in java.io">InputStream</a>&nbsp;in)</code>
 <div class="block">Restore from a <a href="../../../../org/cojen/tupl/Database.html#beginSnapshot()"><code>snapshot</code></a>, into the data files defined by the given
  configuration.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="blockList"><a name="org.cojen.tupl.ext">
+<!--   -->
+</a>
+<h3>Uses of <a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a> in <a href="../../../../org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a></h3>
+<table border="0" cellpadding="3" cellspacing="0" summary="Use table, listing methods, and an explanation">
+<caption><span>Methods in <a href="../../../../org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a> with parameters of type <a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tbody>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">RedoHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[])">redo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+    <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+    byte[]&nbsp;message)</code>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">RedoHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[],%20long,%20byte[])">redo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+    <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
+    byte[]&nbsp;message,
+    long&nbsp;indexId,
+    byte[]&nbsp;key)</code>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">UndoHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/UndoHandler.html#undo(org.cojen.tupl.Database,%20byte[])">undo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+    byte[]&nbsp;message)</code>
+<div class="block">Non-transactionally apply an idempotent undo operation.</div>
 </td>
 </tr>
 </tbody>

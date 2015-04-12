@@ -373,6 +373,22 @@
 <dd>
 <div class="block">Returns the amount of cursors which are in a non-reset state.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#customRedo(byte[],%20long,%20byte[])">customRedo(byte[], long, byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dd>
+<div class="block">Supply a message for a custom redo handler.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#customRedoHandler(org.cojen.tupl.ext.RedoHandler)">customRedoHandler(RedoHandler)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Provide a handler for custom redo operations.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Transaction.html#customUndo(byte[])">customUndo(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></dt>
+<dd>
+<div class="block">Supply a message for a custom undo handler.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#customUndoHandler(org.cojen.tupl.ext.UndoHandler)">customUndoHandler(UndoHandler)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
+<dd>
+<div class="block">Provide a handler for custom undo operations.</div>
+</dd>
 </dl>
 <a name="_D_">
 <!--   -->
@@ -1423,6 +1439,19 @@
 <div class="block">Called after replication threads have started, providing an opportunity to wait until
  replication has sufficiently "caught up".</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[])">redo(Database, Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext">RedoHandler</a></dt>
+<dd>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/RedoHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[],%20long,%20byte[])">redo(Database, Transaction, byte[], long, byte[])</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext">RedoHandler</a></dt>
+<dd>
+<div class="block">Non-transactionally apply an idempotent redo operation.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext"><span class="strong">RedoHandler</span></a> - Interface in <a href="./org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a></dt>
+<dd>
+<div class="block">Handler for custom transactional redo operations, which are applied by recovery and
+ replication.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#remap()">remap()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>
 <div class="block">If file is mapped, remaps it if the file length has changed.</div>
@@ -1701,6 +1730,15 @@
 <dd>
 <div class="block">Convenience method to pass the given exception to the current thread's uncaught
  exception handler.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/UndoHandler.html#undo(org.cojen.tupl.Database,%20byte[])">undo(Database, byte[])</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext">UndoHandler</a></dt>
+<dd>
+<div class="block">Non-transactionally apply an idempotent undo operation.</div>
+</dd>
+<dt><a href="./org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext"><span class="strong">UndoHandler</span></a> - Interface in <a href="./org/cojen/tupl/ext/package-summary.html">org.cojen.tupl.ext</a></dt>
+<dd>
+<div class="block">Handler for custom transactional undo operations, which are applied to roll back
+ transactions.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#unmap()">unmap()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>
