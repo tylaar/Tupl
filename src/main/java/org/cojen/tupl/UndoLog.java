@@ -27,6 +27,8 @@ import static java.lang.System.arraycopy;
 
 import static org.cojen.tupl.Utils.*;
 
+import org.cojen.tupl.ext.UndoHandler;
+
 /**
  * Specialized stack used by UndoLog.
  *
@@ -113,6 +115,9 @@ final class UndoLog implements DatabaseAccess {
 
     // Payload is index id, to undo index creation.
     static final byte OP_UNCREATE_INDEX = (byte) 23;
+
+    // Payload is custom message.
+    static final byte OP_CUSTOM = (byte) 24;
 
     private final Database mDatabase;
     private final long mTxnId;
@@ -236,6 +241,14 @@ final class UndoLog implements DatabaseAccess {
         byte[] payload = new byte[8];
         encodeLongLE(payload, 0, indexId);
         doPush(OP_UNCREATE_INDEX, payload, 0, 8, 1);
+    }
+
+    /**
+     * Caller must hold db commit lock.
+     */
+    void pushCustom(byte[] message) throws IOException {
+        int len = message.length;
+        doPush(OP_CUSTOM, message, 0, len, calcUnsignedVarIntLength(len));
     }
 
     /**
@@ -534,6 +547,7 @@ final class UndoLog implements DatabaseAccess {
             case OP_UNINSERT:
             case OP_UNUPDATE:
             case OP_UNCREATE_INDEX:
+            case OP_CUSTOM:
                 // Ignore.
                 break;
 
@@ -632,6 +646,14 @@ final class UndoLog implements DatabaseAccess {
                 // TODO: delete in the background during recovery?
                 mDatabase.deleteIndex(ix, mTxnId).run();
             }
+
+        case OP_CUSTOM:
+            Database db = mDatabase;
+            UndoHandler handler = db.mCustomUndoHandler;
+            if (handler == null) {
+                throw new DatabaseException("Custom undo handler is not installed");
+            }
+            handler.undo(db, entry);
             break;
         }
 
@@ -984,6 +1006,7 @@ final class UndoLog implements DatabaseAccess {
                         // Indicate that a ghost must be deleted if transaction is committed.
                         .mSharedLockOwnersObj = mDatabase.anyIndexById(mActiveIndexId);
                 }
+            case OP_CUSTOM:
                 break;
 
             case OP_UNCREATE_INDEX:
