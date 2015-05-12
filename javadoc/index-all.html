@@ -100,6 +100,14 @@
 <dd>
 <div class="block">Returns the current autoload mode.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#autoload(boolean)">autoload(boolean)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">By default, values are loaded automatically, as they are seen.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#autoload()">autoload()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Returns the current autoload mode.</div>
+</dd>
 </dl>
 <a name="_B_">
 <!--   -->
@@ -284,6 +292,14 @@
 <div class="block">Compare the current key to the one given.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[],%20int,%20int)">compareKeyTo(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Compare the current key to the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#compareKeyTo(byte[])">compareKeyTo(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Compare the current key to the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#compareKeyTo(byte[],%20int,%20int)">compareKeyTo(byte[], int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Compare the current key to the one given.</div>
 </dd>
@@ -693,12 +709,26 @@
 <dd>
 <div class="block">Moves the Cursor to find the given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#find(byte[])">find(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#findGe(byte[])">findGe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the first available entry greater than or equal
  to the given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#findGe(byte[])">findGe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the first available entry greater than or equal
+ to the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#findGt(byte[])">findGt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the first available entry greater than the
+ given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#findGt(byte[])">findGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the first available entry greater than the
  given key.</div>
@@ -716,7 +746,17 @@
 <div class="block">Moves the Cursor to find the first available entry less than or equal to
  the given key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#findLe(byte[])">findLe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the first available entry less than or equal to
+ the given key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#findLt(byte[])">findLt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the first available entry less than the given
+ key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#findLt(byte[])">findLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the first available entry less than the given
  key.</div>
@@ -726,7 +766,16 @@
 <div class="block">Optimized version of the regular find method, which can perform fewer search steps if
  the given key is in close proximity to the current one.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#findNearby(byte[])">findNearby(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Optimized version of the regular find method, which can perform fewer search steps if
+ the given key is in close proximity to the current one.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#first()">first()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the first available entry.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#first()">first()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to find the first available entry.</div>
 </dd>
@@ -786,6 +835,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#getOrdering()">getOrdering()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Returns the key ordering for this view.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#getOrdering()">getOrdering()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Returns the key ordering for this cursor.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#getPageCount()">getPageCount()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
@@ -994,6 +1047,11 @@
 <div class="block">Returns an uncopied reference to the current key, or null if Cursor is
  unpositioned.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#key()">key()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Returns an uncopied reference to the current key, or null if Cursor is
+ unpositioned.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#keySize()">keySize()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>
 <div class="block">Returns 128 bits by default; override to use any size supported by the algorithm.</div>
@@ -1024,6 +1082,10 @@
 <dd>
 <div class="block">Moves the Cursor to find the last available entry.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#last()">last()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to find the last available entry.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#length()">length()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Snapshot.html#length()">length()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl">Snapshot</a></dt>
@@ -1041,6 +1103,14 @@
 <dd>
 <div class="block">Returns the transaction the cursor is currently linked to.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#link(org.cojen.tupl.Transaction)">link(Transaction)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Link to a transaction, which can be null for auto-commit mode.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#link()">link()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Returns the transaction the cursor is currently linked to.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#load()">load()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Loads or reloads the value at the cursor's current position.</div>
@@ -1054,6 +1124,10 @@
 <dd>
 <div class="block">Returns a copy of the value for the given key, or null if no matching
  entry exists.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#load()">load()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Loads or reloads the value at the cursor's current position.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#lockCheck(org.cojen.tupl.Transaction,%20byte[])">lockCheck(Transaction, byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
@@ -1255,6 +1329,10 @@
 <dd>
 <div class="block">Returns an unopened stream for accessing values in this view.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#newStream()">newStream()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Returns an unmodifiable stream by default.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#newStreamCipher()">newStreamCipher()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>
 <div class="block">Called to instantiate a <a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html?is-external=true" title="class or interface in javax.crypto"><code>Cipher</code></a> for encrypting and decrypting redo logs, using
@@ -1273,12 +1351,26 @@
 <dd>
 <div class="block">Moves to the Cursor to the next available entry.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#next()">next()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the next available entry.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#nextLe(byte[])">nextLe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves to the Cursor to the next available entry, but only when less than
  or equal to the given limit key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#nextLe(byte[])">nextLe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the next available entry, but only when less than
+ or equal to the given limit key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#nextLt(byte[])">nextLt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the next available entry, but only when less than
+ the given limit key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#nextLt(byte[])">nextLt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves to the Cursor to the next available entry, but only when less than
  the given limit key.</div>
@@ -1391,12 +1483,26 @@
 <dd>
 <div class="block">Moves to the Cursor to the previous available entry.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#previous()">previous()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the previous available entry.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#previousGe(byte[])">previousGe(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Moves to the Cursor to the previous available entry, but only when
  greater than or equal to the given limit key.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#previousGe(byte[])">previousGe(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the previous available entry, but only when
+ greater than or equal to the given limit key.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#previousGt(byte[])">previousGt(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves to the Cursor to the previous available entry, but only when
+ greater than the given limit key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#previousGt(byte[])">previousGt(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves to the Cursor to the previous available entry, but only when
  greater than the given limit key.</div>
@@ -1408,6 +1514,11 @@
 <h2 class="title">R</h2>
 <dl>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#random(byte[],%20byte[])">random(byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
+ a uniform distribution.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#random(byte[],%20byte[])">random(byte[], byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Moves the Cursor to a random entry, but not guaranteed to be chosen from
  a uniform distribution.</div>
@@ -1521,6 +1632,10 @@
 <div class="block">Exits all transaction scopes, rolling back all uncommitted
  modifications.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#reset()">reset()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Resets Cursor and moves it to an undefined position.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Database.html#restoreFromSnapshot(org.cojen.tupl.DatabaseConfig,%20java.io.InputStream)">restoreFromSnapshot(DatabaseConfig, InputStream)</a></span> - Static method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>
 <div class="block">Restore from a <a href="./org/cojen/tupl/Database.html#beginSnapshot()"><code>snapshot</code></a>, into the data files defined by the given
@@ -1580,10 +1695,16 @@
 <dd>
 <div class="block">Moves the Cursor by a relative amount of entries.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#skip(long)">skip(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Moves the Cursor by a relative amount of entries.</div>
+</dd>
 <dt><a href="./org/cojen/tupl/Snapshot.html" title="interface in org.cojen.tupl"><span class="strong">Snapshot</span></a> - Interface in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Control object used to capture a database snapshot.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#source">source</a></span> - Variable in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ext/ReplicationManager.html#start(long)">start(long)</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext">ReplicationManager</a></dt>
 <dd>
 <div class="block">Start the replication manager in replica mode.</div>
@@ -1604,6 +1725,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/View.html#store(org.cojen.tupl.Transaction,%20byte[],%20byte[])">store(Transaction, byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl">View</a></dt>
 <dd>
 <div class="block">Unconditionally associates a value with the given key.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#store(byte[])">store(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
+<dd>
+<div class="block">Always throws UnmodifiableViewException by default.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io"><span class="strong">StripedPageArray</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
 <dd>
@@ -1784,6 +1909,11 @@
 <h2 class="title">V</h2>
 <dl>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#value()">value()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
+<dd>
+<div class="block">Returns an uncopied reference to the current value, which might be null
+ or <a href="./org/cojen/tupl/Cursor.html#NOT_LOADED"><code>Cursor.NOT_LOADED</code></a>.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/WrappedCursor.html#value()">value()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl">WrappedCursor</a></dt>
 <dd>
 <div class="block">Returns an uncopied reference to the current value, which might be null
  or <a href="./org/cojen/tupl/Cursor.html#NOT_LOADED"><code>Cursor.NOT_LOADED</code></a>.</div>
@@ -2009,6 +2139,10 @@ the order they are declared.</div>
 </a>
 <h2 class="title">W</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/WrappedCursor.html" title="class in org.cojen.tupl"><span class="strong">WrappedCursor</span></a>&lt;<a href="./org/cojen/tupl/WrappedCursor.html" title="type parameter in WrappedCursor">C</a> extends <a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a>&gt; - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Abstract wrapper around another cursor.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ext/ReplicationManager.Writer.html#write(byte[],%20int,%20int)">write(byte[], int, int)</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/ReplicationManager.Writer.html" title="interface in org.cojen.tupl.ext">ReplicationManager.Writer</a></dt>
 <dd>
 <div class="block">Fully writes the given data, returning a confirmation position.</div>
