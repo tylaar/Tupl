@@ -172,33 +172,24 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#readPage(long,%20byte[],%20int)">readPage</a></strong>(long&nbsp;index,
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#readPage(long,%20byte[],%20int,%20int)">readPage</a></strong>(long&nbsp;index,
         byte[]&nbsp;buf,
-        int&nbsp;offset)</code>&nbsp;</td>
+        int&nbsp;offset,
+        int&nbsp;length)</code>&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>int</code></td>
-<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial</a></strong>(long&nbsp;index,
-           int&nbsp;start,
-           byte[]&nbsp;buf,
-           int&nbsp;offset,
-           int&nbsp;length)</code>
-<div class="block">Subclass should override to improve performance.</div>
-</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#setPageCount(long)">setPageCount</a></strong>(long&nbsp;count)</code>
 <div class="block">Set the total count of pages, truncating or growing the array as necessary.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#sync(boolean)">sync</a></strong>(boolean&nbsp;metadata)</code>
 <div class="block">Durably flushes all writes to the underlying device.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FilePageArray.html#writePage(long,%20byte[],%20int)">writePage</a></strong>(long&nbsp;index,
          byte[]&nbsp;buf,
@@ -336,7 +327,7 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
-<a name="readPage(long, byte[], int)">
+<a name="readPage(long, byte[], int, int)">
 <!--   -->
 </a>
 <ul class="blockList">
@@ -344,35 +335,13 @@ extends <a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in o
 <h4>readPage</h4>
 <pre>public&nbsp;void&nbsp;readPage(long&nbsp;index,
             byte[]&nbsp;buf,
-            int&nbsp;offset)
+            int&nbsp;offset,
+            int&nbsp;length)
               throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
 <dl>
 <dt><strong>Specified by:</strong></dt>
-<dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int)">readPage</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
+<dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int,%20int)">readPage</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
 <dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to read</dd><dd><code>buf</code> - receives read data</dd><dd><code>offset</code> - offset into data buffer</dd>
-<dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if index is greater than or equal to page count</dd></dl>
-</li>
-</ul>
-<a name="readPartial(long, int, byte[], int, int)">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>readPartial</h4>
-<pre>public&nbsp;int&nbsp;readPartial(long&nbsp;index,
-              int&nbsp;start,
-              byte[]&nbsp;buf,
-              int&nbsp;offset,
-              int&nbsp;length)
-                throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
-<div class="block"><strong>Description copied from class:&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">PageArray</a></code></strong></div>
-<div class="block">Subclass should override to improve performance.</div>
-<dl>
-<dt><strong>Overrides:</strong></dt>
-<dd><code><a href="../../../../org/cojen/tupl/io/PageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial</a></code>&nbsp;in class&nbsp;<code><a href="../../../../org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></code></dd>
-<dt><span class="strong">Parameters:</span></dt><dd><code>index</code> - zero-based page index to read</dd><dd><code>start</code> - start of page to read</dd><dd><code>buf</code> - receives read data</dd><dd><code>offset</code> - offset into data buffer</dd><dd><code>length</code> - length to read</dd>
-<dt><span class="strong">Returns:</span></dt><dd>actual length read</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code> - if index is greater than or equal to page count</dd></dl>
 </li>

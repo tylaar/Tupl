@@ -173,33 +173,47 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
     int&nbsp;length)</code>&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#read(long,%20long,%20int,%20int)">read</a></strong>(long&nbsp;pos,
+    long&nbsp;ptr,
+    int&nbsp;offset,
+    int&nbsp;length)</code>&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#remap()">remap</a></strong>()</code>
 <div class="block">If file is mapped, remaps it if the file length has changed.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#setLength(long)">setLength</a></strong>(long&nbsp;length)</code>
 <div class="block">Attempt to set the length of the file.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#sync(boolean)">sync</a></strong>(boolean&nbsp;metadata)</code>
 <div class="block">Durably flushes all writes to the underlying device.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#unmap()">unmap</a></strong>()</code>
 <div class="block">Unmaps the file from main memory, leaving the file open.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>abstract void</code></td>
 <td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#write(long,%20byte[],%20int,%20int)">write</a></strong>(long&nbsp;pos,
      byte[]&nbsp;buf,
+     int&nbsp;offset,
+     int&nbsp;length)</code>&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><strong><a href="../../../../org/cojen/tupl/io/FileIO.html#write(long,%20long,%20int,%20int)">write</a></strong>(long&nbsp;pos,
+     long&nbsp;ptr,
      int&nbsp;offset,
      int&nbsp;length)</code>&nbsp;</td>
 </tr>
@@ -335,6 +349,21 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>
+<a name="read(long, long, int, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>read</h4>
+<pre>public&nbsp;void&nbsp;read(long&nbsp;pos,
+        long&nbsp;ptr,
+        int&nbsp;offset,
+        int&nbsp;length)
+          throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
 <a name="write(long, byte[], int, int)">
 <!--   -->
 </a>
@@ -349,6 +378,21 @@ implements <a href="../../../../org/cojen/tupl/io/CauseCloseable.html" title="in
 <dl><dt><span class="strong">Parameters:</span></dt><dd><code>pos</code> - zero-based position in file</dd><dd><code>buf</code> - data to write</dd><dd><code>offset</code> - offset into data buffer</dd><dd><code>length</code> - amount of data</dd>
 <dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang">IllegalArgumentException</a></code></dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
+</li>
+</ul>
+<a name="write(long, long, int, int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>write</h4>
+<pre>public&nbsp;void&nbsp;write(long&nbsp;pos,
+         long&nbsp;ptr,
+         int&nbsp;offset,
+         int&nbsp;length)
+           throws <a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></pre>
+<dl><dt><span class="strong">Throws:</span></dt>
 <dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd></dl>
 </li>
 </ul>

@@ -542,6 +542,12 @@
 <div class="block">Delete the contents of an existing database, and replace it with an
  empty one.</div>
 </dd>
+<dt><a href="./org/cojen/tupl/io/DirectAccess.html" title="class in org.cojen.tupl.io"><span class="strong">DirectAccess</span></a> - Class in <a href="./org/cojen/tupl/io/package-summary.html">org.cojen.tupl.io</a></dt>
+<dd>
+<div class="block">Backdoor access to DirectByteBuffer.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/DirectAccess.html#DirectAccess()">DirectAccess()</a></span> - Constructor for class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/DirectAccess.html" title="class in org.cojen.tupl.io">DirectAccess</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#drop()">drop()</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Fully closes and removes an empty index.</div>
@@ -704,6 +710,8 @@
 <div class="block">View transformer which filters out entries which don't belong.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Filter.html#Filter()">Filter()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/Filter.html" title="class in org.cojen.tupl">Filter</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/Database.html#finalize()">finalize()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#find(byte[])">find(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
@@ -1529,21 +1537,15 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#read(long,%20byte[],%20int,%20int)">read(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#read(long,%20long,%20int,%20int)">read(long, long, int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPage(long,%20byte[],%20int,%20int)">readPage(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[])">readPage(long, byte[])</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPage(long,%20byte[],%20int,%20int)">readPage(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
 <dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPage(long,%20byte[],%20int)">readPage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/PageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/PageArray.html" title="class in org.cojen.tupl.io">PageArray</a></dt>
-<dd>
-<div class="block">Subclass should override to improve performance.</div>
-</dd>
-<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPartial(long,%20int,%20byte[],%20int,%20int)">readPartial(long, int, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/StripedPageArray.html#readPage(long,%20byte[],%20int,%20int)">readPage(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/StripedPageArray.html" title="class in org.cojen.tupl.io">StripedPageArray</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/ext/ReplicationManager.html#readPosition()">readPosition()</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/ReplicationManager.html" title="interface in org.cojen.tupl.ext">ReplicationManager</a></dt>
 <dd>
@@ -1566,6 +1568,14 @@
 <dd>
 <div class="block">Handler for custom transactional redo operations, which are applied by recovery and
  replication.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/DirectAccess.html#ref(long,%20int)">ref(long, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/DirectAccess.html" title="class in org.cojen.tupl.io">DirectAccess</a></dt>
+<dd>
+<div class="block">Returns a thread-local ByteBuffer which references any memory address.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/DirectAccess.html#ref2(long,%20int)">ref2(long, int)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/DirectAccess.html" title="class in org.cojen.tupl.io">DirectAccess</a></dt>
+<dd>
+<div class="block">Returns a second independent thread-local ByteBuffer.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#remap()">remap()</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>
@@ -1886,6 +1896,8 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/UnmodifiableViewException.html#UnmodifiableViewException()">UnmodifiableViewException()</a></span> - Constructor for exception org.cojen.tupl.<a href="./org/cojen/tupl/UnmodifiableViewException.html" title="class in org.cojen.tupl">UnmodifiableViewException</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/DirectAccess.html#unref(java.nio.ByteBuffer)">unref(ByteBuffer)</a></span> - Static method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/DirectAccess.html" title="class in org.cojen.tupl.io">DirectAccess</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Index.html#update(org.cojen.tupl.Transaction,%20byte[],%20byte[],%20byte[])">update(Transaction, byte[], byte[], byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Index.html" title="interface in org.cojen.tupl">Index</a></dt>
 <dd>
 <div class="block">Associates a value with the given key, but only if the given old value
@@ -2150,6 +2162,8 @@ the order they are declared.</div>
 <div class="block">Fully writes the given data, returning a confirmation position.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long,%20byte[],%20int,%20int)">write(long, byte[], int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#write(long,%20long,%20int,%20int)">write(long, long, int, int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FilePageArray.html#writePage(long,%20byte[],%20int)">writePage(long, byte[], int)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FilePageArray.html" title="class in org.cojen.tupl.io">FilePageArray</a></dt>
 <dd>&nbsp;</dd>
