@@ -38,6 +38,7 @@ import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumSet;
@@ -66,6 +67,7 @@ import org.cojen.tupl.io.OpenOption;
 import org.cojen.tupl.io.PageArray;
 
 import static org.cojen.tupl.Node.*;
+import static org.cojen.tupl.PageOps.*;
 import static org.cojen.tupl.Utils.*;
 
 /**
@@ -189,7 +191,7 @@ public final class Database implements CauseCloseable, Flushable {
 
     // Set during checkpoint after commit state has switched. If checkpoint aborts, next
     // checkpoint will resume with this commit header and master undo log.
-    private byte[] mCommitHeader;
+    private /*P*/ byte[] mCommitHeader = p_null();
     private UndoLog mCommitMasterUndoLog;
 
     // Is false for empty databases which have never checkpointed.
@@ -247,7 +249,7 @@ public final class Database implements CauseCloseable, Flushable {
 
     private volatile Checkpointer mCheckpointer;
 
-    private final TempFileManager mTempFileManager;
+    final TempFileManager mTempFileManager;
 
     volatile boolean mClosed;
     volatile Throwable mClosedCause;
@@ -956,6 +958,9 @@ public final class Database implements CauseCloseable, Flushable {
                 } finally {
                     txn.reset();
                 }
+
+                checkClosed();
+                return null;
             }
 
             index = openIndex(name, false);
@@ -1143,7 +1148,7 @@ public final class Database implements CauseCloseable, Flushable {
         final Node root = tree.mRoot;
         root.acquireExclusive();
         try {
-            if (root.mPage == EMPTY_BYTES) {
+            if (root.mPage == p_empty()) {
                 throw new ClosedIndexException();
             }
 
@@ -1687,7 +1692,11 @@ public final class Database implements CauseCloseable, Flushable {
                 (pageSize, dataFiles, factory, options, null, config.mCrypto, in);
         }
 
-        restored.close();
+        try {
+            restored.close();
+        } finally {
+            restored.delete();
+        }
 
         return Database.open(config);
     }
@@ -2280,6 +2289,10 @@ public final class Database implements CauseCloseable, Flushable {
         close(null, mPageDb.isDurable());
     }
 
+    protected void finalize() throws IOException {
+        close();
+    }
+
     private void close(Throwable cause, boolean shutdown) throws IOException {
         if (cause != null && !mClosed) {
             if (cClosedCauseUpdater.compareAndSet(this, null, cause) && mEventListener != null) {
@@ -2294,6 +2307,9 @@ public final class Database implements CauseCloseable, Flushable {
         if (shutdown) {
             mCheckpointLock.lock();
             try {
+                if (mClosed) {
+                    return;
+                }
                 checkpoint(true, 0, 0);
                 mClosed = true;
                 if (c != null) {
@@ -2303,77 +2319,112 @@ public final class Database implements CauseCloseable, Flushable {
                 mCheckpointLock.unlock();
             }
         } else {
-            mClosed = true;
             if (c != null) {
                 c.close();
             }
             // Wait for any in-progress checkpoint to complete.
             mCheckpointLock.lock();
-            // Nothing really needs to be done with lock held, but do something just in
-            // case a "smart" compiler thinks the lock can be eliminated.
-            mClosed = true;
-            mCheckpointLock.unlock();
-        }
-
-        mCheckpointer = null;
-
-        if (mOpenTrees != null) {
-            mOpenTreesLatch.acquireExclusive();
             try {
-                mOpenTrees.clear();
-                mOpenTreesById.clear(0);
+                if (mClosed) {
+                    return;
+                }
+                mClosed = true;
             } finally {
-                mOpenTreesLatch.releaseExclusive();
+                mCheckpointLock.unlock();
             }
         }
 
-        Lock lock = mSharedCommitLock;
-        if (lock != null) {
-            lock.lock();
-        }
         try {
-            if (mUsageLists != null) {
-                for (NodeUsageList usageList : mUsageLists) {
-                    if (usageList != null) {
-                        usageList.close();
+            mCheckpointer = null;
+
+            if (mOpenTrees != null) {
+                final ArrayList<TreeRef> trees;
+                mOpenTreesLatch.acquireExclusive();
+                try {
+                    trees = new ArrayList<>(mOpenTreesById.size());
+
+                    mOpenTreesById.traverse(new LHashTable.Visitor
+                                            <LHashTable.ObjEntry<TreeRef>, IOException>()
+                    {
+                        public boolean visit(LHashTable.ObjEntry<TreeRef> entry)
+                            throws IOException
+                        {
+                            trees.add(entry.value);
+                            return true;
+                        }
+                    });
+
+                    mOpenTrees.clear();
+                } finally {
+                    mOpenTreesLatch.releaseExclusive();
+                }
+
+                for (TreeRef ref : trees) {
+                    Tree tree = ref.get();
+                    if (tree != null) {
+                        tree.close();
                     }
                 }
             }
 
-            if (mTreeNodeMap != null) {
-                mTreeNodeMap.clear();
+            Lock lock = mSharedCommitLock;
+            if (lock != null) {
+                lock.lock();
             }
+            try {
+                if (mUsageLists != null) {
+                    for (NodeUsageList usageList : mUsageLists) {
+                        if (usageList != null) {
+                            usageList.delete();
+                        }
+                    }
+                }
 
-            if (mDirtyList != null) {
-                mDirtyList.clear();
-            }
+                if (mTreeNodeMap != null) {
+                    mTreeNodeMap.delete();
+                }
 
-            IOException ex = null;
+                if (mDirtyList != null) {
+                    mDirtyList.delete();
+                }
 
-            ex = closeQuietly(ex, mRedoWriter, cause);
-            ex = closeQuietly(ex, mPageDb, cause);
-            ex = closeQuietly(ex, mTempFileManager, cause);
+                // FIXME: Need to delete internal tree root nodes and undo log nodes.
 
-            if (shutdown && mBaseFile != null) {
-                deleteRedoLogFiles();
-                new File(mBaseFile.getPath() + INFO_FILE_SUFFIX).delete();
-                ex = closeQuietly(ex, mLockFile, cause);
-                new File(mBaseFile.getPath() + LOCK_FILE_SUFFIX).delete();
-            } else {
-                ex = closeQuietly(ex, mLockFile, cause);
-            }
+                IOException ex = null;
 
-            if (mLockManager != null) {
-                mLockManager.close();
-            }
+                ex = closeQuietly(ex, mRedoWriter, cause);
+                ex = closeQuietly(ex, mPageDb, cause);
+                ex = closeQuietly(ex, mTempFileManager, cause);
 
-            if (ex != null) {
-                throw ex;
+                if (shutdown && mBaseFile != null) {
+                    deleteRedoLogFiles();
+                    new File(mBaseFile.getPath() + INFO_FILE_SUFFIX).delete();
+                    ex = closeQuietly(ex, mLockFile, cause);
+                    new File(mBaseFile.getPath() + LOCK_FILE_SUFFIX).delete();
+                } else {
+                    ex = closeQuietly(ex, mLockFile, cause);
+                }
+
+                if (mLockManager != null) {
+                    mLockManager.close();
+                }
+
+                if (ex != null) {
+                    throw ex;
+                }
+            } finally {
+                if (lock != null) {
+                    lock.unlock();
+                }
             }
         } finally {
-            if (lock != null) {
-                lock.unlock();
+            if (mPageDb != null) {
+                mPageDb.delete();
             }
+            if (mSparePagePool != null) {
+                mSparePagePool.delete();
+            }
+            p_delete(mCommitHeader);
         }
     }
 
@@ -2915,7 +2966,9 @@ public final class Database implements CauseCloseable, Flushable {
                 mOpenTrees.remove(ref.mName);
                 mOpenTreesById.remove(ref.mId);
                 root.makeEvictableNow();
-                mTreeNodeMap.put(root);
+                if (root.mId != 0) {
+                    mTreeNodeMap.put(root);
+                }
             } finally {
                 mOpenTreesLatch.releaseExclusive();
             }
@@ -3331,7 +3384,7 @@ public final class Database implements CauseCloseable, Flushable {
                         Node node = allocDirtyFragmentNode();
                         try {
                             encodeInt48LE(newValue, poffset, node.mId);
-                            arraycopy(value, voffset, node.mPage, 0, pageSize);
+                            p_copyFromArray(value, voffset, node.mPage, 0, pageSize);
                             if (pageCount == 1) {
                                 break;
                             }
@@ -3386,13 +3439,13 @@ public final class Database implements CauseCloseable, Flushable {
                             Node node = allocDirtyFragmentNode();
                             try {
                                 encodeInt48LE(newValue, offset, node.mId);
-                                byte[] page = node.mPage;
+                                /*P*/ byte[] page = node.mPage;
                                 if (pageCount > 1) {
-                                    arraycopy(value, voffset, page, 0, pageSize);
+                                    p_copyFromArray(value, voffset, page, 0, pageSize);
                                 } else {
-                                    arraycopy(value, voffset, page, 0, remainder);
+                                    p_copyFromArray(value, voffset, page, 0, remainder);
                                     // Zero fill the rest, making it easier to extend later.
-                                    fill(page, remainder, page.length, (byte) 0);
+                                    p_clear(page, remainder, p_length(page));
                                     break;
                                 }
                             } finally {
@@ -3448,16 +3501,16 @@ public final class Database implements CauseCloseable, Flushable {
         return levels;
     }
 
-    static long decodeFullFragmentedValueLength(int header, byte[] fragmented, int off) {
+    static long decodeFullFragmentedValueLength(int header, /*P*/ byte[] fragmented, int off) {
         switch ((header >> 2) & 0x03) {
         default:
-            return decodeUnsignedShortLE(fragmented, off);
+            return p_ushortGetLE(fragmented, off);
         case 1:
-            return decodeIntLE(fragmented, off) & 0xffffffffL;
+            return p_intGetLE(fragmented, off) & 0xffffffffL;
         case 2:
-            return decodeUnsignedInt48LE(fragmented, off);
+            return p_uint48GetLE(fragmented, off);
         case 3:
-            return decodeLongLE(fragmented, off);
+            return p_longGetLE(fragmented, off);
         }
     }
 
@@ -3471,7 +3524,7 @@ public final class Database implements CauseCloseable, Flushable {
         throws IOException
     {
         try {
-            byte[] page = inode.mPage;
+            /*P*/ byte[] page = inode.mPage;
             level--;
             long levelCap = levelCap(level);
 
@@ -3480,14 +3533,14 @@ public final class Database implements CauseCloseable, Flushable {
             int poffset = 0;
             for (int i=0; i<childNodeCount; poffset += 6, i++) {
                 Node childNode = allocDirtyFragmentNode();
-                encodeInt48LE(page, poffset, childNode.mId);
+                p_int48PutLE(page, poffset, childNode.mId);
 
                 int len = (int) Math.min(levelCap, vlength);
                 if (level <= 0) {
-                    byte[] childPage = childNode.mPage;
-                    arraycopy(value, voffset, childPage, 0, len);
+                    /*P*/ byte[] childPage = childNode.mPage;
+                    p_copyFromArray(value, voffset, childPage, 0, len);
                     // Zero fill the rest, making it easier to extend later.
-                    fill(childPage, len, childPage.length, (byte) 0);
+                    p_clear(childPage, len, p_length(childPage));
                     childNode.releaseExclusive();
                 } else {
                     writeMultilevelFragments(level, childNode, value, voffset, len);
@@ -3498,7 +3551,7 @@ public final class Database implements CauseCloseable, Flushable {
             }
 
             // Zero fill the rest, making it easier to extend later.
-            fill(page, poffset, page.length, (byte) 0);
+            p_clear(page, poffset, p_length(page));
         } catch (Throwable e) {
             // Panic.
             close(e);
@@ -3511,7 +3564,7 @@ public final class Database implements CauseCloseable, Flushable {
     /**
      * Reconstruct a fragmented key.
      */
-    byte[] reconstructKey(byte[] fragmented, int off, int len) throws IOException {
+    byte[] reconstructKey(/*P*/ byte[] fragmented, int off, int len) throws IOException {
         try {
             return reconstruct(fragmented, off, len);
         } catch (LargeValueException e) {
@@ -3522,25 +3575,25 @@ public final class Database implements CauseCloseable, Flushable {
     /**
      * Reconstruct a fragmented value.
      */
-    byte[] reconstruct(byte[] fragmented, int off, int len) throws IOException {
-        int header = fragmented[off++];
+    byte[] reconstruct(/*P*/ byte[] fragmented, int off, int len) throws IOException {
+        int header = p_byteGet(fragmented, off++);
         len--;
 
         int vLen;
         switch ((header >> 2) & 0x03) {
         default:
-            vLen = decodeUnsignedShortLE(fragmented, off);
+            vLen = p_ushortGetLE(fragmented, off);
             break;
 
         case 1:
-            vLen = decodeIntLE(fragmented, off);
+            vLen = p_intGetLE(fragmented, off);
             if (vLen < 0) {
                 throw new LargeValueException(vLen & 0xffffffffL);
             }
             break;
 
         case 2:
-            long vLenL = decodeUnsignedInt48LE(fragmented, off);
+            long vLenL = p_uint48GetLE(fragmented, off);
             if (vLenL > Integer.MAX_VALUE) {
                 throw new LargeValueException(vLenL);
             }
@@ -3548,7 +3601,7 @@ public final class Database implements CauseCloseable, Flushable {
             break;
 
         case 3:
-            vLenL = decodeLongLE(fragmented, off);
+            vLenL = p_longGetLE(fragmented, off);
             if (vLenL < 0 || vLenL > Integer.MAX_VALUE) {
                 throw new LargeValueException(vLenL);
             }
@@ -3572,10 +3625,10 @@ public final class Database implements CauseCloseable, Flushable {
         int vOff = 0;
         if ((header & 0x02) != 0) {
             // Inline content.
-            int inLen = decodeUnsignedShortLE(fragmented, off);
+            int inLen = p_ushortGetLE(fragmented, off);
             off += 2;
             len -= 2;
-            arraycopy(fragmented, off, value, vOff, inLen);
+            p_copyToArray(fragmented, off, value, vOff, inLen);
             off += inLen;
             len -= inLen;
             vOff += inLen;
@@ -3585,7 +3638,7 @@ public final class Database implements CauseCloseable, Flushable {
         if ((header & 0x01) == 0) {
             // Direct pointers.
             while (len >= 6) {
-                long nodeId = decodeUnsignedInt48LE(fragmented, off);
+                long nodeId = p_uint48GetLE(fragmented, off);
                 off += 6;
                 len -= 6;
                 int pLen;
@@ -3595,9 +3648,9 @@ public final class Database implements CauseCloseable, Flushable {
                 } else {
                     Node node = mFragmentCache.get(nodeId);
                     try {
-                        byte[] page = node.mPage;
-                        pLen = Math.min(vLen, page.length);
-                        arraycopy(page, 0, value, vOff, pLen);
+                        /*P*/ byte[] page = node.mPage;
+                        pLen = Math.min(vLen, p_length(page));
+                        p_copyToArray(page, 0, value, vOff, pLen);
                     } finally {
                         node.releaseShared();
                     }
@@ -3607,7 +3660,7 @@ public final class Database implements CauseCloseable, Flushable {
             }
         } else {
             // Indirect pointers.
-            long inodeId = decodeUnsignedInt48LE(fragmented, off);
+            long inodeId = p_uint48GetLE(fragmented, off);
             if (inodeId != 0) {
                 Node inode = mFragmentCache.get(inodeId);
                 int levels = calculateInodeLevels(vLen);
@@ -3628,20 +3681,20 @@ public final class Database implements CauseCloseable, Flushable {
         throws IOException
     {
         try {
-            byte[] page = inode.mPage;
+            /*P*/ byte[] page = inode.mPage;
             level--;
             long levelCap = levelCap(level);
 
             int childNodeCount = (int) ((vlength + (levelCap - 1)) / levelCap);
 
             for (int poffset = 0, i=0; i<childNodeCount; poffset += 6, i++) {
-                long childNodeId = decodeUnsignedInt48LE(page, poffset);
+                long childNodeId = p_uint48GetLE(page, poffset);
                 int len = (int) Math.min(levelCap, vlength);
 
                 if (childNodeId != 0) {
                     Node childNode = mFragmentCache.get(childNodeId);
                     if (level <= 0) {
-                        arraycopy(childNode.mPage, 0, value, voffset, len);
+                        p_copyToArray(childNode.mPage, 0, value, voffset, len);
                         childNode.releaseShared();
                     } else {
                         readMultilevelFragments(level, childNode, value, voffset, len);
@@ -3658,11 +3711,13 @@ public final class Database implements CauseCloseable, Flushable {
 
     /**
      * Delete the extra pages of a fragmented value. Caller must hold commit lock.
+     *
+     * @param fragmented page containing fragmented value 
      */
-    void deleteFragments(byte[] fragmented, int off, int len)
+    void deleteFragments(/*P*/ byte[] fragmented, int off, int len)
         throws IOException
     {
-        int header = fragmented[off++];
+        int header = p_byteGet(fragmented, off++);
         len--;
 
         long vLen;
@@ -3672,16 +3727,16 @@ public final class Database implements CauseCloseable, Flushable {
         } else {
             switch ((header >> 2) & 0x03) {
             default:
-                vLen = decodeUnsignedShortLE(fragmented, off);
+                vLen = p_ushortGetLE(fragmented, off);
                 break;
             case 1:
-                vLen = decodeIntLE(fragmented, off) & 0xffffffffL;
+                vLen = p_intGetLE(fragmented, off) & 0xffffffffL;
                 break;
             case 2:
-                vLen = decodeUnsignedInt48LE(fragmented, off);
+                vLen = p_uint48GetLE(fragmented, off);
                 break;
             case 3:
-                vLen = decodeLongLE(fragmented, off);
+                vLen = p_longGetLE(fragmented, off);
                 break;
             }
         }
@@ -3694,7 +3749,7 @@ public final class Database implements CauseCloseable, Flushable {
 
         if ((header & 0x02) != 0) {
             // Skip inline content.
-            int inLen = 2 + decodeUnsignedShortLE(fragmented, off);
+            int inLen = 2 + p_ushortGetLE(fragmented, off);
             off += inLen;
             len -= inLen;
         }
@@ -3702,14 +3757,14 @@ public final class Database implements CauseCloseable, Flushable {
         if ((header & 0x01) == 0) {
             // Direct pointers.
             while (len >= 6) {
-                long nodeId = decodeUnsignedInt48LE(fragmented, off);
+                long nodeId = p_uint48GetLE(fragmented, off);
                 off += 6;
                 len -= 6;
                 deleteFragment(nodeId);
             }
         } else {
             // Indirect pointers.
-            long inodeId = decodeUnsignedInt48LE(fragmented, off);
+            long inodeId = p_uint48GetLE(fragmented, off);
             if (inodeId != 0) {
                 Node inode = removeInode(inodeId);
                 int levels = calculateInodeLevels(vLen);
@@ -3725,7 +3780,7 @@ public final class Database implements CauseCloseable, Flushable {
     private void deleteMultilevelFragments(int level, Node inode, long vlength)
         throws IOException
     {
-        byte[] page = inode.mPage;
+        /*P*/ byte[] page = inode.mPage;
         level--;
         long levelCap = levelCap(level);
 
@@ -3733,7 +3788,7 @@ public final class Database implements CauseCloseable, Flushable {
         int childNodeCount = (int) ((vlength + (levelCap - 1)) / levelCap);
         long[] childNodeIds = new long[childNodeCount];
         for (int poffset = 0, i=0; i<childNodeCount; poffset += 6, i++) {
-            childNodeIds[i] = decodeUnsignedInt48LE(page, poffset);
+            childNodeIds[i] = p_uint48GetLE(page, poffset);
         }
         deleteNode(inode);
 
@@ -3843,18 +3898,18 @@ public final class Database implements CauseCloseable, Flushable {
         }
     }
 
-    byte[] removeSparePage() {
+    /*P*/ byte[] removeSparePage() {
         return mSparePagePool.remove();
     }
 
-    void addSparePage(byte[] page) {
+    void addSparePage(/*P*/ byte[] page) {
         mSparePagePool.add(page);
     }
 
     /**
      * @return initial cached state for node
      */
-    byte readNodePage(long id, byte[] page) throws IOException {
+    byte readNodePage(long id, /*P*/ byte[] page) throws IOException {
         mPageDb.readPage(id, page);
 
         if (!mHasCheckpointed) {
@@ -3944,72 +3999,73 @@ public final class Database implements CauseCloseable, Flushable {
 
             boolean resume = true;
 
-            byte[] header = mCommitHeader;
+            /*P*/ byte[] header = mCommitHeader;
             UndoLog masterUndoLog = mCommitMasterUndoLog;
 
-            if (header == null) {
+            if (header == p_null()) {
                 // Not resumed. Allocate new header early, before acquiring locks.
-                header = new byte[mPageDb.pageSize()];
+                header = p_calloc(mPageDb.pageSize());
                 resume = false;
                 if (masterUndoLog != null) {
                     throw new AssertionError();
                 }
             }
 
-            int hoff = mPageDb.extraCommitDataOffset();
-            encodeIntLE(header, hoff + I_ENCODING_VERSION, ENCODING_VERSION);
-
             final RedoWriter redo = mRedoWriter;
-            if (redo != null) {
-                // File-based redo log should create a new file, but not write to it yet.
-                redo.checkpointPrepare();
-            }
-
-            while (true) {
-                Lock commitLock = acquireExclusiveCommitLock();
-
-                // Registry root is infrequently modified, and so shared latch
-                // is usually available. If not, cause might be a deadlock. To
-                // be safe, always release commit lock and start over.
-                if (root.tryAcquireShared()) {
-                    break;
-                }
-
-                commitLock.unlock();
-            }
-
-            if (!resume) {
-                encodeLongLE(header, hoff + I_ROOT_PAGE_ID, root.mId);
-            }
-
-            final long redoNum, redoPos, redoTxnId;
-            if (redo == null) {
-                redoNum = 0;
-                redoPos = 0;
-                redoTxnId = 0;
-            } else {
-                // Switch and capture state while commit lock is held.
-                try {
-                    redo.checkpointSwitch();
-                    redoNum = redo.checkpointNumber();
-                    redoPos = redo.checkpointPosition();
-                    redoTxnId = redo.checkpointTransactionId();
-                } catch (Throwable e) {
-                    redo.checkpointAborted();
-                    throw e;
-                }
-            }
-
-            encodeLongLE(header, hoff + I_CHECKPOINT_NUMBER, redoNum);
-            encodeLongLE(header, hoff + I_REDO_TXN_ID, redoTxnId);
-            encodeLongLE(header, hoff + I_REDO_POSITION, redoPos);
-
-            encodeLongLE(header, hoff + I_REPL_ENCODING,
-                         mRedoWriter == null ? 0 : mRedoWriter.encoding());
-
-            mCheckpointFlushState = CHECKPOINT_FLUSH_PREPARE;
 
             try {
+                int hoff = mPageDb.extraCommitDataOffset();
+                p_intPutLE(header, hoff + I_ENCODING_VERSION, ENCODING_VERSION);
+
+                if (redo != null) {
+                    // File-based redo log should create a new file, but not write to it yet.
+                    redo.checkpointPrepare();
+                }
+
+                while (true) {
+                    Lock commitLock = acquireExclusiveCommitLock();
+
+                    // Registry root is infrequently modified, and so shared latch
+                    // is usually available. If not, cause might be a deadlock. To
+                    // be safe, always release commit lock and start over.
+                    if (root.tryAcquireShared()) {
+                        break;
+                    }
+
+                    commitLock.unlock();
+                }
+
+                if (!resume) {
+                    p_longPutLE(header, hoff + I_ROOT_PAGE_ID, root.mId);
+                }
+
+                final long redoNum, redoPos, redoTxnId;
+                if (redo == null) {
+                    redoNum = 0;
+                    redoPos = 0;
+                    redoTxnId = 0;
+                } else {
+                    // Switch and capture state while commit lock is held.
+                    try {
+                        redo.checkpointSwitch();
+                        redoNum = redo.checkpointNumber();
+                        redoPos = redo.checkpointPosition();
+                        redoTxnId = redo.checkpointTransactionId();
+                    } catch (Throwable e) {
+                        redo.checkpointAborted();
+                        throw e;
+                    }
+                }
+
+                p_longPutLE(header, hoff + I_CHECKPOINT_NUMBER, redoNum);
+                p_longPutLE(header, hoff + I_REDO_TXN_ID, redoTxnId);
+                p_longPutLE(header, hoff + I_REDO_POSITION, redoPos);
+
+                p_longPutLE(header, hoff + I_REPL_ENCODING,
+                            mRedoWriter == null ? 0 : mRedoWriter.encoding());
+
+                mCheckpointFlushState = CHECKPOINT_FLUSH_PREPARE;
+
                 // TODO: I don't like all this activity with exclusive commit
                 // lock held. UndoLog can be refactored to store into a special
                 // Tree, but this requires more features to be added to Tree
@@ -4045,20 +4101,20 @@ public final class Database implements CauseCloseable, Flushable {
                     }
                 }
 
-                encodeLongLE(header, hoff + I_TRANSACTION_ID, txnId);
-                encodeLongLE(header, hoff + I_MASTER_UNDO_LOG_PAGE_ID, masterUndoLogId);
+                p_longPutLE(header, hoff + I_TRANSACTION_ID, txnId);
+                p_longPutLE(header, hoff + I_MASTER_UNDO_LOG_PAGE_ID, masterUndoLogId);
 
                 mPageDb.commit(resume, header, new PageDb.CommitCallback() {
                     @Override
-                    public void prepare(boolean resume, byte[] header) throws IOException {
+                    public void prepare(boolean resume, /*P*/ byte[] header) throws IOException {
                         flush(resume, header);
                     }
                 });
+            } catch (Throwable e) {
+                if (mCommitHeader != header) {
+                    p_delete(header);
+                }
 
-                // Reset for next checkpoint.
-                mCommitHeader = null;
-                mCommitMasterUndoLog = null;
-            } catch (IOException e) {
                 if (mCheckpointFlushState == CHECKPOINT_FLUSH_PREPARE) {
                     // Exception was thrown with locks still held.
                     mCheckpointFlushState = CHECKPOINT_NOT_FLUSHING;
@@ -4068,8 +4124,14 @@ public final class Database implements CauseCloseable, Flushable {
                         redo.checkpointAborted();
                     }
                 }
+
                 throw e;
             }
+
+            // Reset for next checkpoint.
+            p_delete(mCommitHeader);
+            mCommitHeader = p_null();
+            mCommitMasterUndoLog = null;
 
             if (masterUndoLog != null) {
                 // Delete the master undo log, which won't take effect until
@@ -4099,7 +4161,7 @@ public final class Database implements CauseCloseable, Flushable {
      * Method is invoked with exclusive commit lock and shared root node latch
      * held. Both are released by this method.
      */
-    private void flush(final boolean resume, final byte[] header) throws IOException {
+    private void flush(final boolean resume, final /*P*/ byte[] header) throws IOException {
         int stateToFlush = mCommitState;
 
         if (resume) {
@@ -4137,7 +4199,7 @@ public final class Database implements CauseCloseable, Flushable {
     }
 
     // Called by DurablePageDb with header latch held.
-    static long readRedoPosition(byte[] header, int offset) {
-        return decodeLongLE(header, offset + I_REDO_POSITION);
+    static long readRedoPosition(/*P*/ byte[] header, int offset) {
+        return p_longGetLE(header, offset + I_REDO_POSITION);
     }
 }

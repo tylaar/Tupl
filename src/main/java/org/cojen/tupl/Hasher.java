@@ -37,10 +37,15 @@ class Hasher {
         Hasher instance = null;
 
         if (ByteOrder.nativeOrder() == ByteOrder.LITTLE_ENDIAN) {
-            try {
-                instance = new UnsafeLE();
-            } catch (Throwable e) {
-                // Not allowed.
+            String arch = System.getProperty("os.arch");
+            if (arch.equals("i386") || arch.equals("x86")
+                || arch.equals("amd64") || arch.equals("x86_64"))
+            {
+                try {
+                    instance = new UnsafeLE();
+                } catch (Throwable e) {
+                    // Not allowed.
+                }
             }
         }
 
@@ -92,12 +97,19 @@ class Hasher {
         return hash;
     }
 
+    static Unsafe getUnsafe() {
+        if (INSTANCE instanceof UnsafeLE) {
+            return ((UnsafeLE) INSTANCE).UNSAFE;
+        }
+        return null;
+    }
+
     /**
      * Same as default implementation except longs are read directly using Unsafe to avoid the
      * shifting transformation.
      */
     private static class UnsafeLE extends Hasher {
-        private static final Unsafe UNSAFE;
+        static final Unsafe UNSAFE;
         private static final long BYTE_ARRAY_OFFSET;
 
         static {

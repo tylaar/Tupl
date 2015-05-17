@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import java.util.concurrent.locks.Lock;
 
+import static org.cojen.tupl.PageOps.*;
 import static org.cojen.tupl.Utils.*;
 
 /**
@@ -342,7 +343,7 @@ class Tree extends AbstractView implements Index {
         }
 
         try {
-            if (root.mPage == EMPTY_BYTES) {
+            if (root.mPage == p_empty()) {
                 // Already closed.
                 return null;
             }
@@ -359,7 +360,7 @@ class Tree extends AbstractView implements Index {
                 Lock commitLock = mDatabase.acquireExclusiveCommitLock();
                 try {
                     root.acquireExclusive();
-                    if (root.mPage == EMPTY_BYTES) {
+                    if (root.mPage == p_empty()) {
                         return null;
                     }
                     if (root.mLastCursorFrame != null) {
@@ -376,9 +377,10 @@ class Tree extends AbstractView implements Index {
             Node newRoot = root.cloneNode();
             mDatabase.swapIfDirty(root, newRoot);
 
-            int hash = NodeMap.hash(root.mId);
-            NodeMap map = mDatabase.mTreeNodeMap;
-            map.remove(root, hash);
+            if (root.mId > Node.STUB_ID) {
+                NodeMap map = mDatabase.mTreeNodeMap;
+                map.remove(root, NodeMap.hash(root.mId));
+            }
 
             root.closeRoot();
 
@@ -392,7 +394,10 @@ class Tree extends AbstractView implements Index {
                 try {
                     mDatabase.treeClosed(this);
                     newRoot.makeEvictableNow();
-                    map.put(newRoot, hash);
+                    if (newRoot.mId > Node.STUB_ID) {
+                        NodeMap map = mDatabase.mTreeNodeMap;
+                        map.put(newRoot, NodeMap.hash(newRoot.mId));
+                    }
                 } finally {
                     newRoot.releaseShared();
                 }
@@ -416,7 +421,7 @@ class Tree extends AbstractView implements Index {
     public final boolean isClosed() {
         Node root = mRoot;
         root.acquireShared();
-        boolean closed = root.mPage == EMPTY_BYTES;
+        boolean closed = root.mPage == p_empty();
         root.releaseShared();
         return closed;
     }
@@ -433,7 +438,7 @@ class Tree extends AbstractView implements Index {
         Node root = mRoot;
         root.acquireExclusive();
         try {
-            if (root.mPage == EMPTY_BYTES) {
+            if (root.mPage == p_empty()) {
                 throw new ClosedIndexException();
             }
 
