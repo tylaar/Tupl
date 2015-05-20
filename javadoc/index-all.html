@@ -66,6 +66,12 @@
 </a>
 <h2 class="title">A</h2>
 <dl>
+<dt><a href="./org/cojen/tupl/AbstractCursor.html" title="class in org.cojen.tupl"><span class="strong">AbstractCursor</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
+<dd>
+<div class="block">Implements a few <a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl"><code>Cursor</code></a> methods.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractCursor.html#AbstractCursor()">AbstractCursor()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractCursor.html" title="class in org.cojen.tupl">AbstractCursor</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl"><span class="strong">AbstractView</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
 <div class="block">Implements a few <a href="./org/cojen/tupl/View.html" title="interface in org.cojen.tupl"><code>View</code></a> methods.</div>
@@ -287,6 +293,14 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CompactionObserver.html#CompactionObserver()">CompactionObserver()</a></span> - Constructor for class org.cojen.tupl.<a href="./org/cojen/tupl/CompactionObserver.html" title="class in org.cojen.tupl">CompactionObserver</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractCursor.html#compareKeyTo(byte[])">compareKeyTo(byte[])</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractCursor.html" title="class in org.cojen.tupl">AbstractCursor</a></dt>
+<dd>
+<div class="block">Compare the current key to the one given.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractCursor.html#compareKeyTo(byte[],%20int,%20int)">compareKeyTo(byte[], int, int)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractCursor.html" title="class in org.cojen.tupl">AbstractCursor</a></dt>
+<dd>
+<div class="block">Compare the current key to the one given.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/Cursor.html#compareKeyTo(byte[])">compareKeyTo(byte[])</a></span> - Method in interface org.cojen.tupl.<a href="./org/cojen/tupl/Cursor.html" title="interface in org.cojen.tupl">Cursor</a></dt>
 <dd>
 <div class="block">Compare the current key to the one given.</div>
@@ -1319,6 +1333,11 @@
 <dd>
 <div class="block">Called to instantiate a <a href="http://docs.oracle.com/javase/7/docs/api/javax/crypto/Cipher.html?is-external=true" title="class or interface in javax.crypto"><code>Cipher</code></a> for encrypting and decrypting database pages,
  using the fixed instance <a href="./org/cojen/tupl/CipherCrypto.html#algorithm()"><code>algorithm</code></a>.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/AbstractCursor.html#newStream()">newStream()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractCursor.html" title="class in org.cojen.tupl">AbstractCursor</a></dt>
+<dd>
+<div class="block">Returns an opened stream at the cursor's current position, or an unopened stream if the
+ cursor is unpositioned.</div>
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/AbstractView.html#newStream()">newStream()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/AbstractView.html" title="class in org.cojen.tupl">AbstractView</a></dt>
 <dd>
