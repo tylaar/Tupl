@@ -653,10 +653,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  undo operations.
 
  <p><i>Note: This method is intended for advanced use cases.</i></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to redo handler</dd><dd><code>indexId</code> - index for lock acquisition; zero if not applicable</dd><dd><code>key</code> - key which has been locked exclusively; null if not applicable</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to transaction handler</dd><dd><code>indexId</code> - index for lock acquisition; zero if not applicable</dd><dd><code>key</code> - key which has been locked exclusively; null if not applicable</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no redo handler is installed</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/RedoHandler.html" title="interface in org.cojen.tupl.ext"><code>RedoHandler</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no transaction handler is installed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/TransactionHandler.html" title="interface in org.cojen.tupl.ext"><code>TransactionHandler</code></a></dd></dl>
 </li>
 </ul>
 <a name="customUndo(byte[])">
@@ -671,10 +671,10 @@ extends <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?
  redo operations.
 
  <p><i>Note: This method is intended for advanced use cases.</i></div>
-<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to undo handler</dd>
+<dl><dt><span class="strong">Parameters:</span></dt><dd><code>message</code> - message to pass to transaction handler</dd>
 <dt><span class="strong">Throws:</span></dt>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no undo handler is installed</dd>
-<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/UndoHandler.html" title="interface in org.cojen.tupl.ext"><code>UndoHandler</code></a></dd></dl>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/IllegalStateException.html?is-external=true" title="class or interface in java.lang">IllegalStateException</a></code> - if no transaction handler is installed</dd>
+<dd><code><a href="http://docs.oracle.com/javase/7/docs/api/java/io/IOException.html?is-external=true" title="class or interface in java.io">IOException</a></code></dd><dt><span class="strong">See Also:</span></dt><dd><a href="../../../org/cojen/tupl/ext/TransactionHandler.html" title="interface in org.cojen.tupl.ext"><code>TransactionHandler</code></a></dd></dl>
 </li>
 </ul>
 <a name="tryLockShared(long, byte[], long)">
