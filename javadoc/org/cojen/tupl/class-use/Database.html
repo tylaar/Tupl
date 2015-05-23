@@ -139,6 +139,19 @@
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">TransactionHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/TransactionHandler.html#checkpointFinish(org.cojen.tupl.Database,%20java.lang.Object)">checkpointFinish</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+                <a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a>&nbsp;obj)</code>
+<div class="block">Wait for a concurrent checkpoint to finish.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code><a href="http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html?is-external=true" title="class or interface in java.lang">Object</a></code></td>
+<td class="colLast"><span class="strong">TransactionHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/TransactionHandler.html#checkpointStart(org.cojen.tupl.Database)">checkpointStart</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db)</code>
+<div class="block">Called to durably write all changes.</div>
+</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">TransactionHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/TransactionHandler.html#redo(org.cojen.tupl.Database,%20org.cojen.tupl.Transaction,%20byte[])">redo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
     <a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a>&nbsp;txn,
     byte[]&nbsp;message)</code>
@@ -156,6 +169,14 @@
 </td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">TransactionHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/TransactionHandler.html#setCheckpointLock(org.cojen.tupl.Database,%20java.util.concurrent.locks.Lock)">setCheckpointLock</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
+                 <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/locks/Lock.html?is-external=true" title="class or interface in java.util.concurrent.locks">Lock</a>&nbsp;lock)</code>
+<div class="block">Called once when the database is opened, providing a shared lock which is later acquired
+ exclusively by checkpoints.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><span class="strong">TransactionHandler.</span><code><strong><a href="../../../../org/cojen/tupl/ext/TransactionHandler.html#undo(org.cojen.tupl.Database,%20byte[])">undo</a></strong>(<a href="../../../../org/cojen/tupl/Database.html" title="class in org.cojen.tupl">Database</a>&nbsp;db,
     byte[]&nbsp;message)</code>

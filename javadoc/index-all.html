@@ -193,6 +193,10 @@
 <div class="block">Indicates that all data prior to the given log position has been durably
  checkpointed.</div>
 </dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/TransactionHandler.html#checkpointFinish(org.cojen.tupl.Database,%20java.lang.Object)">checkpointFinish(Database, Object)</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/TransactionHandler.html" title="interface in org.cojen.tupl.ext">TransactionHandler</a></dt>
+<dd>
+<div class="block">Wait for a concurrent checkpoint to finish.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointRate(long,%20java.util.concurrent.TimeUnit)">checkpointRate(long, TimeUnit)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the rate at which <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoints</code></a> are
@@ -201,6 +205,10 @@
 <dt><span class="strong"><a href="./org/cojen/tupl/DatabaseConfig.html#checkpointSizeThreshold(long)">checkpointSizeThreshold(long)</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></dt>
 <dd>
 <div class="block">Set the minimum redo log size required for an automatic <a href="./org/cojen/tupl/Database.html#checkpoint()"><code>checkpoint</code></a> to actually be performed.</div>
+</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/TransactionHandler.html#checkpointStart(org.cojen.tupl.Database)">checkpointStart(Database)</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/TransactionHandler.html" title="interface in org.cojen.tupl.ext">TransactionHandler</a></dt>
+<dd>
+<div class="block">Called to durably write all changes.</div>
 </dd>
 <dt><a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl"><span class="strong">CipherCrypto</span></a> - Class in <a href="./org/cojen/tupl/package-summary.html">org.cojen.tupl</a></dt>
 <dd>
@@ -1693,6 +1701,11 @@
 </dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/CipherCrypto.html#secretKey()">secretKey()</a></span> - Method in class org.cojen.tupl.<a href="./org/cojen/tupl/CipherCrypto.html" title="class in org.cojen.tupl">CipherCrypto</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="strong"><a href="./org/cojen/tupl/ext/TransactionHandler.html#setCheckpointLock(org.cojen.tupl.Database,%20java.util.concurrent.locks.Lock)">setCheckpointLock(Database, Lock)</a></span> - Method in interface org.cojen.tupl.ext.<a href="./org/cojen/tupl/ext/TransactionHandler.html" title="interface in org.cojen.tupl.ext">TransactionHandler</a></dt>
+<dd>
+<div class="block">Called once when the database is opened, providing a shared lock which is later acquired
+ exclusively by checkpoints.</div>
+</dd>
 <dt><span class="strong"><a href="./org/cojen/tupl/io/FileIO.html#setLength(long)">setLength(long)</a></span> - Method in class org.cojen.tupl.io.<a href="./org/cojen/tupl/io/FileIO.html" title="class in org.cojen.tupl.io">FileIO</a></dt>
 <dd>
 <div class="block">Attempt to set the length of the file.</div>
