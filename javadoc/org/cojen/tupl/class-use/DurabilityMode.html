@@ -99,7 +99,7 @@
 <tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a></code></td>
 <td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#durabilityMode()">durabilityMode</a></strong>()</code>
-<div class="block">Returns the fixed durability mode of this transaction.</div>
+<div class="block">Returns the durability mode of this transaction.</div>
 </td>
 </tr>
 <tr class="rowColor">
@@ -125,12 +125,18 @@ the order they are declared.</div>
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><span class="strong">Transaction.</span><code><strong><a href="../../../../org/cojen/tupl/Transaction.html#durabilityMode(org.cojen.tupl.DurabilityMode)">durabilityMode</a></strong>(<a href="../../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&nbsp;mode)</code>
+<div class="block">Sets the durability mode for the entire transaction, not just the current scope.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/DatabaseConfig.html" title="class in org.cojen.tupl">DatabaseConfig</a></code></td>
 <td class="colLast"><span class="strong">DatabaseConfig.</span><code><strong><a href="../../../../org/cojen/tupl/DatabaseConfig.html#durabilityMode(org.cojen.tupl.DurabilityMode)">durabilityMode</a></strong>(<a href="../../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&nbsp;durabilityMode)</code>
 <div class="block">Set the default transaction durability mode, which is <a href="../../../../org/cojen/tupl/DurabilityMode.html#SYNC"><code>SYNC</code></a> if not overridden.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../../../../org/cojen/tupl/Transaction.html" title="class in org.cojen.tupl">Transaction</a></code></td>
 <td class="colLast"><span class="strong">Database.</span><code><strong><a href="../../../../org/cojen/tupl/Database.html#newTransaction(org.cojen.tupl.DurabilityMode)">newTransaction</a></strong>(<a href="../../../../org/cojen/tupl/DurabilityMode.html" title="enum in org.cojen.tupl">DurabilityMode</a>&nbsp;durabilityMode)</code>
 <div class="block">Returns a new Transaction with the given durability mode.</div>
