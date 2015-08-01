@@ -163,7 +163,7 @@ public final class Database implements CauseCloseable, Flushable {
     private static final int MINIMUM_PAGE_SIZE = 512;
     private static final int MAXIMUM_PAGE_SIZE = 65536;
 
-    private static final int OPEN_REGULAR = 0, OPEN_DESTROY = 1, OPEN_TEMP = 2;
+    private static final int OPEN_REGULAR = 0, OPEN_DESTROY = 1, OPEN_TEMP = 2, OPEN_READONLY = 3;
 
     final EventListener mEventListener;
 
@@ -285,6 +285,9 @@ public final class Database implements CauseCloseable, Flushable {
      * @param config base file is set as a side-effect
      */
     static Tree openTemp(TempFileManager tfm, DatabaseConfig config) throws IOException {
+        if (config.mReadOnly) {
+            throw new ReadOnlyModeException("Tempfile opening not allowed in read only mode.");
+        }
         File file = tfm.createTempFile();
         config.baseFile(file);
         config.dataFile(file);
