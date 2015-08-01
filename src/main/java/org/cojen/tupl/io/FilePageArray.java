@@ -16,6 +16,8 @@
 
 package org.cojen.tupl.io;
 
+import org.cojen.tupl.ReadOnlyModeException;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -28,9 +30,16 @@ import java.util.EnumSet;
  */
 public class FilePageArray extends PageArray {
     final FileIO mFio;
+    boolean mReadOnly;
 
     public FilePageArray(int pageSize, File file, EnumSet<OpenOption> options) throws IOException {
         this(pageSize, file, null, options);
+        mReadOnly = false;
+    }
+
+    public FilePageArray(int pageSize, File file, EnumSet<OpenOption> options, boolean isReadOnly) throws IOException {
+        this(pageSize, file, null, options);
+        mReadOnly = true;
     }
 
     public FilePageArray(int pageSize, File file, FileFactory factory,
@@ -85,6 +94,9 @@ public class FilePageArray extends PageArray {
 
     @Override
     public void writePage(long index, /*P*/ byte[] buf, int offset) throws IOException {
+        if (mReadOnly) {
+            throw new ReadOnlyModeException("write page in read only mode is not allowed.");
+        }
         int pageSize = mPageSize;
         mFio.write(index * pageSize, buf, offset, pageSize);
     }
