@@ -305,12 +305,10 @@ public class DatabaseConfig implements Cloneable, Serializable {
         return this;
     }
 
-    /*
     public DatabaseConfig readOnly(boolean readOnly) {
         mReadOnly = readOnly;
         return this;
     }
-    */
 
     /**
      * Set the page size, which is 4096 bytes by default.
