@@ -178,6 +178,7 @@ public final class Database implements CauseCloseable, Flushable {
     final RedoWriter mRedoWriter;
     final PageDb mPageDb;
     final int mPageSize;
+    final boolean mReadOnly;
 
     private final PagePool mSparePagePool;
 
@@ -307,6 +308,7 @@ public final class Database implements CauseCloseable, Flushable {
         config.mEventListener = mEventListener = SafeEventListener.makeSafe(config.mEventListener);
 
         mCustomTxnHandler = config.mTxnHandler;
+        mReadOnly = config.mReadOnly;
 
         mBaseFile = config.mBaseFile;
         final File[] dataFiles = config.dataFiles();
@@ -835,8 +837,8 @@ public final class Database implements CauseCloseable, Flushable {
         if (mRedoWriter != null && mEventListener != null) {
             double duration = (System.nanoTime() - recoveryStart) / 1_000_000_000.0;
             mEventListener.notify(EventType.RECOVERY_COMPLETE,
-                                  "Recovery completed in %1$1.3f seconds",
-                                  duration, TimeUnit.SECONDS);
+                    "Recovery completed in %1$1.3f seconds",
+                    duration, TimeUnit.SECONDS);
         }
     }
 
@@ -1913,7 +1915,10 @@ public final class Database implements CauseCloseable, Flushable {
      *
      * @throws IllegalStateException if suspended more than 2<sup>31</sup> times
      */
-    public void suspendCheckpoints() {
+    public void suspendCheckpoints() throws ReadOnlyModeException {
+        if (mReadOnly) {
+            throw new ReadOnlyModeException("Suspend check points operation not allowed in read only mode.");
+        }
         Checkpointer c = mCheckpointer;
         if (c != null) {
             c.suspend();
@@ -1926,7 +1931,10 @@ public final class Database implements CauseCloseable, Flushable {
      *
      * @throws IllegalStateException if resumed more than suspended
      */
-    public void resumeCheckpoints() {
+    public void resumeCheckpoints() throws ReadOnlyModeException {
+        if (mReadOnly) {
+            throw new ReadOnlyModeException("Resume checkppints operation is not allowed in read only mode.");
+        }
         Checkpointer c = mCheckpointer;
         if (c != null) {
             c.resume();
@@ -2197,7 +2205,10 @@ public final class Database implements CauseCloseable, Flushable {
         }
 
         Thread ct = null;
-        try {
+        checkPointerClose: try {
+            if (mReadOnly) {
+                break checkPointerClose;
+            }
             Checkpointer c = mCheckpointer;
 
             if (shutdown) {
@@ -3910,6 +3921,9 @@ public final class Database implements CauseCloseable, Flushable {
     void checkpoint(boolean force, long sizeThreshold, long delayThresholdNanos)
         throws IOException
     {
+        if (mReadOnly) {
+            throw new ReadOnlyModeException("checkpoint function not allowed in read only mode.");
+        }
         // Checkpoint lock ensures consistent state between page store and logs.
         mCheckpointLock.lock();
         try {
