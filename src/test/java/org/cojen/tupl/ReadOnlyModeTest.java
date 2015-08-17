@@ -1,5 +1,6 @@
 package org.cojen.tupl;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -24,7 +25,6 @@ public class ReadOnlyModeTest {
     }
 
 
-    @Test(expected = ReadOnlyModeException.class)
     public void disableCheckpointCreation() throws Exception {
 
         Database dbRW = createTempRWDatabaseForROTest();
@@ -44,7 +44,7 @@ public class ReadOnlyModeTest {
         dbRO.checkpoint();
     }
 
-    @Test(expected = ReadOnlyModeException.class)
+    @Test(expected = UnsupportedOperationException.class)
     public void disableCheckpointSuspend() throws Exception {
 
         Database dbRW = createTempRWDatabaseForROTest();
@@ -64,7 +64,7 @@ public class ReadOnlyModeTest {
         dbRO.suspendCheckpoints();
     }
 
-    @Test(expected = ReadOnlyModeException.class)
+    @Test(expected = UnsupportedOperationException.class)
     public void disableCheckpointResume() throws Exception {
 
         Database dbRW = createTempRWDatabaseForROTest();
@@ -84,6 +84,26 @@ public class ReadOnlyModeTest {
         fastAssertArrayEquals("world".getBytes(), ixRO.load(null, "hello".getBytes()));
         dbRO.resumeCheckpoints();
     }
+
+    @Test
+    public void openNotExistIndexInReadOnly() throws Exception {
+
+        Database dbRW = createTempRWDatabaseForROTest();
+
+        writeTestDataInRWDataBase(dbRW);
+
+        DatabaseConfig configRO = new DatabaseConfig()
+                .checkpointRate(rateMillis, TimeUnit.MILLISECONDS)
+                .checkpointSizeThreshold(0)
+                .checkpointDelayThreshold(0, null)
+                .readOnly(true)
+                .durabilityMode(DurabilityMode.NO_FLUSH);
+        decorate(configRO);
+        Database dbRO = reopenTempDatabase(dbRW, configRO);
+        Index ixRO = dbRO.openIndex("readWrite");
+        Assert.assertNull(ixRO);
+    }
+
 
     private Database createTempRWDatabaseForROTest() throws Exception {
         final int rateMillis = 500;

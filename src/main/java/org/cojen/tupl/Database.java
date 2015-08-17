@@ -33,7 +33,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Serializable;
-import java.io.Writer;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
@@ -428,7 +427,7 @@ public final class Database implements CauseCloseable, Flushable {
 
             if (dataFiles == null) {
                 PageArray dataPageArray = config.mDataPageArray;
-                if (dataPageArray == null) {
+                if (dataPageArray == null || config.mReadOnly) {
                     mPageDb = new NonPageDb(pageSize, cache);
                 } else {
                     mPageDb = DurablePageDb.open
@@ -662,7 +661,7 @@ public final class Database implements CauseCloseable, Flushable {
                     // through the config object.
                     config.mReplRecoveryStartNanos = recoveryStart;
                     config.mReplInitialTxnId = redoTxnId;
-                } else {
+                } else if (!mReadOnly){
                     long logId = redoNum;
 
                     // Make sure old redo logs are deleted. Process might have exited
@@ -722,7 +721,7 @@ public final class Database implements CauseCloseable, Flushable {
                     // TODO: If any exception is thrown before checkpoint is complete, delete
                     // the newly created redo log file.
 
-                    if (doCheckpoint) {
+                    if (doCheckpoint && !mReadOnly) {
                         checkpoint(true, 0, 0);
                         // Only cleanup after successful checkpoint.
                         for (File file : redoFiles) {
@@ -735,10 +734,12 @@ public final class Database implements CauseCloseable, Flushable {
                     emptyAllFragmentedTrash(true);
 
                     recoveryComplete(recoveryStart);
+                } else {
+                    mRedoWriter = null;
                 }
             }
 
-            if (mBaseFile == null || openMode == OPEN_TEMP) {
+            if (mBaseFile == null || openMode == OPEN_TEMP || config.mReadOnly) {
                 mTempFileManager = null;
             } else {
                 mTempFileManager = new TempFileManager(mBaseFile, config.mFileFactory);
@@ -873,7 +874,7 @@ public final class Database implements CauseCloseable, Flushable {
      * @return shared Index instance
      */
     public Index openIndex(byte[] name) throws IOException {
-        return openIndex(name.clone(), true);
+        return openIndex(name.clone(), !mReadOnly);
     }
 
     /**
@@ -883,7 +884,7 @@ public final class Database implements CauseCloseable, Flushable {
      * @return shared Index instance
      */
     public Index openIndex(String name) throws IOException {
-        return openIndex(name.getBytes("UTF-8"), true);
+        return openIndex(name.getBytes("UTF-8"), !mReadOnly);
     }
 
     /**
@@ -1008,7 +1009,9 @@ public final class Database implements CauseCloseable, Flushable {
         // an accident when something like remove was desired instead. Requiring access to the
         // Database instance makes this operation a bit more of a hassle to use, which is
         // desirable. Rename is not expected to be a common operation.
-
+        if (mReadOnly) {
+            throw new UnsupportedOperationException("Rename index is not supported in Read only mode.");
+        }
         final Tree tree = accessTree(index);
 
         final byte[] idKey, trashIdKey;
@@ -1186,7 +1189,7 @@ public final class Database implements CauseCloseable, Flushable {
     }
 
     /**
-     * @param last null to start with first
+     * @param lastIdBytes null to start with first
      * @return null if none available
      */
     private Tree openNextTrashedTree(byte[] lastIdBytes) throws IOException {
@@ -1897,7 +1900,7 @@ public final class Database implements CauseCloseable, Flushable {
      * thread, at a {@link DatabaseConfig#checkpointRate configurable} rate.
      */
     public void checkpoint() throws IOException {
-        if (!mClosed && mPageDb.isDurable()) {
+        if (!mClosed && mPageDb.isDurable() && !mReadOnly) {
             try {
                 checkpoint(false, 0, 0);
             } catch (Throwable e) {
@@ -1915,9 +1918,9 @@ public final class Database implements CauseCloseable, Flushable {
      *
      * @throws IllegalStateException if suspended more than 2<sup>31</sup> times
      */
-    public void suspendCheckpoints() throws ReadOnlyModeException {
+    public void suspendCheckpoints() throws UnsupportedOperationException {
         if (mReadOnly) {
-            throw new ReadOnlyModeException("Suspend check points operation not allowed in read only mode.");
+            throw new UnsupportedOperationException("Suspend check points operation not allowed in read only mode.");
         }
         Checkpointer c = mCheckpointer;
         if (c != null) {
@@ -1933,7 +1936,7 @@ public final class Database implements CauseCloseable, Flushable {
      */
     public void resumeCheckpoints() throws ReadOnlyModeException {
         if (mReadOnly) {
-            throw new ReadOnlyModeException("Resume checkppints operation is not allowed in read only mode.");
+            throw new UnsupportedOperationException("Resume checkppints operation is not allowed in read only mode.");
         }
         Checkpointer c = mCheckpointer;
         if (c != null) {
@@ -2647,7 +2650,7 @@ public final class Database implements CauseCloseable, Flushable {
                             try {
                                 idKey = newKey(KEY_TYPE_INDEX_ID, treeIdBytes);
 
-                                if (mRedoWriter instanceof ReplRedoController) {
+                                if (mRedoWriter != null && mRedoWriter instanceof ReplRedoController) {
                                     // Confirmation is required when replicated.
                                     createTxn = newTransaction(DurabilityMode.SYNC);
                                 } else {
@@ -2751,7 +2754,7 @@ public final class Database implements CauseCloseable, Flushable {
     }
 
     private Tree newTreeInstance(long id, byte[] idBytes, byte[] name, Node root) {
-        if (mRedoWriter instanceof ReplRedoWriter) {
+        if (mRedoWriter != null && mRedoWriter instanceof ReplRedoWriter) {
             // Always need an explcit transaction when using auto-commit, to ensure that
             // rollback is possible.
             return new TxnTree(this, id, idBytes, name, root);
@@ -3922,7 +3925,7 @@ public final class Database implements CauseCloseable, Flushable {
         throws IOException
     {
         if (mReadOnly) {
-            throw new ReadOnlyModeException("checkpoint function not allowed in read only mode.");
+            throw new UnsupportedOperationException("checkpoint function not allowed in read only mode.");
         }
         // Checkpoint lock ensures consistent state between page store and logs.
         mCheckpointLock.lock();
